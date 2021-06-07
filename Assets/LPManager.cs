@@ -9,13 +9,6 @@ public class LPManager : MonoBehaviour
     public byte myLP = 3; //自分のLP
     public byte enemyLP = 3; //敵のLP
 
-    private IEnumerator HogeGoal()
-    {
-
-        yield return new WaitForSeconds(2.0f);
-        myManager.SpawnPack();
-    }
-
 
     // Start is called before the first frame update
     void Start()
@@ -29,14 +22,25 @@ public class LPManager : MonoBehaviour
         
     }
 
+    private IEnumerator HogeGoal()
+    {
+        Debug.Log("GoalUI");
+        myManager.GoalUI();
+        yield return new WaitForSeconds(2.0f);
+        myManager.GoalUI_Delete();
+        myManager.SpawnPack();
+
+    }
     public void MLP_Cure() //MyLP Cure++
     {
         myLP += 1;
     }
+
     public void ELP_Cure() //EnemyLP Cure++
     {
         enemyLP += 1;
     }
+
     public void MLP_Lose() //MyLP lose--
     {
         myLP -= 1;
@@ -46,7 +50,6 @@ public class LPManager : MonoBehaviour
         }else{
             Debug.Log(myLP + "-" + enemyLP);
             StartCoroutine("HogeGoal");
-            // myManager.SpawnPack();
         }
     }
   
@@ -59,7 +62,6 @@ public class LPManager : MonoBehaviour
         }else{
             Debug.Log(myLP + "-" + enemyLP);
             StartCoroutine("HogeGoal");
-            // myManager.SpawnPack();
         }
     }
 }

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public PackManager packManager;
     public GameObject uI_WIN;
     public GameObject uI_LOSE;
+
+    public GameObject uI_Goal;
     public GameObject playerObject;
     public GameObject enemyObject;
 
@@ -34,6 +36,13 @@ public class GameManager : MonoBehaviour
      public void WinUI(){
         Debug.Log("ゲームクリアUI");
         uI_WIN.SetActive(true);
+    }
+
+    public void GoalUI(){
+        uI_Goal.SetActive(true);
+    }
+    public void GoalUI_Delete(){
+        uI_Goal.SetActive(false);
     }
 
     public void GameRetry(){

@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
 
     public float speed = 5.0f;
-    public GameManager myManager;
+    // public GameManager myManager;
 
     // Start is called before the first frame update
     void Start()

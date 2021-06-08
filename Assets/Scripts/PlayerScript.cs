@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
     // public GameManager myManager;
 
     // Start is called before the first frame update
-    void Start()
+        void Start()
     {
         
     }

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine("HogeGameStart");
     }
    
 
@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    //UI===================================================
     public void LoseUI(){
         Debug.Log("ゲームオーバーUI");
         uI_LOSE.SetActive(true);
@@ -45,6 +47,8 @@ public class GameManager : MonoBehaviour
         uI_Goal.SetActive(false);
     }
 
+
+    //SCENE=============================================
     public void GameRetry(){
         SceneManager.LoadScene(2);
     }
@@ -56,6 +60,19 @@ public class GameManager : MonoBehaviour
         packManager.SpawnPack();
     }
 
-   
+
+    //===============================================
+    private IEnumerator HogeGameStart()
+    {
+        Time.timeScale = 1.0f;
+        Debug.Log("3");
+        yield return new WaitForSeconds(1.0f);
+        Debug.Log("2");
+        yield return new WaitForSeconds(1.0f);
+        Debug.Log("1");
+        yield return new WaitForSeconds(1.0f);
+        Debug.Log("Go!");
+        Time.timeScale = 1.0f;
+    }
     
 }

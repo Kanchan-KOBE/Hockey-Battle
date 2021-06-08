@@ -29,8 +29,8 @@ public class LPManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         myManager.GoalUI_Delete();
         myManager.SpawnPack();
-
     }
+    
     public void MLP_Cure() //MyLP Cure++
     {
         myLP += 1;

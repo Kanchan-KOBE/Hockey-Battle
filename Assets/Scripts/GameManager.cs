@@ -8,10 +8,14 @@ public class GameManager : MonoBehaviour
 {
     public LPManager lPManager;
     public PackManager packManager;
+    public EnemyManager enemyManager;
+    public PlayerManager playerManager;
     public GameObject uI_WIN;
     public GameObject uI_LOSE;
     public GameObject uI_Goal;
-    public GameObject player;
+
+    public int enemyNumber = 0;
+    public int playerNumber = 0;
 
     // public Text textCount;
 
@@ -20,6 +24,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine("HogeGameStart");
+        packManager.SpawnPack();
+        enemyManager.enemySpawn(enemyNumber);
+        playerManager.playerSpawn(playerNumber);
     }
    
 
@@ -80,10 +87,4 @@ public class GameManager : MonoBehaviour
     }
     
 
-
-
-    public void MovePlayerR()
-    {
-        // player.MovePlayerR();
-    }
 }

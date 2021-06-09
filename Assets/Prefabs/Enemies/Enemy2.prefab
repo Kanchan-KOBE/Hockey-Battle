@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4619321393303689698}
   - component: {fileID: 4619321393303689697}
   - component: {fileID: 4619321393303689696}
-  - component: {fileID: 4619321393303689699}
   - component: {fileID: -8579369329807192871}
+  - component: {fileID: 199088070814943503}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -83,25 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &4619321393303689699
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4619321393303689710}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f64abe6f04ff84a479ebf68ea1c0bc5d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 1
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!136 &-8579369329807192871
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -116,3 +97,16 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &199088070814943503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619321393303689710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb6d482a9d5d4bbfba35887e259c8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5

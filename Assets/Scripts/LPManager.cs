@@ -13,7 +13,7 @@ public class LPManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // packFactory = GameObject.Find("PackFactory").GetComponent<PackFactoryScript>();
+        
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class LPManager : MonoBehaviour
         myManager.GoalUI_Delete();
         myManager.SpawnPack();
     }
-    
+
     public void MLP_Cure() //MyLP Cure++
     {
         myLP += 1;
@@ -63,5 +63,19 @@ public class LPManager : MonoBehaviour
             Debug.Log(myLP + "-" + enemyLP);
             StartCoroutine("HogeGoal");
         }
+    }
+
+    private IEnumerator HogeGameStart()
+    {
+    Time.timeScale = 0.01f;
+    Debug.Log("3");
+    // countText.text = "3";
+    yield return new WaitForSeconds(0.01f);
+    Debug.Log("2");
+    yield return new WaitForSeconds(0.01f);
+    Debug.Log("1");
+    yield return new WaitForSeconds(0.01f);
+    Debug.Log("Go!");
+    Time.timeScale = 1.0f;
     }
 }

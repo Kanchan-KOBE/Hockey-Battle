@@ -10,10 +10,10 @@ public class GameManager : MonoBehaviour
     public PackManager packManager;
     public GameObject uI_WIN;
     public GameObject uI_LOSE;
-
     public GameObject uI_Goal;
-    public GameObject playerObject;
-    public GameObject enemyObject;
+    public GameObject player;
+
+    // public Text textCount;
 
 
     // Start is called before the first frame update
@@ -31,12 +31,10 @@ public class GameManager : MonoBehaviour
 
     //UI===================================================
     public void LoseUI(){
-        Debug.Log("ゲームオーバーUI");
         uI_LOSE.SetActive(true);
     }
 
      public void WinUI(){
-        Debug.Log("ゲームクリアUI");
         uI_WIN.SetActive(true);
     }
 
@@ -55,24 +53,37 @@ public class GameManager : MonoBehaviour
     public void ToTitle(){
         SceneManager.LoadScene(0);
     }
+    public void ToMainMenu(){
+        SceneManager.LoadScene(1);
+    }
 
+
+
+    //===============================================
     public void SpawnPack(){
         packManager.SpawnPack();
     }
 
-
-    //===============================================
+    
     private IEnumerator HogeGameStart()
     {
-        Time.timeScale = 1.0f;
+        Time.timeScale = 0.01f;
         Debug.Log("3");
-        yield return new WaitForSeconds(1.0f);
+        // countText.text = "3";
+        yield return new WaitForSeconds(0.01f);
         Debug.Log("2");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.01f);
         Debug.Log("1");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.01f);
         Debug.Log("Go!");
         Time.timeScale = 1.0f;
     }
     
+
+
+
+    public void MovePlayerR()
+    {
+        // player.MovePlayerR();
+    }
 }

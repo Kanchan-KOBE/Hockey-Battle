@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
-    public float speed = 5.0f;
-    // public GameManager myManager;
+    public int speed = 10;
 
     // Start is called before the first frame update
         void Start()
@@ -17,15 +16,12 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //キーボード操作
         if(Input.GetKey(KeyCode.RightArrow)){
-            if(this.transform.position.x < 5.5){
-                this.transform.position += new Vector3(1,0,0) * speed * Time.deltaTime;
-            }
+            MovePlayerR();
         }
         if(Input.GetKey(KeyCode.LeftArrow)){
-            if(this.transform.position.x > -5.5){
-                this.transform.position += new Vector3(-1,0,0) * speed * Time.deltaTime;
-            }
+            MovePlayerL();
         }
         if(Input.GetKey(KeyCode.UpArrow))
         {
@@ -37,10 +33,15 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+
+    //ボタン操作（L,R）
+    
+
+    //移動処理
     public void MovePlayerR()
     {
         if(this.transform.position.x < 5.5){
-            this.transform.position += new Vector3(1,0,0) * speed * Time.deltaTime;
+        this.transform.position += new Vector3(1,0,0) * speed * Time.deltaTime;
         }
     }
     public void MovePlayerL()

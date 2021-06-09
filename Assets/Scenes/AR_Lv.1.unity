@@ -1861,6 +1861,7 @@ MonoBehaviour:
   uI_WIN: {fileID: 1763570642}
   uI_LOSE: {fileID: 1358501375}
   uI_Goal: {fileID: 1547145667}
+  currentIndex: 0
 --- !u!4 &697110726
 Transform:
   m_ObjectHideFlags: 0
@@ -4144,7 +4145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1801078345
 RectTransform:
   m_ObjectHideFlags: 0

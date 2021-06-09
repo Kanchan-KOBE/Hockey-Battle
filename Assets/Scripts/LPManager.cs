@@ -6,6 +6,10 @@ public class LPManager : MonoBehaviour
 {
     // public PackFactory packFactory;
     public GameManager myManager;
+
+    public PackManager packManager;
+    public EnemyManager enemyManager;
+    public PlayerManager playerManager;
     public byte myLP = 3; //自分のLP
     public byte enemyLP = 3; //敵のLP
 
@@ -13,7 +17,10 @@ public class LPManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // StartCoroutine("HogeGameStart");
+        // packManager.SpawnPack();
+        // enemyManager.enemySpawn(enemyNumber);
+        // playerManager.playerSpawn(playerNumber);
     }
 
     // Update is called once per frame
@@ -22,14 +29,6 @@ public class LPManager : MonoBehaviour
         
     }
 
-    private IEnumerator HogeGoal()
-    {
-        Debug.Log("GoalUI");
-        myManager.GoalUI();
-        yield return new WaitForSeconds(2.0f);
-        myManager.GoalUI_Delete();
-        myManager.SpawnPack();
-    }
 
     public void MLP_Cure() //MyLP Cure++
     {
@@ -65,17 +64,13 @@ public class LPManager : MonoBehaviour
         }
     }
 
-    private IEnumerator HogeGameStart()
+
+    private IEnumerator HogeGoal()
     {
-    Time.timeScale = 0.01f;
-    Debug.Log("3");
-    // countText.text = "3";
-    yield return new WaitForSeconds(0.01f);
-    Debug.Log("2");
-    yield return new WaitForSeconds(0.01f);
-    Debug.Log("1");
-    yield return new WaitForSeconds(0.01f);
-    Debug.Log("Go!");
-    Time.timeScale = 1.0f;
+        Debug.Log("GoalUI");
+        myManager.GoalUI();
+        yield return new WaitForSeconds(2.0f);
+        myManager.GoalUI_Delete();
+        packManager.SpawnPack();
     }
 }

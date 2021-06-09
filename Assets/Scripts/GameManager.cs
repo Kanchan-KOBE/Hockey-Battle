@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+// using UnityEngine.SceneManagement;------------------!
 
 
 public class GameManager : MonoBehaviour
@@ -10,12 +10,15 @@ public class GameManager : MonoBehaviour
     public PackManager packManager;
     public EnemyManager enemyManager;
     public PlayerManager playerManager;
+    public SceneManager00 sceneManager;
     public GameObject uI_WIN;
     public GameObject uI_LOSE;
     public GameObject uI_Goal;
 
-    public int enemyNumber = 0;
-    public int playerNumber = 0;
+    public static int enemyNumber = 0;
+    public static int playerNumber = 0;
+
+    // public int currentIndex;
 
     // public Text textCount;
 
@@ -54,25 +57,31 @@ public class GameManager : MonoBehaviour
 
 
     //SCENE=============================================
-    public void GameRetry(){
-        SceneManager.LoadScene(2);
-    }
-    public void ToTitle(){
-        SceneManager.LoadScene(0);
-    }
-    public void ToMainMenu(){
-        SceneManager.LoadScene(1);
-    }
+    // public void ToNextScene(){
+    //     currentIndex = SceneManager.GetActiveScene().buildIndex;
+    //     SceneManager.LoadScene(currentIndex + 1);
+    // }
+    // public void ToBack(){
+    //     currentIndex = SceneManager.GetActiveScene().buildIndex;
+    //     SceneManager.LoadScene(currentIndex + 1);
+    // }
+    // public void GameRetry(){
+    //     currentIndex = SceneManager.GetActiveScene().buildIndex;
+    //     SceneManager.LoadScene(currentIndex + 1);
+    // }
+    // public void ToTitle(){
+    //     SceneManager.LoadScene(0);
+    // }
+    // public void ToMainMenu(){
+    //     SceneManager.LoadScene(1);
+    // }
+
 
 
 
     //===============================================
-    public void SpawnPack(){
-        packManager.SpawnPack();
-    }
 
-    
-    private IEnumerator HogeGameStart()
+        private IEnumerator HogeGameStart()
     {
         Time.timeScale = 0.01f;
         Debug.Log("3");
@@ -85,6 +94,5 @@ public class GameManager : MonoBehaviour
         Debug.Log("Go!");
         Time.timeScale = 1.0f;
     }
-    
 
 }

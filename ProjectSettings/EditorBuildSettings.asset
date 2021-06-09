@@ -11,11 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenuScene.unity
     guid: 5f43a7a4c2a2d4bfa90f1edbd7a263e3
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/PlayerSelectScene.unity
-    guid: 4ba5c75de90b44790a1802b07c47cfbb
-  - enabled: 1
-    path: Assets/Scenes/StageSelectScene.unity
     guid: 3f3ae723599564578af4a55d986cea99
   - enabled: 1
     path: Assets/Scenes/AR_Lv.1.unity

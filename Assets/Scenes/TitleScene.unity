@@ -361,7 +361,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1379754342
 GameObject:
@@ -561,16 +561,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1806301636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5dd3e7bc8c74461680ac76178d87697, type: 3}
+  m_Script: {fileID: 11500000, guid: 28953958edb9249d38947263af2a4d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lPManager: {fileID: 0}
-  packManager: {fileID: 0}
-  uI_WIN: {fileID: 0}
-  uI_LOSE: {fileID: 0}
-  uI_Goal: {fileID: 0}
-  playerObject: {fileID: 0}
-  enemyObject: {fileID: 0}
+  currentIndex: 0
 --- !u!4 &1806301638
 Transform:
   m_ObjectHideFlags: 0
@@ -583,7 +577,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1810602559
 GameObject:
@@ -669,8 +663,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1806301637}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ToMainMenu
+        m_TargetAssemblyTypeName: SceneManager00, Assembly-CSharp
+        m_MethodName: ToNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -895,7 +889,7 @@ RectTransform:
   - {fileID: 115998297}
   - {fileID: 1810602560}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -207,7 +207,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 543405482}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: SceneManager00, Assembly-CSharp
         m_MethodName: ToBack
         m_Mode: 1
         m_Arguments:
@@ -379,7 +379,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 880049327}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: d5dd3e7bc8c74461680ac76178d87697, type: 3}
+      - m_Target: {fileID: 543405481}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -593,7 +593,7 @@ RectTransform:
   m_Children:
   - {fileID: 476073114}
   m_Father: {fileID: 880049327}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -644,13 +644,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: d5dd3e7bc8c74461680ac76178d87697, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 543405482}
+        m_TargetAssemblyTypeName: SceneManager00, Assembly-CSharp
+        m_MethodName: ToNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -799,16 +799,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 543405481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5dd3e7bc8c74461680ac76178d87697, type: 3}
+  m_Script: {fileID: 11500000, guid: 28953958edb9249d38947263af2a4d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lPManager: {fileID: 0}
-  packManager: {fileID: 0}
-  enemyManager: {fileID: 0}
-  playerManager: {fileID: 0}
-  uI_WIN: {fileID: 0}
-  uI_LOSE: {fileID: 0}
-  uI_Goal: {fileID: 0}
   currentIndex: 0
 --- !u!4 &543405483
 Transform:
@@ -915,8 +908,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 372537444}
   - {fileID: 277081908}
+  - {fileID: 372537444}
   - {fileID: 95806810}
   - {fileID: 360996784}
   m_Father: {fileID: 0}

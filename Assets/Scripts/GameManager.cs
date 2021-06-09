@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     public GameObject uI_LOSE;
     public GameObject uI_Goal;
 
-    public static int enemyNumber = 0;
-    public static int playerNumber = 0;
+    // public static int enemyNumber = 0;
+    // public static int playerNumber = 0;
 
     // public int currentIndex;
 
@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine("HogeGameStart");
         packManager.SpawnPack();
-        enemyManager.enemySpawn(enemyNumber);
-        playerManager.playerSpawn(playerNumber);
+        enemyManager.enemySpawn(EnemyManager.enemyNumber);
+        playerManager.playerSpawn(PlayerManager.playerNumber);
     }
    
 

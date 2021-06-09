@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
 
    public GameObject[] Players;
 
-   public int playerNumber = 0;
+   public static int playerNumber = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,4 +25,7 @@ public class PlayerManager : MonoBehaviour
     {
         Instantiate(Players[playerNumber], new Vector3(0f,1.0f,-8f), transform.rotation);
     }
+
+    public void P1(){playerNumber = 1;}
+    public void P2(){playerNumber = 2;}
 }

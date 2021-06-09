@@ -26,11 +26,11 @@ public class SceneManager00 : MonoBehaviour
     }
     public void ToBack(){
         currentIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentIndex + 1);
+        SceneManager.LoadScene(currentIndex - 1);
     }
     public void GameRetry(){
         currentIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentIndex + 1);
+        SceneManager.LoadScene(currentIndex);
     }
     public void ToTitle(){
         SceneManager.LoadScene(0);

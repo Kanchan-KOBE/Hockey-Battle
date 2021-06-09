@@ -67,7 +67,6 @@ public class LPManager : MonoBehaviour
 
     private IEnumerator HogeGoal()
     {
-        Debug.Log("GoalUI");
         myManager.GoalUI();
         yield return new WaitForSeconds(2.0f);
         myManager.GoalUI_Delete();

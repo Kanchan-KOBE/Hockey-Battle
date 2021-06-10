@@ -7,9 +7,10 @@ public class ControllManager : MonoBehaviour
     // public GameManager myManager;
     // public GameObject player;
 
-    public bool push = false;
+    public static bool pushR = false;
+    public static bool pushL = false;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,18 +20,19 @@ public class ControllManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(push){
-            Debug.Log("hold");
-            // player.MovePlayerR();
-        }
+
     }
 
-    public void Down(){
-        Debug.Log("down");
-        push = true;
+    public void DownR(){
+        pushR = true;
     }
-    public void Up(){
-        Debug.Log("up");
-        push = false;
+    public void UpR(){
+        pushR = false;
+    }
+    public void DownL(){
+        pushL = true;
+    }
+    public void UpL(){
+        pushL = false;
     }
 }

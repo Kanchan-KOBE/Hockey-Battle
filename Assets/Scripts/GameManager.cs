@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public GameObject uI_WIN;
     public GameObject uI_LOSE;
     public GameObject uI_Goal;
-    public GameObject uI_Count;
 
     // public static int enemyNumber = 0;
     // public static int playerNumber = 0;
@@ -71,7 +70,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         textCount.text = "Go!";
         yield return new WaitForSeconds(0.01f);
-        uI_Count.SetActive(false);
+        textCount.text = "";
         Time.timeScale = 1.0f;
     }
 

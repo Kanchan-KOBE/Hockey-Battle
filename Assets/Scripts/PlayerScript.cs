@@ -17,6 +17,12 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         //キーボード操作
+        if(ControllManager.pushR){
+            MovePlayerR();
+        }
+        if(ControllManager.pushL){
+            MovePlayerL();
+        }
         if(Input.GetKey(KeyCode.RightArrow)){
             MovePlayerR();
         }

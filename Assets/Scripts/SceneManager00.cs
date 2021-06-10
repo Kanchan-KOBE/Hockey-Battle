@@ -7,6 +7,7 @@ public class SceneManager00 : MonoBehaviour
 {
 
     public int currentIndex;
+    public int level = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,13 @@ public class SceneManager00 : MonoBehaviour
     public void ToTitle(){
         SceneManager.LoadScene(0);
     }
-    public void ToMainMenu(){
+    public void ToMain(){
         SceneManager.LoadScene(1);
+    }
+    public void ToStageSelect(){
+        SceneManager.LoadScene(4);
+    }
+    public void ToAR(int level){
+        SceneManager.LoadScene(level + 4);
     }
 }

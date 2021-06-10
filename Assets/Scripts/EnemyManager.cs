@@ -26,6 +26,4 @@ public class EnemyManager : MonoBehaviour
         Instantiate(Enemies[enemyNumber], new Vector3(0f,1.0f,8f), transform.rotation);
     }
 
-    public void E1(){enemyNumber = 1;}
-    public void E2(){enemyNumber = 2;}
 }

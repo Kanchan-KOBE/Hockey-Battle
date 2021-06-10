@@ -26,6 +26,4 @@ public class PlayerManager : MonoBehaviour
         Instantiate(Players[playerNumber], new Vector3(0f,1.0f,-8f), transform.rotation);
     }
 
-    public void P1(){playerNumber = 1;}
-    public void P2(){playerNumber = 2;}
 }

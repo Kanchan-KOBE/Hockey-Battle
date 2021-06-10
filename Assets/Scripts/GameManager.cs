@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject uI_WIN;
     public GameObject uI_LOSE;
     public GameObject uI_Goal;
+    public GameObject uI_Pause;
 
     // public static int enemyNumber = 0;
     // public static int playerNumber = 0;
@@ -52,6 +53,14 @@ public class GameManager : MonoBehaviour
     }
     public void GoalUI_Delete(){
         uI_Goal.SetActive(false);
+    }
+    public void PauseUI(){
+        Time.timeScale = 0f;
+        uI_Pause.SetActive(true);
+    }
+    public void PauseUI_Delete(){
+        uI_Pause.SetActive(false);
+        Time.timeScale = 1f;
     }
 
 

@@ -1,32 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LPManager : MonoBehaviour
 {
     // public PackFactory packFactory;
     public GameManager myManager;
-
     public PackManager packManager;
-    public EnemyManager enemyManager;
-    public PlayerManager playerManager;
     public byte myLP = 3; //自分のLP
     public byte enemyLP = 3; //敵のLP
 
+    public Image[] hartsP;
+    public Image[] hartsE;
+    public Sprite hart;
+    public Sprite noImage;
 
     // Start is called before the first frame update
     void Start()
     {
-        // StartCoroutine("HogeGameStart");
-        // packManager.SpawnPack();
-        // enemyManager.enemySpawn(enemyNumber);
-        // playerManager.playerSpawn(playerNumber);
+        // hartsP[0].enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        PlayerHarts();
+        EnemyHarts();
+
     }
 
 
@@ -71,5 +72,92 @@ public class LPManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         myManager.GoalUI_Delete();
         packManager.SpawnPack();
+    }
+
+    private void PlayerHarts()
+    {
+        if(myLP == 1)
+        {
+            hartsP[0].sprite = hart;
+            hartsP[1].sprite = noImage;
+            hartsP[2].sprite = noImage;
+            hartsP[3].sprite = noImage;
+            hartsP[4].sprite = noImage;
+        }
+        if(myLP == 2)
+        {
+            hartsP[0].sprite = hart;
+            hartsP[1].sprite = hart;
+            hartsP[2].sprite = noImage;
+            hartsP[3].sprite = noImage;
+            hartsP[4].sprite = noImage;
+        }
+        if(myLP == 3)
+        {
+            hartsP[0].sprite = hart;
+            hartsP[1].sprite = hart;
+            hartsP[2].sprite = hart;
+            hartsP[3].sprite = noImage;
+            hartsP[4].sprite = noImage;
+        }
+        if(myLP == 4)
+        {
+            hartsP[0].sprite = hart;
+            hartsP[1].sprite = hart;
+            hartsP[2].sprite = hart;
+            hartsP[3].sprite = hart;
+            hartsP[4].sprite = noImage;
+        }
+        if(myLP == 5)
+        {
+            hartsP[0].sprite = hart;
+            hartsP[1].sprite = hart;
+            hartsP[2].sprite = hart;
+            hartsP[3].sprite = hart;
+            hartsP[4].sprite = hart;
+        }
+    }
+    private void EnemyHarts()
+    {
+        if(enemyLP == 1)
+        {
+            hartsE[0].sprite = hart;
+            hartsE[1].sprite = noImage;
+            hartsE[2].sprite = noImage;
+            hartsE[3].sprite = noImage;
+            hartsE[4].sprite = noImage;
+        }
+        if(enemyLP == 2)
+        {
+            hartsE[0].sprite = hart;
+            hartsE[1].sprite = hart;
+            hartsE[2].sprite = noImage;
+            hartsE[3].sprite = noImage;
+            hartsE[4].sprite = noImage;
+        }
+        if(enemyLP == 3)
+        {
+            hartsE[0].sprite = hart;
+            hartsE[1].sprite = hart;
+            hartsE[2].sprite = hart;
+            hartsE[3].sprite = noImage;
+            hartsE[4].sprite = noImage;
+        }
+        if(enemyLP == 4)
+        {
+            hartsE[0].sprite = hart;
+            hartsE[1].sprite = hart;
+            hartsE[2].sprite = hart;
+            hartsE[3].sprite = hart;
+            hartsE[4].sprite = noImage;
+        }
+        if(enemyLP == 5)
+        {
+            hartsE[0].sprite = hart;
+            hartsE[1].sprite = hart;
+            hartsE[2].sprite = hart;
+            hartsE[3].sprite = hart;
+            hartsE[4].sprite = hart;
+        }
     }
 }

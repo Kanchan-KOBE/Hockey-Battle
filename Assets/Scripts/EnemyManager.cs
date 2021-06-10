@@ -6,7 +6,8 @@ public class EnemyManager : MonoBehaviour
 {
     public GameObject[] Enemies;
 
-    public static int enemyNumber = 0;
+    public static int enemyNumber = 1;
+    public int i = 1;
 
 
     // Start is called before the first frame update
@@ -25,5 +26,7 @@ public class EnemyManager : MonoBehaviour
     {
         Instantiate(Enemies[enemyNumber], new Vector3(0f,1.0f,8f), transform.rotation);
     }
+
+    public void GetEnemyNumber(int i){enemyNumber = i;}
 
 }

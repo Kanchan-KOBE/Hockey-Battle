@@ -878,6 +878,7 @@ MonoBehaviour:
   - {fileID: 4619321393303689710, guid: b6372fc81eb4142eea662af111a175fe, type: 3}
   - {fileID: 4619321393303689710, guid: 27acbe7d7df6143a89f7d57249a9fded, type: 3}
   - {fileID: 4619321393303689710, guid: 82df8ac7cc1554e9bbc06f8b4da62dbf, type: 3}
+  i: 1
 --- !u!4 &188997083
 Transform:
   m_ObjectHideFlags: 0
@@ -3679,7 +3680,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentIndex: 0
-  level: 1
 --- !u!4 &1009595101
 Transform:
   m_ObjectHideFlags: 0
@@ -4096,7 +4096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1123627208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4143,7 +4143,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 974aceedf22ae4d20a42ec6d10643a4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7311,7 +7311,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1009595100}
         m_TargetAssemblyTypeName: SceneManager00, Assembly-CSharp
-        m_MethodName: ToNextScene
+        m_MethodName: ToNextStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

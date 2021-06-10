@@ -17,7 +17,6 @@ public class PackScript : MonoBehaviour
 
         myRigid = GetComponent<Rigidbody>();
         i = Random.Range(-1f,1f);
-        Debug.Log(i);
         myRigid.AddForce((transform.forward * -1 + transform.right * i) * speed, ForceMode.VelocityChange);
     }
     

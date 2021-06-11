@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-
-    public int speed = 10;
+    public int no = 0;
+    [SerializeField] int speed = 10;
 
     private bool moveR = true;
     private bool moveL = false;

@@ -34,6 +34,6 @@ public int speed = 10;
             this.transform.position += new Vector3(-1,0,0) * speed * Time.deltaTime;
         }
 
-        this.transform.Rotate(new Vector3(0,800,0) * Time.deltaTime, Space.World);
+        this.transform.Rotate(new Vector3(0,1000,0) * Time.deltaTime, Space.World);
     }
 }

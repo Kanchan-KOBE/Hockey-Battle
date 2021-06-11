@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
         private IEnumerator HogeGameStart()
     {
         Time.timeScale = 0.01f;
+        textCount.text = "3";
         yield return new WaitForSeconds(0.01f);
         textCount.text = "2";
         yield return new WaitForSeconds(0.01f);

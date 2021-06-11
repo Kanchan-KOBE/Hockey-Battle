@@ -20,7 +20,7 @@ public class PackManager : MonoBehaviour
 
     public void SpawnPack()
     {
-        Instantiate(pack, new Vector3(0f, 0.75f, 5f), transform.rotation);
+        Instantiate(pack, new Vector3(0f, 0.75f, 3f), transform.rotation);
     }
 }
 

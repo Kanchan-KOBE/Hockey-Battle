@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PetScript : MonoBehaviour
 {
-public int speed = 5;
+public int speed = 10;
 
     private bool moveR = true;
     private bool moveL = false;
@@ -33,5 +33,7 @@ public int speed = 5;
         if(moveL){
             this.transform.position += new Vector3(-1,0,0) * speed * Time.deltaTime;
         }
+
+        this.transform.Rotate(new Vector3(0,800,0) * Time.deltaTime, Space.World);
     }
 }

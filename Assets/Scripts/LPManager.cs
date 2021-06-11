@@ -76,6 +76,14 @@ public class LPManager : MonoBehaviour
 
     private void PlayerHarts()
     {
+        if(myLP == 0)
+        {
+            hartsP[0].sprite = noImage;
+            hartsP[1].sprite = noImage;
+            hartsP[2].sprite = noImage;
+            hartsP[3].sprite = noImage;
+            hartsP[4].sprite = noImage;
+        }
         if(myLP == 1)
         {
             hartsP[0].sprite = hart;
@@ -119,6 +127,14 @@ public class LPManager : MonoBehaviour
     }
     private void EnemyHarts()
     {
+        if(enemyLP == 0)
+        {
+            hartsE[0].sprite = noImage;
+            hartsE[1].sprite = noImage;
+            hartsE[2].sprite = noImage;
+            hartsE[3].sprite = noImage;
+            hartsE[4].sprite = noImage;
+        }
         if(enemyLP == 1)
         {
             hartsE[0].sprite = hart;

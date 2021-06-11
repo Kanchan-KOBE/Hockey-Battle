@@ -644,10 +644,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1221486412}
-        m_TargetAssemblyTypeName: EnemyManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1221486413}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: GetPlayerNumber
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -658,7 +658,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 543405482}
         m_TargetAssemblyTypeName: SceneManager00, Assembly-CSharp
-        m_MethodName: ToNextScene
+        m_MethodName: ToStageSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -815,6 +815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentIndex: 0
+  i: 0
 --- !u!4 &543405483
 Transform:
   m_ObjectHideFlags: 0
@@ -1129,8 +1130,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1221486413}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: P2
-        m_Mode: 1
+        m_MethodName: GetPlayerNumber
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1141,7 +1142,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 543405482}
         m_TargetAssemblyTypeName: SceneManager00, Assembly-CSharp
-        m_MethodName: ToNextScene
+        m_MethodName: ToStageSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1357,8 +1358,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1221486413}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: P1
-        m_Mode: 1
+        m_MethodName: GetPlayerNumber
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1369,7 +1370,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 543405482}
         m_TargetAssemblyTypeName: SceneManager00, Assembly-CSharp
-        m_MethodName: ToNextScene
+        m_MethodName: ToStageSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1526,6 +1527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Players: []
+  i: 1
 --- !u!4 &1221486414
 Transform:
   m_ObjectHideFlags: 0

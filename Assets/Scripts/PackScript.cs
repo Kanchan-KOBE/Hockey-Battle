@@ -8,7 +8,7 @@ public class PackScript : MonoBehaviour
     private float i = 0;
     private Rigidbody myRigid;
 
-    public LPManager lPManager;
+    private LPManager lPManager;
 
     // Start is called before the first frame update
     void Start()
@@ -37,4 +37,5 @@ public class PackScript : MonoBehaviour
             lPManager.MLP_Lose();
         }
     }
+
 }

@@ -7,6 +7,8 @@ TagManager:
   - EnemyGoal
   - MyGoal
   - Pack
+  - Pack(Poison)
+  - Pack(Illusion)
   layers:
   - Default
   - TransparentFX

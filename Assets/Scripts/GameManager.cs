@@ -15,11 +15,6 @@ public class GameManager : MonoBehaviour
     public GameObject uI_Goal;
     public GameObject uI_Pause;
 
-    // public static int enemyNumber = 0;
-    // public static int playerNumber = 0;
-
-    // public int currentIndex;
-
     public Text textCount;
 
 

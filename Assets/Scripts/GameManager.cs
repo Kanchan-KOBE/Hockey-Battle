@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     public Text textCount;
 
+    public int numberPlayer = 0;
+    public int numberEnemy = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +80,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         textCount.text = "";
         Time.timeScale = 1.0f;
+    }
+
+    void Awakw(){
+        numberEnemy = EnemyManager.enemyNumber;
+        numberPlayer = PlayerManager.playerNumber;
     }
 
 }

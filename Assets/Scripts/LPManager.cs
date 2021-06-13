@@ -8,8 +8,8 @@ public class LPManager : MonoBehaviour
     // public PackFactory packFactory;
     public GameManager myManager;
     public PackManager packManager;
-    public byte myLP = 3; //自分のLP
-    public byte enemyLP = 3; //敵のLP
+    public static byte LifePlayer = 3;
+    public static byte LifeEnemy = 3;
 
     public Image[] hartsP;
     public Image[] hartsE;
@@ -19,6 +19,8 @@ public class LPManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+            LifePlayer = 3;
+            LifeEnemy = 3;
         // hartsP[0].enabled = true;
     }
 
@@ -33,34 +35,34 @@ public class LPManager : MonoBehaviour
 
     public void MLP_Cure() //MyLP Cure++
     {
-        myLP += 1;
+        LifePlayer += 1;
     }
 
-    public void ELP_Cure() //EnemyLP Cure++
+    public void ELP_Cure() //LifeEnemy Cure++
     {
-        enemyLP += 1;
+        LifeEnemy += 1;
     }
 
-    public void MLP_Lose() //MyLP lose--
+    public void MLP_Lose() //LifePlayer lose--
     {
-        myLP -= 1;
-        if(myLP == 0){
+        LifePlayer -= 1;
+        if(LifePlayer == 0){
             Debug.Log("You Lose..");
             myManager.LoseUI();
         }else{
-            Debug.Log(myLP + "-" + enemyLP);
+            Debug.Log(LifePlayer + "-" + LifeEnemy);
             StartCoroutine("HogeGoal");
         }
     }
   
-    public void ELP_Lose() //EnemyLP lose--
+    public void ELP_Lose() //LifeEnemy lose--
     {
-        enemyLP -= 1;
-        if(enemyLP == 0){
+        LifeEnemy -= 1;
+        if(LifeEnemy == 0){
             Debug.Log("You WIN!");
             myManager.WinUI();
         }else{
-            Debug.Log(myLP + "-" + enemyLP);
+            Debug.Log(LifePlayer + "-" + LifeEnemy);
             StartCoroutine("HogeGoal");
         }
     }
@@ -76,7 +78,7 @@ public class LPManager : MonoBehaviour
 
     private void PlayerHarts()
     {
-        if(myLP == 0)
+        if(LifePlayer == 0)
         {
             hartsP[0].sprite = noImage;
             hartsP[1].sprite = noImage;
@@ -84,7 +86,7 @@ public class LPManager : MonoBehaviour
             hartsP[3].sprite = noImage;
             hartsP[4].sprite = noImage;
         }
-        if(myLP == 1)
+        if(LifePlayer == 1)
         {
             hartsP[0].sprite = hart;
             hartsP[1].sprite = noImage;
@@ -92,7 +94,7 @@ public class LPManager : MonoBehaviour
             hartsP[3].sprite = noImage;
             hartsP[4].sprite = noImage;
         }
-        if(myLP == 2)
+        if(LifePlayer == 2)
         {
             hartsP[0].sprite = hart;
             hartsP[1].sprite = hart;
@@ -100,7 +102,7 @@ public class LPManager : MonoBehaviour
             hartsP[3].sprite = noImage;
             hartsP[4].sprite = noImage;
         }
-        if(myLP == 3)
+        if(LifePlayer == 3)
         {
             hartsP[0].sprite = hart;
             hartsP[1].sprite = hart;
@@ -108,7 +110,7 @@ public class LPManager : MonoBehaviour
             hartsP[3].sprite = noImage;
             hartsP[4].sprite = noImage;
         }
-        if(myLP == 4)
+        if(LifePlayer == 4)
         {
             hartsP[0].sprite = hart;
             hartsP[1].sprite = hart;
@@ -116,7 +118,7 @@ public class LPManager : MonoBehaviour
             hartsP[3].sprite = hart;
             hartsP[4].sprite = noImage;
         }
-        if(myLP == 5)
+        if(LifePlayer == 5)
         {
             hartsP[0].sprite = hart;
             hartsP[1].sprite = hart;
@@ -127,7 +129,7 @@ public class LPManager : MonoBehaviour
     }
     private void EnemyHarts()
     {
-        if(enemyLP == 0)
+        if(LifeEnemy == 0)
         {
             hartsE[0].sprite = noImage;
             hartsE[1].sprite = noImage;
@@ -135,7 +137,7 @@ public class LPManager : MonoBehaviour
             hartsE[3].sprite = noImage;
             hartsE[4].sprite = noImage;
         }
-        if(enemyLP == 1)
+        if(LifeEnemy == 1)
         {
             hartsE[0].sprite = hart;
             hartsE[1].sprite = noImage;
@@ -143,7 +145,7 @@ public class LPManager : MonoBehaviour
             hartsE[3].sprite = noImage;
             hartsE[4].sprite = noImage;
         }
-        if(enemyLP == 2)
+        if(LifeEnemy == 2)
         {
             hartsE[0].sprite = hart;
             hartsE[1].sprite = hart;
@@ -151,7 +153,7 @@ public class LPManager : MonoBehaviour
             hartsE[3].sprite = noImage;
             hartsE[4].sprite = noImage;
         }
-        if(enemyLP == 3)
+        if(LifeEnemy == 3)
         {
             hartsE[0].sprite = hart;
             hartsE[1].sprite = hart;
@@ -159,7 +161,7 @@ public class LPManager : MonoBehaviour
             hartsE[3].sprite = noImage;
             hartsE[4].sprite = noImage;
         }
-        if(enemyLP == 4)
+        if(LifeEnemy == 4)
         {
             hartsE[0].sprite = hart;
             hartsE[1].sprite = hart;
@@ -167,7 +169,7 @@ public class LPManager : MonoBehaviour
             hartsE[3].sprite = hart;
             hartsE[4].sprite = noImage;
         }
-        if(enemyLP == 5)
+        if(LifeEnemy == 5)
         {
             hartsE[0].sprite = hart;
             hartsE[1].sprite = hart;
@@ -176,4 +178,5 @@ public class LPManager : MonoBehaviour
             hartsE[4].sprite = hart;
         }
     }
+
 }

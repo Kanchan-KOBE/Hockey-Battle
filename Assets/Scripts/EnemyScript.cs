@@ -8,16 +8,21 @@ public class EnemyScript : MonoBehaviour
     public int number = 0;
     [SerializeField] int speed = 10;
     [SerializeField] Sprite icon;
+    [SerializeField] bool lifeCure = false;
 
     private bool moveR = true;
     private bool moveL = false;
-    private Image iconImage;
+    // private Image iconImage;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        iconImage = GameObject.Find("Img_IconE").GetComponent<Image>();
-        iconImage.sprite = icon;
+        // iconImage = GameObject.Find("Img_IconE").GetComponent<Image>();
+        // iconImage.sprite = icon;
+        if(lifeCure){
+            LPManager.LifeEnemy += 1;
+        }
     }
 
     // Update is called once per frame
@@ -40,5 +45,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    
+    // void LifeCure(){
+        
+    // }
 }

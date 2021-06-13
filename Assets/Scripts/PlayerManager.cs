@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
 
    public static int playerNumber = 0;
 
-   public int i = 1;
+   public int setPlayerNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    public void GetPlayerNumber(int i){playerNumber = i;}
+    public void GetPlayerNumber(int setPlayerNumber){playerNumber = setPlayerNumber;}
 
     public void playerSpawn(int playerNumber)
     {

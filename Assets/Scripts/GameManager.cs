@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
 
     public Text textCount;
 
+public int howManyPlayers = 1;
+    public static int howManyPlayersPlusOne = 3;
+    public bool[] unlockPtest = new bool[howManyPlayersPlusOne];
+    public static bool[] unlockP = new bool[howManyPlayersPlusOne];
+
     public int numberPlayer = 0;
     public int numberEnemy = 0;
 
@@ -24,6 +29,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for(int i =0; i< unlockP.Length; i++)
+        {
+            Debug.Log(unlockP[i]);
+        }
         StartCoroutine("HogeGameStart");
         packManager.SpawnPack();
         enemyManager.enemySpawn(EnemyManager.enemyNumber);
@@ -82,9 +91,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    void Awakw(){
+    void Awake(){
         numberEnemy = EnemyManager.enemyNumber;
         numberPlayer = PlayerManager.playerNumber;
+        unlockP = unlockPtest;
+        unlockP[0] = true;
     }
 
 }

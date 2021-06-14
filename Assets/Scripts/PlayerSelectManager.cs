@@ -7,15 +7,38 @@ public class PlayerSelectManager : MonoBehaviour
 {
     public Image imgStatus;
     public Sprite[] imgPlayers;
+    public Button[] btn = new Button[GameManager.howManyPlayersPlusOne];
+
+    public Text namePlayer;
+
+    // public Button[] btnPlayers;
     // Start is called before the first frame update
     void Start()
     {
-        
+        for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){
+            if(GameManager.unlockP[i]){
+                btn[i].interactable = true;
+            }
+            Debug.Log(GameManager.unlockP[i]);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        imgStatus.sprite = imgPlayers[PlayerManager.playerNumber];
+        
+        
     }
+
+    public void GetPlayerNumber(int setPlayerNumber)
+    {
+        PlayerManager.playerNumber = setPlayerNumber;
+        imgStatus.sprite = imgPlayers[PlayerManager.playerNumber];
+        Debug.Log(setPlayerNumber);
+    }
+    public void GetPlayerName(string playerName)
+    {
+        namePlayer.text = playerName;
+    }
+
 }

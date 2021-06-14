@@ -2957,12 +2957,14 @@ MonoBehaviour:
   packManager: {fileID: 791087309}
   enemyManager: {fileID: 188997082}
   playerManager: {fileID: 1669580368}
-  sceneManager: {fileID: 0}
+  sceneManager: {fileID: 1009595100}
   uI_WIN: {fileID: 1763570642}
   uI_LOSE: {fileID: 1358501375}
   uI_Goal: {fileID: 1547145667}
   uI_Pause: {fileID: 1753067784}
   textCount: {fileID: 423845971}
+  howManyPlayers: 2
+  unlockPtest: 000100
   numberPlayer: 0
   numberEnemy: 0
 --- !u!4 &697110726

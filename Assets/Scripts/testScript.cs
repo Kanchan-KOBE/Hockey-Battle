@@ -5,11 +5,12 @@ using UnityEngine;
 public class testScript : MonoBehaviour
 {
 
-    // public Material testMat;
+    // [SerializeField] int number;
+    // [SerializeField] GameObjct btn;
     // Start is called before the first frame update
     void Start()
     {
-        // SetMatColor(Color.red);
+        
     }
 
     // Update is called once per frame
@@ -18,7 +19,9 @@ public class testScript : MonoBehaviour
         
     }
 
-    // void SetMatColor(Color col){
-    //     testMat.color = col;
+    // void Interactable(){
+    //     if(GameManager.unlockP[number]){
+    //         btn.interactable = true;
+    //     }
     // }
 }

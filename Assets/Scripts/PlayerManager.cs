@@ -23,8 +23,6 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    public void GetPlayerNumber(int setPlayerNumber){playerNumber = setPlayerNumber;}
-
     public void playerSpawn(int playerNumber)
     {
         Instantiate(Players[playerNumber], new Vector3(0f,1.0f,-8f), transform.rotation);

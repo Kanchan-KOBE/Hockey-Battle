@@ -52,7 +52,9 @@ public class SceneManager00 : MonoBehaviour
         }
     }
     public void ToAR(){
-        if(stage == 0){
+        if(PlayerManager.playerNumber == 0){
+            Debug.Log("プレイヤーが選択されていません");
+        }else{
             SceneManager.LoadScene("Stage_AR");
         }
     }

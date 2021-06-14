@@ -7,6 +7,7 @@ public class PlayerSelectManager : MonoBehaviour
 {
     public Image imgStatus;
     public Sprite[] imgPlayers;
+    public Image[] imgBtn;
     public Button[] btn = new Button[GameManager.howManyPlayersPlusOne];
 
     public Text namePlayer;
@@ -18,8 +19,8 @@ public class PlayerSelectManager : MonoBehaviour
         for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){
             if(GameManager.unlockP[i]){
                 btn[i].interactable = true;
+                imgBtn[i].sprite = imgPlayers[i];
             }
-            Debug.Log(GameManager.unlockP[i]);
         }
     }
 

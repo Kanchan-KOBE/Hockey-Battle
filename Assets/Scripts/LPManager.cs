@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LPManager : MonoBehaviour
 {
     // public PackFactory packFactory;
-    public GameManager myManager;
+    public ARGameManager myManager;
     public PackManager packManager;
     public static byte LifePlayer = 3;
     public static byte LifeEnemy = 3;

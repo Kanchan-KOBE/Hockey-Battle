@@ -11,6 +11,12 @@ public class ControllManager : MonoBehaviour
     public Image iconEnemy;
     public Sprite[] imgPlayer;
     public Sprite[] imgEnemy;
+    public Text namePlayer;
+    public Text nameEnemy;
+
+    public string[] namesPlayer;
+    public string[] namesEnemy;
+
 
     public static bool pushR = false;
     public static bool pushL = false;

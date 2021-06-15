@@ -110,5 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 0
-  speed: 10
+  speed: 0
   icon: {fileID: 21300000, guid: 78b111345eacf422898c3c18d345af1e, type: 3}
+  lifeCure: 0

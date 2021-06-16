@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class ARGameManager : MonoBehaviour
 {
+    public static bool isWin = false;
+    public static bool isLose = false;
+    public static int gameStep = 0;
     public LPManager lPManager;
     public PackManager packManager;
     public EnemyManager enemyManager;
     public PlayerManager playerManager;
     public SceneManager00 sceneManager;
+    public GameObject mainCamera;
+    public GameObject uI_Main;
     public GameObject uI_WIN;
     public GameObject uI_LOSE;
     public GameObject uI_Goal;
@@ -21,16 +26,26 @@ public class ARGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isWin = false;
+        isLose = false;
         StartCoroutine("HogeGameStart");
-        packManager.SpawnPack();
-        enemyManager.enemySpawn(EnemyManager.enemyNumber);
-        playerManager.playerSpawn(PlayerManager.playerNumber);
+        
     }
    
 
     // Update is called once per frame
     void Update()
     {
+        if(gameStep == 1){
+        CameraTilt();
+        }
+
+        if(isWin){
+            WinUI();
+        }
+        if(isLose){
+            LoseUI();
+        }
         
     }
 
@@ -59,14 +74,47 @@ public class ARGameManager : MonoBehaviour
     }
 
 
-    //SCENE=============================================
+    //CAMERA=============================================
+    void CameraTilt(){
+        if(mainCamera.transform.localEulerAngles.x < 55){
+            mainCamera.transform.Rotate(new Vector3(10,0,0) * Time.deltaTime * 1000, Space.World);
+        }
+    }
 
 
     //===============================================
 
         private IEnumerator HogeGameStart()
     {
+        //step0（E,P生成）（LP＝３）
         Time.timeScale = 0.001f;
+        enemyManager.enemySpawn(EnemyManager.enemyNumber);
+        playerManager.playerSpawn(PlayerManager.playerNumber);
+        yield return new WaitForSeconds(0.0005f);
+        gameStep ++; //1
+
+        //step1(カメラ移動2.5秒)
+        yield return new WaitForSeconds(0.0025f);
+        gameStep ++; //2
+
+        //step2（カットイン３秒）
+        //true
+        yield return new WaitForSeconds(0.003f);
+        //false
+        gameStep ++; //3
+
+        //step3(MainUI表示、LP=3)（０.5秒）
+        uI_Main.SetActive(true);
+        lPManager.LPReset();
+        yield return new WaitForSeconds(0.0005f);
+        gameStep ++; //4
+
+        //step4(Pack生成)(スキル発動)
+        packManager.SpawnPack();
+        yield return new WaitForSeconds(0.0005f);
+        gameStep ++;//5
+
+        //step5（カウントダウン）
         textCount.text = "3";
         yield return new WaitForSeconds(0.001f);
         textCount.text = "2";
@@ -77,5 +125,7 @@ public class ARGameManager : MonoBehaviour
         yield return new WaitForSeconds(0.001f);
         textCount.text = "";
         Time.timeScale = 1.0f;
+
+        gameStep = 0;
     }
 }

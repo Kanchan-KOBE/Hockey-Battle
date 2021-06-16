@@ -12,6 +12,9 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] GameObject pet;
     [SerializeField] bool lifeCharge = false;
     [SerializeField] bool pets = false;
+    [SerializeField] bool zombie = false;
+
+    private bool skill1 = true;
 
     private bool moveR = true;
     private bool moveL = false;
@@ -19,21 +22,30 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // iconImage = GameObject.Find("Img_IconE").GetComponent<Image>();
-        // iconImage.sprite = icon;
-
-        if(lifeCharge){
-            LPManager.LifeEnemy += 1;
-        }
-        if(pets){
-            Instantiate(pet,new Vector3(0f,1f,4f), transform.rotation);
-
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(LPManager.zombieCheckE)
+        {
+            Zombie();
+            LPManager.zombieCheckE = false;
+        }
+
+        if(ARGameManager.gameStep == 4)
+        {
+            if(skill1)
+            {
+                SpawnPet();
+                LifeCharge();
+                Debug.Log("skill1");
+
+                skill1 = false;
+            }
+        }
+
         if(this.transform.position.x > 5.5){
             moveR = false;
             moveL = true;
@@ -51,7 +63,33 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    // void LifeCharge(){
-        
-    // }
+
+//SKILLS===============================================================================
+    void LifeCharge(){
+        if(lifeCharge){
+            LPManager.LifeEnemy += 1;
+        }
+
+    }
+    void SpawnPet(){
+        if(pets){
+            Instantiate(pet,new Vector3(0f,1f,4.5f), transform.rotation);
+        }
+    }
+    void Zombie(){
+        if(zombie){
+            int i = Random.Range(0,99);
+            Debug.Log(i);
+            if(i < 30){
+                LPManager.LifeEnemy ++;
+            }else{
+                ARGameManager.isWin = true;
+            }
+        }else
+        {
+            ARGameManager.isWin = true;
+        }
+    }
+
+
 }

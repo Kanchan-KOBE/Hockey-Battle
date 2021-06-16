@@ -8,20 +8,27 @@ public class LPManager : MonoBehaviour
     // public PackFactory packFactory;
     public ARGameManager myManager;
     public PackManager packManager;
-    public static byte LifePlayer = 3;
-    public static byte LifeEnemy = 3;
+    public static byte LifePlayer = 0;
+    public static byte LifeEnemy = 0;
+
+    public static bool zombieCheckE = false;
+    public static bool zombieCheckP = false;
 
     public Image[] hartsP;
     public Image[] hartsE;
     public Sprite hart;
     public Sprite noImage;
 
+  
+
     // Start is called before the first frame update
     void Start()
     {
-            LifePlayer = 3;
-            LifeEnemy = 3;
-        // hartsP[0].enabled = true;
+        if(SceneManager00.stage == 0)
+        {
+            LifePlayer = 0;
+            LifeEnemy = 0;
+        }
     }
 
     // Update is called once per frame
@@ -29,6 +36,12 @@ public class LPManager : MonoBehaviour
     {
         PlayerHarts();
         EnemyHarts();
+
+    }
+
+    public void LPReset(){ 
+        LifePlayer = 3;
+        LifeEnemy = 3;
 
     }
 
@@ -47,8 +60,8 @@ public class LPManager : MonoBehaviour
     {
         LifePlayer -= 1;
         if(LifePlayer == 0){
+            zombieCheckP = true;
             Debug.Log("You Lose..");
-            myManager.LoseUI();
         }else{
             Debug.Log(LifePlayer + "-" + LifeEnemy);
             StartCoroutine("HogeGoal");
@@ -59,8 +72,8 @@ public class LPManager : MonoBehaviour
     {
         LifeEnemy -= 1;
         if(LifeEnemy == 0){
-            Debug.Log("You WIN!");
-            myManager.WinUI();
+            zombieCheckE = true;
+            StartCoroutine("HogeZombie");
         }else{
             Debug.Log(LifePlayer + "-" + LifeEnemy);
             StartCoroutine("HogeGoal");
@@ -74,6 +87,16 @@ public class LPManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         myManager.GoalUI_Delete();
         packManager.SpawnPack();
+    }
+    private IEnumerator HogeZombie()
+    {
+        yield return new WaitForSeconds(1.0f);
+        if(ARGameManager.isWin){
+        }else{
+        Debug.Log("zombie");
+        yield return new WaitForSeconds(3.0f);
+        packManager.SpawnPack();
+        }
     }
 
     private void PlayerHarts()

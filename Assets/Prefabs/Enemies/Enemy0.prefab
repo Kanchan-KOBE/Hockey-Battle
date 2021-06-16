@@ -115,3 +115,4 @@ MonoBehaviour:
   pet: {fileID: 5206823662609327687, guid: 7f9d159655fc5466cb277522e3bfcd79, type: 3}
   lifeCharge: 1
   pets: 1
+  zombie: 1

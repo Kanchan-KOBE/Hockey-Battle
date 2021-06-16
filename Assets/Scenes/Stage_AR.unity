@@ -294,7 +294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &54369095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2083,7 +2083,7 @@ RectTransform:
   - {fileID: 397771711}
   - {fileID: 2080271901}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3148,7 +3148,7 @@ RectTransform:
   - {fileID: 1176366286}
   - {fileID: 1069779364}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3252,7 +3252,7 @@ RectTransform:
   - {fileID: 185380859}
   - {fileID: 626357888}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3707,13 +3707,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.46362317, y: -0, z: -0, w: 0.88603246}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 30, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 55.242, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!1 &983762916
 GameObject:
   m_ObjectHideFlags: 0
@@ -5782,6 +5782,8 @@ MonoBehaviour:
   enemyManager: {fileID: 188997082}
   playerManager: {fileID: 1669580368}
   sceneManager: {fileID: 1009595100}
+  mainCamera: {fileID: 963194225}
+  uI_Main: {fileID: 417476308}
   uI_WIN: {fileID: 1763570642}
   uI_LOSE: {fileID: 1358501375}
   uI_Goal: {fileID: 1547145667}

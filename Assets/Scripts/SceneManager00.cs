@@ -9,6 +9,7 @@ public class SceneManager00 : MonoBehaviour
     public int currentIndex;
 
     public static int stage = 0;
+
     public int i = 0;
 
     // Start is called before the first frame update

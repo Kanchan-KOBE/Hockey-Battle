@@ -16,10 +16,12 @@ public class PlayerSelectManager : MonoBehaviour
 
 
     // public Button[] btnPlayers;
+    
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){
+        
+        for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){ //アンロックされているキャラのボタンの表示を変更
             if(GameManager.unlockP[i]){
                 btn[i].interactable = true;
                 imgBtn[i].sprite = imgPlayers[i];

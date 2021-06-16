@@ -5,17 +5,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public LPManager lPManager;
-    public PackManager packManager;
-    public EnemyManager enemyManager;
-    public PlayerManager playerManager;
-    public SceneManager00 sceneManager;
-    public GameObject uI_WIN;
-    public GameObject uI_LOSE;
-    public GameObject uI_Goal;
-    public GameObject uI_Pause;
-
-    public Text textCount;
 
     public static int howManyPlayersPlusOne = 3;
     public bool[] unlockPtest = new bool[howManyPlayersPlusOne];

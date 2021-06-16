@@ -9,7 +9,9 @@ public class EnemyScript : MonoBehaviour
     // [SerializeField] string thisEnemyName = "NoName";
     [SerializeField] int speed = 10;
     [SerializeField] Sprite icon;
+    [SerializeField] GameObject pet;
     [SerializeField] bool lifeCharge = false;
+    [SerializeField] bool pets = false;
 
     private bool moveR = true;
     private bool moveL = false;
@@ -22,6 +24,10 @@ public class EnemyScript : MonoBehaviour
 
         if(lifeCharge){
             LPManager.LifeEnemy += 1;
+        }
+        if(pets){
+            Instantiate(pet,new Vector3(0f,1f,4f), transform.rotation);
+
         }
     }
 

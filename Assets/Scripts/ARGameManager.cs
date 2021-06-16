@@ -66,15 +66,15 @@ public class ARGameManager : MonoBehaviour
 
         private IEnumerator HogeGameStart()
     {
-        Time.timeScale = 0.01f;
+        Time.timeScale = 0.001f;
         textCount.text = "3";
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.001f);
         textCount.text = "2";
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.001f);
         textCount.text = "1";
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.001f);
         textCount.text = "Go!";
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.001f);
         textCount.text = "";
         Time.timeScale = 1.0f;
     }

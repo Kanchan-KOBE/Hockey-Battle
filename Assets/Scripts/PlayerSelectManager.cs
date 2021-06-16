@@ -6,11 +6,14 @@ using UnityEngine.UI;
 public class PlayerSelectManager : MonoBehaviour
 {
     public Image imgStatus;
+    // public Image imgCheck;
+    public GameObject uI_Check;
+    public Text namePlayer;
     public Sprite[] imgPlayers;
     public Image[] imgBtn;
+
     public Button[] btn = new Button[GameManager.howManyPlayersPlusOne];
 
-    public Text namePlayer;
 
     // public Button[] btnPlayers;
     // Start is called before the first frame update
@@ -42,4 +45,10 @@ public class PlayerSelectManager : MonoBehaviour
         namePlayer.text = playerName;
     }
 
+    public void CheckUI(){
+        uI_Check.SetActive(true);
+    }
+    public void CheckUI_Delete(){
+        uI_Check.SetActive(false);
+    }
 }

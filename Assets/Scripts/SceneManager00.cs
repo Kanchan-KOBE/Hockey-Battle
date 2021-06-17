@@ -7,9 +7,8 @@ public class SceneManager00 : MonoBehaviour
 {
 
     public int currentIndex;
-
+    // public AudioClip start;
     public static int stage = 0;
-
     public int i = 0;
 
     // Start is called before the first frame update
@@ -28,18 +27,24 @@ public class SceneManager00 : MonoBehaviour
         EnemyManager.enemyNumber += 1;
         SceneManager.LoadScene("Stage_AR");
     }
+
     public void ToBack(){
         currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex - 1);
     }
+
     public void GameRetry(){
         currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex);
     }
+
     public void ToTitle(){
         SceneManager.LoadScene(0);
     }
+
     public void ToMain(){
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
         SceneManager.LoadScene(1);
     }
 

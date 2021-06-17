@@ -10,6 +10,7 @@ TagManager:
   - Pack(Poison)
   - Pack(Illusion)
   - Stadium
+  - Wall
   layers:
   - Default
   - TransparentFX

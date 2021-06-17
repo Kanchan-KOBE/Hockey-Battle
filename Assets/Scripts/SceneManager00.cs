@@ -7,7 +7,7 @@ public class SceneManager00 : MonoBehaviour
 {
 
     public int currentIndex;
-    // public AudioClip start;
+    public AudioClip[] clips;
     public static int stage = 0;
     public int i = 0;
 
@@ -23,6 +23,10 @@ public class SceneManager00 : MonoBehaviour
         
     }
 
+    void Awake(){
+        DontDestroyOnLoad(this);
+    }
+
     public void ToNextStage(){
         EnemyManager.enemyNumber += 1;
         SceneManager.LoadScene("Stage_AR");
@@ -30,6 +34,8 @@ public class SceneManager00 : MonoBehaviour
 
     public void ToBack(){
         currentIndex = SceneManager.GetActiveScene().buildIndex;
+        // AudioSource audio = GetComponent<AudioSource>();
+        // audio.PlayOneShot(clips[0]);
         SceneManager.LoadScene(currentIndex - 1);
     }
 
@@ -44,12 +50,19 @@ public class SceneManager00 : MonoBehaviour
 
     public void ToMain(){
         AudioSource audio = GetComponent<AudioSource>();
-        audio.Play();
+        audio.PlayOneShot(clips[3]);
+        // FadeManager.FadeOut(1);
         SceneManager.LoadScene(1);
     }
 
-    public void GetStage(int i){i = stage;}
+    public void GetStage(int i){
+        i = stage;
+        // AudioSource audio = GetComponent<AudioSource>();
+        // audio.PlayOneShot(clips[4]);
+    }
     public void ToPlayerSelect(){
+        // AudioSource audio = GetComponent<AudioSource>();
+        // audio.PlayOneShot(clips[2]);
         SceneManager.LoadScene(2);
     }
     public void ToStageSelect(){
@@ -60,7 +73,11 @@ public class SceneManager00 : MonoBehaviour
     public void ToAR(){
         if(PlayerManager.playerNumber == 0){
             Debug.Log("プレイヤーが選択されていません");
+            // AudioSource audio = GetComponent<AudioSource>();
+            // audio.PlayOneShot(clips[0]);
         }else{
+            // AudioSource audio = GetComponent<AudioSource>();
+            // audio.PlayOneShot(clips[2]);
             SceneManager.LoadScene("Stage_AR");
         }
     }

@@ -928,6 +928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543405483}
   - component: {fileID: 543405482}
+  - component: {fileID: 543405484}
   m_Layer: 0
   m_Name: MainMenuManager
   m_TagString: Untagged
@@ -948,6 +949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentIndex: 0
+  clips: []
   i: 0
 --- !u!4 &543405483
 Transform:
@@ -963,6 +965,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &543405484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543405481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28953958edb9249d38947263af2a4d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentIndex: 0
+  clips:
+  - {fileID: 8300000, guid: 017007330cb1e471aaac9eb732affdfd, type: 3}
+  - {fileID: 8300000, guid: cfecad66cf6e2451081d3e0e8331046f, type: 3}
+  - {fileID: 8300000, guid: cc1a86436ef5b44729b47b26008f912d, type: 3}
+  - {fileID: 8300000, guid: a279dd26a883240c9bef2cc589557a81, type: 3}
+  - {fileID: 8300000, guid: 418b4e8398b85478dbaba311ac021474, type: 3}
+  - {fileID: 8300000, guid: a537f7e4b59604e44a2b0be2c0ea7e45, type: 3}
+  - {fileID: 8300000, guid: 3a70f66d421c34937957ebdea506fc30, type: 3}
+  i: 0
 --- !u!1 &880049323
 GameObject:
   m_ObjectHideFlags: 0

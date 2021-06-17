@@ -9,6 +9,7 @@ public class PackScript : MonoBehaviour
     private Rigidbody myRigid;
 
     private LPManager lPManager;
+    public AudioClip[] clips;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,8 @@ public class PackScript : MonoBehaviour
         myRigid = GetComponent<Rigidbody>();
         i = Random.Range(-1f,1f);
         myRigid.AddForce((transform.forward * -1 + transform.right * i) * speed, ForceMode.VelocityChange);
+
+        AudioSource audio = GetComponent<AudioSource>();
     }
     
 
@@ -35,6 +38,14 @@ public class PackScript : MonoBehaviour
         }else if(collision.gameObject.tag == "MyGoal"){
             Destroy(this.gameObject);
             lPManager.MLP_Lose();
+        }else if(collision.gameObject.tag == "Wall"){
+            GetComponent<AudioSource>().PlayOneShot(clips[1]);
+        }else if(collision.gameObject.tag == "Player"){
+            GetComponent<AudioSource>().PlayOneShot(clips[0]);
+        }else if(collision.gameObject.tag == "Enemy"){
+            GetComponent<AudioSource>().PlayOneShot(clips[0]);
+        }else if(collision.gameObject.tag == "Pet"){
+            GetComponent<AudioSource>().PlayOneShot(clips[0]);
         }
     }
 

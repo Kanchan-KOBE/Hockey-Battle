@@ -11,6 +11,8 @@ TagManager:
   - Pack(Illusion)
   - Stadium
   - Wall
+  - Pet
+  - Enemy
   layers:
   - Default
   - TransparentFX

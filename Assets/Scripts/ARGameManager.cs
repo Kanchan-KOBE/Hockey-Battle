@@ -56,6 +56,8 @@ public class ARGameManager : MonoBehaviour
 
      public void WinUI(){
         uI_WIN.SetActive(true);
+        int i = EnemyManager.enemyNumber + 1;
+        GameManager.unlockS[i] = true;
     }
 
     public void GoalUI(){

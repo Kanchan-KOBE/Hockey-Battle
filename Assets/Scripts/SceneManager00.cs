@@ -24,61 +24,109 @@ public class SceneManager00 : MonoBehaviour
     }
 
     void Awake(){
-        DontDestroyOnLoad(this);
+        // DontDestroyOnLoad(this);
     }
 
-    public void ToNextStage(){
-        EnemyManager.enemyNumber += 1;
-        SceneManager.LoadScene("Stage_AR");
+    //------------------------------------------呼び出し用--------------------------------------------
+    public void ToSetting(){StartCoroutine("ToSettingHoge");}
+    public void ToTitle(){StartCoroutine("ToTitleHoge");
     }
-
-    public void ToBack(){
-        currentIndex = SceneManager.GetActiveScene().buildIndex;
-        // AudioSource audio = GetComponent<AudioSource>();
-        // audio.PlayOneShot(clips[0]);
-        SceneManager.LoadScene(currentIndex - 1);
-    }
-
-    public void GameRetry(){
-        currentIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentIndex);
-    }
-
-    public void ToTitle(){
-        SceneManager.LoadScene(0);
-    }
-
     public void ToMain(){
+        // StartCoroutine("ToMainHoge");
         AudioSource audio = GetComponent<AudioSource>();
-        audio.PlayOneShot(clips[3]);
-        // FadeManager.FadeOut(1);
-        SceneManager.LoadScene(1);
+        audio.PlayOneShot(clips[0]);
+        // yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("MainMenuScene");
     }
 
-    public void GetStage(int i){
-        i = stage;
-        // AudioSource audio = GetComponent<AudioSource>();
-        // audio.PlayOneShot(clips[4]);
-    }
-    public void ToPlayerSelect(){
-        // AudioSource audio = GetComponent<AudioSource>();
-        // audio.PlayOneShot(clips[2]);
-        SceneManager.LoadScene(2);
-    }
-    public void ToStageSelect(){
-        if(stage == 0){
-            SceneManager.LoadScene(3);
-        }
-    }
-    public void ToAR(){
+    public void ToPlayerSelect(){StartCoroutine("ToPlayerSelectHoge");}
+
+    public void ToNext(){
         if(PlayerManager.playerNumber == 0){
             Debug.Log("プレイヤーが選択されていません");
-            // AudioSource audio = GetComponent<AudioSource>();
-            // audio.PlayOneShot(clips[0]);
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.PlayOneShot(clips[0]);
         }else{
-            // AudioSource audio = GetComponent<AudioSource>();
-            // audio.PlayOneShot(clips[2]);
-            SceneManager.LoadScene("Stage_AR");
+            if(stage == 0){
+                StartCoroutine("ToStageSelectHoge");
+            }else if(stage == 1){
+                StartCoroutine("ToSVHoge");
+            }
         }
+    }
+
+    public void ToAR(){StartCoroutine("ToARHoge");}
+    public void ToNextStage(){StartCoroutine("ToNextStageHoge");}
+    public void ToStageSelect(){StartCoroutine("ToStageSelectHoge");}
+
+    
+    //stage(0=ARCADE,1=SURVIVAL)
+    public void GetStage(int i){
+        i = stage;
+    }
+
+    
+
+
+    //------------------------------------HOGE--------------------------------------
+    private IEnumerator ToSettingHoge()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(clips[0]);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("SettingScene");
+    }
+    private IEnumerator ToTitleHoge()
+    {
+        Debug.Log("Hoge1");
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(clips[0]);
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Hoge2");
+        SceneManager.LoadScene("TitleScene");
+        Debug.Log("Hoge3");
+    }
+    private IEnumerator ToMainHoge()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(clips[0]);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("MainMenuScene");
+    }
+    private IEnumerator ToPlayerSelectHoge()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(clips[0]);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("PlayerSelectScene");
+    }
+    private IEnumerator ToStageSelectHoge()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(clips[0]);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("StageSelectScene");
+    }
+    private IEnumerator ToARHoge()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(clips[0]);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Stage_AR");
+    }
+    private IEnumerator ToNextStageHoge()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(clips[0]);
+        EnemyManager.enemyNumber += 1;
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Stage_AR");
+    }
+    private IEnumerator ToSVHoge()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(clips[0]);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Stage_SV");
     }
 }

@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayerSelectScene.unity
     guid: 652d4788d7ebd49bfbd8af6758b8ed2a
   - enabled: 1
-    path: Assets/Scenes/StageSelectScene 3.unity
-    guid: e7909680e3e5745f8b54fd63b9eb7344
+    path: Assets/Scenes/StageSelectScene.unity
+    guid: 854ac5b2c400a4e31b258e9056c06882
   - enabled: 1
     path: Assets/Scenes/Stage_AR.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/SettingScene.unity
+    guid: 5b7420ca81b624159a178f2e36843869
   m_configObjects: {}

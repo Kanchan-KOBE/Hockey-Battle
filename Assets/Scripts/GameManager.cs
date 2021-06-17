@@ -7,12 +7,13 @@ public class GameManager : MonoBehaviour
 {
 
     public static int howManyPlayersPlusOne = 3;
-    public bool[] unlockPtest = new bool[howManyPlayersPlusOne];
+    public static int howManyEnemysPlusOne = 3;
+    // public bool[] unlockPtest = new bool[howManyPlayersPlusOne];
     public static bool[] unlockP = new bool[howManyPlayersPlusOne];
 
 
     public static int howManyStagesPlusOne = 3;
-    public bool[] unlockStest = new bool[howManyStagesPlusOne];
+    // public bool[] unlockStest = new bool[howManyStagesPlusOne];
     public static bool[] unlockS = new bool[howManyStagesPlusOne];
 
     public int numberPlayer = 0;
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+         
     }
    
 
@@ -35,9 +36,14 @@ public class GameManager : MonoBehaviour
     void Awake(){
         numberEnemy = EnemyManager.enemyNumber;
         numberPlayer = PlayerManager.playerNumber;
-        unlockP = unlockPtest;
-        unlockS = unlockStest;
+        // unlockP = unlockPtest;
+        // unlockS = unlockStest;
         unlockP[0] = true;
+        unlockP[1] = true;
+        unlockS[0] = true;
+        unlockS[1] = true;
+        
+
     }
 
 }

@@ -9,7 +9,7 @@ public class PlayerSelectManager : MonoBehaviour
     // public Image imgCheck;
     public GameObject uI_Check;
     public Text namePlayer;
-    public Sprite[] imgPlayers;
+    public Sprite[] imgPlayers = new Sprite[GameManager.howManyEnemysPlusOne];
     public Image[] imgBtn;
 
     public Button[] btn = new Button[GameManager.howManyPlayersPlusOne];

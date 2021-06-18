@@ -564,12 +564,6 @@ MonoBehaviour:
   currentIndex: 0
   clips:
   - {fileID: 8300000, guid: 017007330cb1e471aaac9eb732affdfd, type: 3}
-  - {fileID: 8300000, guid: cfecad66cf6e2451081d3e0e8331046f, type: 3}
-  - {fileID: 8300000, guid: cc1a86436ef5b44729b47b26008f912d, type: 3}
-  - {fileID: 8300000, guid: a279dd26a883240c9bef2cc589557a81, type: 3}
-  - {fileID: 8300000, guid: 418b4e8398b85478dbaba311ac021474, type: 3}
-  - {fileID: 8300000, guid: a537f7e4b59604e44a2b0be2c0ea7e45, type: 3}
-  - {fileID: 8300000, guid: 3a70f66d421c34937957ebdea506fc30, type: 3}
   i: 0
 --- !u!4 &1806301638
 Transform:
@@ -603,7 +597,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

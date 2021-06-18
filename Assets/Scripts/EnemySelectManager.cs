@@ -19,7 +19,7 @@ public class EnemySelectManager : MonoBehaviour
     {
         
         for(int i = 0; i < GameManager.howManyEnemysPlusOne; i++){ //アンロックされているキャラのボタンの表示を変更
-            if(GameManager.unlockP[i]){
+            if(GameManager.unlockS[i]){
                 btn[i].interactable = true;
                 // imgBtn[i].sprite = imgEnemys[i];
             }

@@ -112,7 +112,7 @@ MonoBehaviour:
   number: 0
   speed: 3
   icon: {fileID: 21300000, guid: 78b111345eacf422898c3c18d345af1e, type: 3}
-  pet: {fileID: 5206823662609327687, guid: 7f9d159655fc5466cb277522e3bfcd79, type: 3}
+  pet: {fileID: 3967562660225834878, guid: a964b281ca68444b983af02234eec417, type: 3}
   lifeCharge: 1
   pets: 1
   zombie: 1

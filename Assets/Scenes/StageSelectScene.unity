@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 543405484}
   m_Layer: 0
   m_Name: SceneManager
-  m_TagString: Untagged
+  m_TagString: SceneManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -890,15 +890,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentIndex: 0
+  i: 0
   clips:
   - {fileID: 8300000, guid: 017007330cb1e471aaac9eb732affdfd, type: 3}
-  - {fileID: 8300000, guid: cfecad66cf6e2451081d3e0e8331046f, type: 3}
-  - {fileID: 8300000, guid: cc1a86436ef5b44729b47b26008f912d, type: 3}
-  - {fileID: 8300000, guid: a279dd26a883240c9bef2cc589557a81, type: 3}
-  - {fileID: 8300000, guid: 418b4e8398b85478dbaba311ac021474, type: 3}
-  - {fileID: 8300000, guid: a537f7e4b59604e44a2b0be2c0ea7e45, type: 3}
-  - {fileID: 8300000, guid: 3a70f66d421c34937957ebdea506fc30, type: 3}
-  i: 0
 --- !u!4 &543405483
 Transform:
   m_ObjectHideFlags: 0
@@ -923,8 +917,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 826eb6aac1cee42599bce88c9cdd3642, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

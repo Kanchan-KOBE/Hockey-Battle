@@ -21,6 +21,13 @@ public class ARGameManager : MonoBehaviour
     public GameObject uI_Pause;
 
     public Text textCount;
+    public AudioClip[] clips;
+
+    void Awake()
+    {
+        GameManager.unlockS[EnemyManager.enemyNumber] = true;
+        gameStep = 0;
+    }
 
 
     // Start is called before the first frame update
@@ -29,7 +36,6 @@ public class ARGameManager : MonoBehaviour
         isWin = false;
         isLose = false;
         StartCoroutine("HogeGameStart");
-        
     }
    
 
@@ -56,8 +62,6 @@ public class ARGameManager : MonoBehaviour
 
      public void WinUI(){
         uI_WIN.SetActive(true);
-        int i = EnemyManager.enemyNumber + 1;
-        GameManager.unlockS[i] = true;
     }
 
     public void GoalUI(){

@@ -8,9 +8,11 @@ public class EnemyScript : MonoBehaviour
     public int number = 0;
     // [SerializeField] string thisEnemyName = "NoName";
     [SerializeField] int speed = 10;
+    [SerializeField] int width = 5;
     [SerializeField] Sprite icon;
     [SerializeField] GameObject pet;
     [SerializeField] bool lifeCharge = false;
+    [SerializeField] bool lifeChargePlus = false;
     [SerializeField] bool pets = false;
     [SerializeField] bool zombie = false;
 
@@ -40,17 +42,18 @@ public class EnemyScript : MonoBehaviour
             {
                 SpawnPet();
                 LifeCharge();
+                LifeChargePlus();
                 Debug.Log("skill1");
 
                 skill1 = false;
             }
         }
 
-        if(this.transform.position.x > 5.5){
+        if(this.transform.position.x > width){
             moveR = false;
             moveL = true;
         }
-        if(this.transform.position.x < -5.5){
+        if(this.transform.position.x < width * -1){
             moveL = false;
             moveR = true;
         }
@@ -67,13 +70,25 @@ public class EnemyScript : MonoBehaviour
 //SKILLS===============================================================================
     void LifeCharge(){
         if(lifeCharge){
+            if(LPManager.LifeEnemy < 5){
             LPManager.LifeEnemy += 1;
+            }
+        }
+
+    }
+    void LifeChargePlus(){
+        if(lifeChargePlus){
+            for(int i = 0; i < 2; i++){
+                if(LPManager.LifeEnemy < 5){
+                    LPManager.LifeEnemy += 1;
+                }
+            }
         }
 
     }
     void SpawnPet(){
         if(pets){
-            Instantiate(pet,new Vector3(0f,1f,4.5f), transform.rotation);
+            Instantiate(pet,new Vector3(0f,1f,4f), transform.rotation);
         }
     }
     void Zombie(){

@@ -250,7 +250,8 @@ MonoBehaviour:
   width: 3
   icon: {fileID: 0}
   pet: {fileID: 3967562660225834878, guid: 098e0f6c4426e499584ba27409d9cc59, type: 3}
-  lifeCharge: 1
+  lifeCharge: 0
+  lifeChargePlus: 0
   pets: 1
   zombie: 0
 --- !u!1 &1679686518893795473

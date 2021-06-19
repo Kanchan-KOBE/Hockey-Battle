@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  left: 0
   rotationPet: 1
   MovePetH: 0
   MovePetV: 0
@@ -125,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7534323835032221617}
   m_Layer: 0
-  m_Name: Pet
+  m_Name: Pet(Rotation)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

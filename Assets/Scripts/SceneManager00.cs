@@ -66,7 +66,7 @@ public class SceneManager00 : MonoBehaviour
         SceneManager.LoadScene("Stage_AR");
     }
     public void ToNextStage(){
-        if(EnemyManager.enemyNumber == GameManager.howManyEnemysPlusOne){
+        if(EnemyManager.enemyNumber == 3){
             Debug.Log("全クリ");
         }else{
             EnemyManager.enemyNumber += 1;

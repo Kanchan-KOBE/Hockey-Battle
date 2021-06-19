@@ -7,10 +7,10 @@ public class ControllManager : MonoBehaviour
 {
     // public GameManager myManager;
     // public GameObject player;
-    public Image iconPlayer;
-    public Image iconEnemy;
-    public Sprite[] imgPlayer;
-    public Sprite[] imgEnemy;
+    // public Image iconPlayer;
+    // public Image iconEnemy;
+    // public Sprite[] imgPlayer;
+    // public Sprite[] imgEnemy;
     public Text namePlayer;
     public Text nameEnemy;
 
@@ -25,8 +25,8 @@ public class ControllManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        iconPlayer.sprite = imgPlayer[PlayerManager.playerNumber];
-        iconEnemy.sprite = imgEnemy[EnemyManager.enemyNumber];
+        // iconPlayer.sprite = imgPlayer[PlayerManager.playerNumber];
+        // iconEnemy.sprite = imgEnemy[EnemyManager.enemyNumber];
     }
 
     // Update is called once per frame

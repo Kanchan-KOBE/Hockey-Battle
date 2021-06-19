@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] int speed = 10;
     [SerializeField] int width = 5;
     [SerializeField] Sprite icon;
+    [SerializeField] string name;
     [SerializeField] GameObject pet;
     [SerializeField] bool lifeCharge = false;
     [SerializeField] bool lifeChargePlus = false;
@@ -17,6 +18,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] bool zombie = false;
 
     private bool skill1 = true;
+    private bool gameUI = true;
 
     private bool moveR = true;
     private bool moveL = false;
@@ -36,7 +38,18 @@ public class EnemyScript : MonoBehaviour
             LPManager.zombieCheckE = false;
         }
 
-        if(ARGameManager.gameStep == 4)
+        if(ARGameManager.gameStep == 3) //画像変更と名前表示
+        {
+            if(gameUI)
+            {
+                //画像変更と名前表示
+                Debug.Log("gameUI");
+
+                gameUI = false;
+            }
+        }
+
+        if(ARGameManager.gameStep == 4) //スキル発動
         {
             if(skill1)
             {
@@ -49,6 +62,7 @@ public class EnemyScript : MonoBehaviour
             }
         }
 
+        //移動
         if(this.transform.position.x > width){
             moveR = false;
             moveL = true;

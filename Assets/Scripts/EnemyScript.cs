@@ -6,11 +6,9 @@ using UnityEngine.UI;
 public class EnemyScript : MonoBehaviour
 {
     public int number = 0;
-    // [SerializeField] string thisEnemyName = "NoName";
+    public GameObject enemyUI;
     [SerializeField] int speed = 10;
     [SerializeField] int width = 5;
-    [SerializeField] Sprite icon;
-    [SerializeField] string name;
     [SerializeField] GameObject pet;
     [SerializeField] bool lifeCharge = false;
     [SerializeField] bool lifeChargePlus = false;
@@ -38,18 +36,18 @@ public class EnemyScript : MonoBehaviour
             LPManager.zombieCheckE = false;
         }
 
-        if(ARGameManager.gameStep == 3) //画像変更と名前表示
+
+        if(ARGameManager.gameStep == 3) //スタート時UI表示
         {
             if(gameUI)
             {
-                //画像変更と名前表示
+                enemyUI.SetActive(true);
                 Debug.Log("gameUI");
 
                 gameUI = false;
             }
         }
-
-        if(ARGameManager.gameStep == 4) //スキル発動
+        if(ARGameManager.gameStep == 4) //スタート時スキル発動
         {
             if(skill1)
             {
@@ -62,8 +60,10 @@ public class EnemyScript : MonoBehaviour
             }
         }
 
-        //移動
-        if(this.transform.position.x > width){
+
+
+        
+        if(this.transform.position.x > width){ //移動-----
             moveR = false;
             moveL = true;
         }
@@ -120,5 +120,14 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+//SOUND===============================================================================
+    //  void OnCollisionEnter(Collision collision)
+    // {
+    //     if(collision.gameObject.tag == "Pack"){
+    //         GetComponent<AudioSource>().PlayOneShot(roar[0],1.0f);
+    //     }else if(collision.gameObject.tag == "MyGoal"){
+            
+    //     }
+    // }
 
 }

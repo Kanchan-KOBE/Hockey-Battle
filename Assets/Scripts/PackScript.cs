@@ -17,7 +17,7 @@ public class PackScript : MonoBehaviour
         lPManager = GameObject.Find("LPManager").GetComponent<LPManager>();
 
         myRigid = GetComponent<Rigidbody>();
-        i = Random.Range(-1f,1f);
+        i = Random.Range(-0.5f,0.5f);
         myRigid.AddForce((transform.forward * -1 + transform.right * i) * speed, ForceMode.VelocityChange);
 
         AudioSource audio = GetComponent<AudioSource>();
@@ -40,12 +40,12 @@ public class PackScript : MonoBehaviour
             lPManager.MLP_Lose();
         }else if(collision.gameObject.tag == "Wall"){
             GetComponent<AudioSource>().PlayOneShot(clips[1]);
-        }else if(collision.gameObject.tag == "Player"){
-            GetComponent<AudioSource>().PlayOneShot(clips[0]);
         }else if(collision.gameObject.tag == "Enemy"){
-            GetComponent<AudioSource>().PlayOneShot(clips[0]);
+            GetComponent<AudioSource>().PlayOneShot(clips[1]);
+        }else if(collision.gameObject.tag == "Player"){
+            GetComponent<AudioSource>().PlayOneShot(clips[1]);
         }else if(collision.gameObject.tag == "Pet"){
-            GetComponent<AudioSource>().PlayOneShot(clips[0]);
+            GetComponent<AudioSource>().PlayOneShot(clips[1]);
         }
     }
 

@@ -8,12 +8,11 @@ TagManager:
   - MyGoal
   - Pack
   - Pack(Poison)
-  - Pack(Illusion)
-  - Stadium
   - Wall
   - Pet
   - Enemy
   - SceneManager
+  - Stadium
   layers:
   - Default
   - TransparentFX

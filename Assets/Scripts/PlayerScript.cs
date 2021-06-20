@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
 
     public int speed = 10;
+    public GameObject playerUI;
+
+    private bool gameUI = true;
 
     // Start is called before the first frame update
         void Start()
@@ -16,6 +20,21 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(ARGameManager.gameStep == 3) //スタート時UI表示
+        {
+            if(gameUI)
+            {
+                playerUI.SetActive(true);
+                Debug.Log("gameUI");
+
+                gameUI = false;
+            }
+        }
+
+
+
+
+
         //キーボード操作
         if(ControllManager.pushR){
             MovePlayerR();

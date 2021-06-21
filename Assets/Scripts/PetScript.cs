@@ -54,7 +54,7 @@ public class PetScript : MonoBehaviour
             moveF = false;
             moveB = true;
             }
-            if(this.transform.position.z < 0){
+            if(this.transform.position.z < -1){
                 moveB = false;
                 moveF = true;
             }

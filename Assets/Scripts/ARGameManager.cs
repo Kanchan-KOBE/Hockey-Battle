@@ -84,7 +84,7 @@ public class ARGameManager : MonoBehaviour
 
     //CAMERA=============================================
     void CameraTilt(){
-        if(mainCamera.transform.localEulerAngles.x < 61){
+        if(mainCamera.transform.localEulerAngles.x < 60){
             mainCamera.transform.Rotate(new Vector3(10,0,0) * Time.deltaTime * 1000, Space.World);
         }
     }

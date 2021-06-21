@@ -10,6 +10,7 @@ public class PackScript : MonoBehaviour
 
     private LPManager lPManager;
     public AudioClip[] clips;
+    [SerializeField] Material[] packMaterials;
 
     private bool start = true;
 
@@ -32,7 +33,7 @@ public class PackScript : MonoBehaviour
         {
             if(start){
                 i = Random.Range(-0.5f,0.5f);
-                myRigid.AddForce((transform.forward * -1 + transform.right * i) * speed, ForceMode.VelocityChange);
+                myRigid.AddForce((transform.forward * -1.5f + transform.right * i) * speed, ForceMode.VelocityChange);
                 start = false;
             }
             
@@ -44,17 +45,36 @@ public class PackScript : MonoBehaviour
         if(collision.gameObject.tag == "EnemyGoal"){
             Destroy(this.gameObject);
             lPManager.ELP_Lose();
-        }else if(collision.gameObject.tag == "MyGoal"){
+        }
+        else if(collision.gameObject.tag == "MyGoal"){
             Destroy(this.gameObject);
             lPManager.MLP_Lose();
-        }else if(collision.gameObject.tag == "Wall"){
+        }
+        else if(collision.gameObject.tag == "Wall"){
             GetComponent<AudioSource>().PlayOneShot(clips[1]);
-        }else if(collision.gameObject.tag == "Enemy"){
+        }
+        else if(collision.gameObject.tag == "Enemy"){
+            this.tag = "Pack";
+            this.GetComponent<Renderer>().material = packMaterials[0];
             GetComponent<AudioSource>().PlayOneShot(clips[1]);
-        }else if(collision.gameObject.tag == "Player"){
+        }
+        else if(collision.gameObject.tag == "Player"){
+            this.tag = "Pack";
+            this.GetComponent<Renderer>().material = packMaterials[0];
             GetComponent<AudioSource>().PlayOneShot(clips[1]);
-        }else if(collision.gameObject.tag == "Pet"){
+        }
+        else if(collision.gameObject.tag == "Poison"){
+            this.tag = "Pack(Poison)";
+            this.GetComponent<Renderer>().material = packMaterials[1];
             GetComponent<AudioSource>().PlayOneShot(clips[1]);
+        }
+        else if(collision.gameObject.tag == "Illusioner"){
+            this.tag = "Pack(Illusion)";
+            this.GetComponent<Renderer>().material = packMaterials[2];
+            GetComponent<AudioSource>().PlayOneShot(clips[2]);
+        }
+        else if(collision.gameObject.tag == "Pet"){
+            GetComponent<AudioSource>().PlayOneShot(clips[0]);
         }
     }
 

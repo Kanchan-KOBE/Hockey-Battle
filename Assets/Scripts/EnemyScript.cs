@@ -16,7 +16,6 @@ public class EnemyScript : MonoBehaviour
 
 
 
-    public int number = 0;
     [SerializeField] string enemyName;
     [SerializeField] Sprite enemyImg;
     [SerializeField] int speed = 10;
@@ -41,6 +40,7 @@ public class EnemyScript : MonoBehaviour
         iconImg.sprite = enemyImg;
         cutInImg.sprite = enemyImg;
         nameE.text = enemyName;
+
     }
 
     // Update is called once per frame

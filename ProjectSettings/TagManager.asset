@@ -12,6 +12,9 @@ TagManager:
   - Pet
   - Enemy
   - SceneManager
+  - Poison
+  - Pack(Illusion)
+  - Illusioner
   - Stadium
   layers:
   - Default

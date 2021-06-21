@@ -123,6 +123,14 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Pack(Poison)"){
+            if(this.transform.localScale.x >1)
+            this.transform.localScale -= new Vector3(1000,0,0);
+        }
+    }
+
 
     //SKILLS-------------------------------------------------------
     void LifeCharge(){

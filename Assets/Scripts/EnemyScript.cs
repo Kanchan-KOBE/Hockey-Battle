@@ -5,11 +5,25 @@ using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour
 {
+    public static bool cutInE = false;
+    [SerializeField] GameObject enemyUI;
+    [SerializeField] GameObject cutInUI;
+
+    [SerializeField] Image iconImg;
+    [SerializeField] Image cutInImg;
+    [SerializeField] Text nameE;
+
+
+
+
     public int number = 0;
-    public GameObject enemyUI;
+    [SerializeField] string enemyName;
+    [SerializeField] Sprite enemyImg;
     [SerializeField] int speed = 10;
     [SerializeField] int width = 5;
     [SerializeField] GameObject pet;
+
+    //SKILLS
     [SerializeField] bool lifeCharge = false;
     [SerializeField] bool lifeChargePlus = false;
     [SerializeField] bool pets = false;
@@ -24,7 +38,9 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        iconImg.sprite = enemyImg;
+        cutInImg.sprite = enemyImg;
+        nameE.text = enemyName;
     }
 
     // Update is called once per frame
@@ -36,13 +52,22 @@ public class EnemyScript : MonoBehaviour
             LPManager.zombieCheckE = false;
         }
 
+        if(cutInE){
+            cutInUI.SetActive(true);
+        }else{
+            cutInUI.SetActive(false);
+        }
+        if(ARGameManager.gameStep == 2) //スタート時UI表示
+        {
+            cutInE = true;
+        }
 
         if(ARGameManager.gameStep == 3) //スタート時UI表示
         {
             if(gameUI)
             {
+                cutInE = false;
                 enemyUI.SetActive(true);
-                Debug.Log("gameUI");
 
                 gameUI = false;
             }
@@ -54,7 +79,6 @@ public class EnemyScript : MonoBehaviour
                 SpawnPet();
                 LifeCharge();
                 LifeChargePlus();
-                Debug.Log("skill1");
 
                 skill1 = false;
             }
@@ -62,23 +86,26 @@ public class EnemyScript : MonoBehaviour
 
 
 
-        
-        if(this.transform.position.x > width){ //移動-----
-            moveR = false;
-            moveL = true;
-        }
-        if(this.transform.position.x < width * -1){
-            moveL = false;
-            moveR = true;
-        }
+        if(ARGameManager.gameStep == 6) //Game実行
+        {
+            if(this.transform.position.x > width){ //移動-----
+                moveR = false;
+                moveL = true;
+            }
+            if(this.transform.position.x < width * -1){
+                moveL = false;
+                moveR = true;
+            }
 
-        if(moveR){
-            this.transform.position += new Vector3(1,0,0) * speed * Time.deltaTime;
-        }
-        if(moveL){
-            this.transform.position += new Vector3(-1,0,0) * speed * Time.deltaTime;
+            if(moveR){
+                this.transform.position += new Vector3(1,0,0) * speed * Time.deltaTime;
+            }
+            if(moveL){
+                this.transform.position += new Vector3(-1,0,0) * speed * Time.deltaTime;
+            }
         }
     }
+
 
 
 //SKILLS===============================================================================
@@ -110,7 +137,7 @@ public class EnemyScript : MonoBehaviour
             int i = Random.Range(0,99);
             Debug.Log(i);
             if(i < 30){
-                LPManager.LifeEnemy ++;
+                LPManager.LifeEnemy = 1;
             }else{
                 ARGameManager.isWin = true;
             }

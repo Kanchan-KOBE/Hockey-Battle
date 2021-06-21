@@ -61,7 +61,7 @@ public class LPManager : MonoBehaviour
         LifePlayer -= 1;
         if(LifePlayer == 0){
             zombieCheckP = true;
-            Debug.Log("You Lose..");
+            StartCoroutine("HogeZombieP");
         }else{
             Debug.Log(LifePlayer + "-" + LifeEnemy);
             StartCoroutine("HogeGoal");
@@ -73,7 +73,7 @@ public class LPManager : MonoBehaviour
         LifeEnemy -= 1;
         if(LifeEnemy == 0){
             zombieCheckE = true;
-            StartCoroutine("HogeZombie");
+            StartCoroutine("HogeZombieE");
         }else{
             Debug.Log(LifePlayer + "-" + LifeEnemy);
             StartCoroutine("HogeGoal");
@@ -89,14 +89,31 @@ public class LPManager : MonoBehaviour
         myManager.GoalUI_Delete();
         packManager.SpawnPack();
     }
-    private IEnumerator HogeZombie()
+
+    private IEnumerator HogeZombieP()
     {
         yield return new WaitForSeconds(1.0f);
         if(ARGameManager.isWin){
+        }else if(ARGameManager.isLose){
         }else{
-        Debug.Log("zombie");
-        yield return new WaitForSeconds(3.0f);
-        packManager.SpawnPack();
+            Debug.Log("zombieP");
+            PlayerScript.cutInP = true;
+            yield return new WaitForSeconds(2.0f);
+            PlayerScript.cutInP = false;
+            packManager.SpawnPack();
+        }
+    }
+    private IEnumerator HogeZombieE()
+    {
+        yield return new WaitForSeconds(1.0f);
+        if(ARGameManager.isWin){
+        }else if(ARGameManager.isLose){
+        }else{
+            Debug.Log("zombieP");
+            EnemyScript.cutInE = true;
+            yield return new WaitForSeconds(2.0f);
+            EnemyScript.cutInE = false;
+            packManager.SpawnPack();
         }
     }
 

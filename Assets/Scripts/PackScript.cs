@@ -11,14 +11,15 @@ public class PackScript : MonoBehaviour
     private LPManager lPManager;
     public AudioClip[] clips;
 
+    private bool start = true;
+
     // Start is called before the first frame update
     void Start()
     {
         lPManager = GameObject.Find("LPManager").GetComponent<LPManager>();
 
         myRigid = GetComponent<Rigidbody>();
-        i = Random.Range(-0.5f,0.5f);
-        myRigid.AddForce((transform.forward * -1 + transform.right * i) * speed, ForceMode.VelocityChange);
+        
 
         AudioSource audio = GetComponent<AudioSource>();
     }
@@ -27,7 +28,15 @@ public class PackScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(ARGameManager.gameStep == 6) //Game実行
+        {
+            if(start){
+                i = Random.Range(-0.5f,0.5f);
+                myRigid.AddForce((transform.forward * -1 + transform.right * i) * speed, ForceMode.VelocityChange);
+                start = false;
+            }
+            
+        }
     }
 
     public void OnCollisionEnter(Collision collision)

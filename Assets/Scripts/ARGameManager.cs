@@ -57,10 +57,12 @@ public class ARGameManager : MonoBehaviour
 
     //UI===================================================
     public void LoseUI(){
+        PlayerScript.cutInP = false;
         uI_LOSE.SetActive(true);
     }
 
      public void WinUI(){
+         EnemyScript.cutInE = false;
         uI_WIN.SetActive(true);
     }
 
@@ -100,38 +102,39 @@ public class ARGameManager : MonoBehaviour
         gameStep ++; //1
 
         //step1(カメラ移動2.5秒)
-        yield return new WaitForSeconds(0.003f);
+        yield return new WaitForSeconds(0.004f);
         gameStep ++; //2
 
         //step2（カットイン３秒）
+        Time.timeScale = 1.0f;
         //true
-        yield return new WaitForSeconds(0.003f);
+        yield return new WaitForSeconds(2.5f);
         //false
         gameStep ++; //3
 
         //step3(MainUI表示、LP=3)（０.5秒）
         uI_Main.SetActive(true);
         lPManager.LPReset();
-        yield return new WaitForSeconds(0.0005f);
+        yield return new WaitForSeconds(0.5f);
         gameStep ++; //4
 
         //step4(Pack生成)(スキル発動)
         packManager.SpawnPack();
-        yield return new WaitForSeconds(0.0005f);
+        yield return new WaitForSeconds(0.5f);
         gameStep ++;//5
 
         //step5（カウントダウン）
         textCount.text = "3";
-        yield return new WaitForSeconds(0.001f);
+        yield return new WaitForSeconds(1f);
         textCount.text = "2";
-        yield return new WaitForSeconds(0.001f);
+        yield return new WaitForSeconds(1f);
         textCount.text = "1";
-        yield return new WaitForSeconds(0.001f);
+        yield return new WaitForSeconds(1f);
         textCount.text = "Go!";
-        yield return new WaitForSeconds(0.001f);
+        yield return new WaitForSeconds(1f);
         textCount.text = "";
-        Time.timeScale = 1.0f;
 
-        gameStep = 0;
+
+        gameStep ++;//6
     }
 }

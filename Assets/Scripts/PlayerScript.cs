@@ -6,32 +6,79 @@ using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour
 {
 
+    public static bool cutInP = false;
+    [SerializeField] GameObject playerUI;
+    [SerializeField] GameObject cutInUI;
+
+    [SerializeField] Image iconImg;
+    [SerializeField] Image cutInImg;
+    [SerializeField] Text nameP;
+
+    [SerializeField] string playerName;
+    [SerializeField] Sprite playerImg;
+    [SerializeField] GameObject pet;
     public int speed = 10;
-    public GameObject playerUI;
+
+    //SKILLS
+    [SerializeField] bool lifeCharge = false;
+    [SerializeField] bool lifeChargePlus = false;
+    [SerializeField] bool pets = false;
+    [SerializeField] bool zombie = false;
+
+
 
     private bool gameUI = true;
+    private bool skill1 = true;
 
     // Start is called before the first frame update
         void Start()
     {
-        
+        iconImg.sprite = playerImg;
+        cutInImg.sprite = playerImg;
+        nameP.text = playerName;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(cutInP){
+            cutInUI.SetActive(true);
+        }else{
+            cutInUI.SetActive(false);
+        }
+        if(ARGameManager.gameStep == 2) //CUT IN
+        {
+            cutInP = true;
+        }
+
         if(ARGameManager.gameStep == 3) //スタート時UI表示
         {
             if(gameUI)
             {
+                cutInP = false;
                 playerUI.SetActive(true);
-                Debug.Log("gameUI");
 
                 gameUI = false;
             }
         }
+        if(ARGameManager.gameStep == 4) //スタート時スキル発動
+        {
+            if(skill1)
+            {
+                SpawnPet();
+                LifeCharge();
+                LifeChargePlus();
 
+                skill1 = false;
+            }
+        }
 
+        if(LPManager.zombieCheckP)//SKILL ゾンビ
+        {
+            Zombie();
+            cutInP = true;
+            LPManager.zombieCheckP = false;
+        }
 
 
 
@@ -73,6 +120,46 @@ public class PlayerScript : MonoBehaviour
     {
         if(this.transform.position.x > -5.5){
             this.transform.position += new Vector3(-1,0,0) * speed * Time.deltaTime;
+        }
+    }
+
+
+    //SKILLS-------------------------------------------------------
+    void LifeCharge(){
+        if(lifeCharge){
+            if(LPManager.LifePlayer < 5){
+            LPManager.LifePlayer += 1;
+            }
+        }
+
+    }
+    void LifeChargePlus(){
+        if(lifeChargePlus){
+            for(int i = 0; i < 2; i++){
+                if(LPManager.LifePlayer < 5){
+                    LPManager.LifePlayer += 1;
+                }
+            }
+        }
+
+    }
+    void SpawnPet(){
+        if(pets){
+            Instantiate(pet,new Vector3(0f,1f,-4f), Quaternion.Euler(0f,180f,0f));
+        }
+    }
+    void Zombie(){
+        if(zombie){
+            int i = Random.Range(0,99);
+            Debug.Log(i);
+            if(i < 90){
+                LPManager.LifePlayer = 1;
+            }else{
+                ARGameManager.isLose = true;
+            }
+        }else
+        {
+            ARGameManager.isLose = true;
         }
     }
 }

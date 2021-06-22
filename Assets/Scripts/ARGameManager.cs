@@ -35,6 +35,7 @@ public class ARGameManager : MonoBehaviour
     {
         isWin = false;
         isLose = false;
+        PackScript.poisonTime = false;
         StartCoroutine("HogeGameStart");
     }
    

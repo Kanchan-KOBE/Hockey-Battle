@@ -83,9 +83,9 @@ public class PlayerScript : MonoBehaviour
 
 
         if(PackScript.poisonTime){
-            if(this.transform.localScale.x > 0.7){
+            if(this.transform.localScale.x > 0.5){
                 this.transform.localScale -= new Vector3(0.1f,0f,0f) * Time.deltaTime;
-            }if(this.transform.localScale.z > 0.7){
+            }if(this.transform.localScale.z > 0.5){
                 this.transform.localScale -= new Vector3(0f,0f,0.1f) * Time.deltaTime;
             }
         }

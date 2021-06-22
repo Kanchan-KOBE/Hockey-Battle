@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 868447948305431435}
   m_Layer: 0
   m_Name: Eye (2)
-  m_TagString: Enemy
+  m_TagString: Poison
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 3487131364283048913}
   m_Layer: 0
   m_Name: Eye
-  m_TagString: Enemy
+  m_TagString: Poison
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1140,7 +1140,7 @@ GameObject:
   - component: {fileID: 9066596938958862575}
   m_Layer: 0
   m_Name: Eye (1)
-  m_TagString: Enemy
+  m_TagString: Poison
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1408,7 +1408,7 @@ GameObject:
   - component: {fileID: 6411979260383809781}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Enemy
+  m_TagString: Poison
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2232,7 +2232,7 @@ GameObject:
   - component: {fileID: 7463796901295130961}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Enemy
+  m_TagString: Poison
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2337,16 +2337,15 @@ MonoBehaviour:
   iconImg: {fileID: 5586709587423164918}
   cutInImg: {fileID: 504482841741394736}
   nameE: {fileID: 6803171234756065277}
-  number: 10
   enemyName: Boss
   enemyImg: {fileID: 21300000, guid: 2dc7177a2d11a41a089eac126d2e3ad1, type: 3}
   speed: 1
-  width: 7
+  width: 5
   pet: {fileID: 3967562660225834878, guid: 098e0f6c4426e499584ba27409d9cc59, type: 3}
-  lifeCharge: 0
+  lifeCharge: 1
   lifeChargePlus: 0
   pets: 1
-  zombie: 0
+  zombie: 1
 --- !u!1 &8172792524612795749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,7 +2455,7 @@ GameObject:
   - component: {fileID: 2481549424735842210}
   m_Layer: 0
   m_Name: Eye (5)
-  m_TagString: Enemy
+  m_TagString: Poison
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2553,7 +2552,7 @@ GameObject:
   - component: {fileID: 1871893421213155925}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Enemy
+  m_TagString: Poison
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2743,7 +2742,7 @@ GameObject:
   - component: {fileID: 4688203664366871996}
   m_Layer: 0
   m_Name: Eye (3)
-  m_TagString: Enemy
+  m_TagString: Poison
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

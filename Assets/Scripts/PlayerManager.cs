@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
 
     public void playerSpawn(int playerNumber)
     {
-        Instantiate(Players[playerNumber], new Vector3(0f,1.0f,-7f), transform.rotation);
+        Instantiate(Players[playerNumber], new Vector3(0f,1.0f,-7.5f), transform.rotation);
     }
 
 }

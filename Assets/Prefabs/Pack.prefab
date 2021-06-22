@@ -95,8 +95,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 3146fcc244a2f4f2eb2798b914fa27da, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.5
+  m_Height: 0.1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6445132175535304686
@@ -113,7 +113,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &6445132175535304211
 MonoBehaviour:
@@ -129,9 +129,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 11
   clips:
-  - {fileID: 8300000, guid: c07ba0285608d43ca87ad468a4cbfa72, type: 3}
   - {fileID: 8300000, guid: 0b93ffbbd56ff4254993d594511b90b2, type: 3}
-  - {fileID: 8300000, guid: 87b135cb129e549fb98eba9b3eb16c9c, type: 3}
+  - {fileID: 8300000, guid: daa5be1576cb74980a9ca58de8f21af7, type: 3}
+  - {fileID: 8300000, guid: 6f624d276206741d38df6c1329fd7f24, type: 3}
+  - {fileID: 8300000, guid: aeca64e1eb71e4ed0997123216306e15, type: 3}
   packMaterials:
   - {fileID: 2100000, guid: 5d068a79ac8fc4d82b0c1cb0d6fab46f, type: 2}
   - {fileID: 2100000, guid: 6649092fa8b3745829291d2182013a30, type: 2}

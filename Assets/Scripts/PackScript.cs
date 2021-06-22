@@ -5,6 +5,7 @@ using UnityEngine;
 public class PackScript : MonoBehaviour
 {
     public byte speed = 9;
+    public static bool poisonTime = false;
     private float i = 0;
     private Rigidbody myRigid;
 
@@ -33,11 +34,18 @@ public class PackScript : MonoBehaviour
         {
             if(start){
                 i = Random.Range(-0.5f,0.5f);
-                myRigid.AddForce((transform.forward * -1.5f + transform.right * i) * speed, ForceMode.VelocityChange);
+                myRigid.AddForce((transform.forward * -1.2f + transform.right * i) * speed, ForceMode.VelocityChange);
                 start = false;
             }
             
         }
+    }
+
+    private IEnumerator HogePoisonTime()
+    {
+        poisonTime = true;
+        yield return new WaitForSeconds(0.3f);
+        poisonTime = false;
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -51,17 +59,25 @@ public class PackScript : MonoBehaviour
             lPManager.MLP_Lose();
         }
         else if(collision.gameObject.tag == "Wall"){
-            GetComponent<AudioSource>().PlayOneShot(clips[1]);
+            GetComponent<AudioSource>().PlayOneShot(clips[0]);
         }
         else if(collision.gameObject.tag == "Enemy"){
             this.tag = "Pack";
             this.GetComponent<Renderer>().material = packMaterials[0];
-            GetComponent<AudioSource>().PlayOneShot(clips[1]);
+            GetComponent<AudioSource>().PlayOneShot(clips[0]);
         }
         else if(collision.gameObject.tag == "Player"){
-            this.tag = "Pack";
-            this.GetComponent<Renderer>().material = packMaterials[0];
-            GetComponent<AudioSource>().PlayOneShot(clips[1]);
+            if(this.tag == "Pack(Poison)"){
+                StartCoroutine("HogePoisonTime");
+                this.GetComponent<Renderer>().material = packMaterials[0];
+                GetComponent<AudioSource>().PlayOneShot(clips[1]);
+                this.tag = "Pack";
+            }else{
+                this.tag = "Pack";
+                this.GetComponent<Renderer>().material = packMaterials[0];
+                GetComponent<AudioSource>().PlayOneShot(clips[0]);
+            }
+            
         }
         else if(collision.gameObject.tag == "Poison"){
             this.tag = "Pack(Poison)";
@@ -74,7 +90,7 @@ public class PackScript : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(clips[2]);
         }
         else if(collision.gameObject.tag == "Pet"){
-            GetComponent<AudioSource>().PlayOneShot(clips[0]);
+            GetComponent<AudioSource>().PlayOneShot(clips[3],1.0f);
         }
     }
 

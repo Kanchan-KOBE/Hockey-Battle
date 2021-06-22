@@ -41,7 +41,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cutInP){
+        if(cutInP){ //CUT IN
             cutInUI.SetActive(true);
         }else{
             cutInUI.SetActive(false);
@@ -50,6 +50,7 @@ public class PlayerScript : MonoBehaviour
         {
             cutInP = true;
         }
+
 
         if(ARGameManager.gameStep == 3) //スタート時UI表示
         {
@@ -81,6 +82,13 @@ public class PlayerScript : MonoBehaviour
         }
 
 
+        if(PackScript.poisonTime){
+            if(this.transform.localScale.x > 0.7){
+                this.transform.localScale -= new Vector3(0.1f,0f,0f) * Time.deltaTime;
+            }if(this.transform.localScale.z > 0.7){
+                this.transform.localScale -= new Vector3(0f,0f,0.1f) * Time.deltaTime;
+            }
+        }
 
         //キーボード操作
         if(ControllManager.pushR){
@@ -123,13 +131,6 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Pack(Poison)"){
-            if(this.transform.localScale.x >1)
-            this.transform.localScale -= new Vector3(1000,0,0);
-        }
-    }
 
 
     //SKILLS-------------------------------------------------------

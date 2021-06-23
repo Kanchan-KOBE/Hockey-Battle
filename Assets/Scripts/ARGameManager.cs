@@ -7,7 +7,9 @@ public class ARGameManager : MonoBehaviour
 {
     public static bool isWin = false;
     public static bool isLose = false;
+
     public static int gameStep = 0;
+    public static int winCounter = 0;
 
 
     public static int plusScore = 0;
@@ -35,6 +37,8 @@ public class ARGameManager : MonoBehaviour
     [SerializeField] Text txtPlusScore;
     [SerializeField] Text[] txtNewScore;
     public AudioClip[] clips;
+
+    private bool u = true;
 
     void Awake()
     {
@@ -80,19 +84,21 @@ public class ARGameManager : MonoBehaviour
 
     //UI===================================================
     public void LoseUI(){
-        PlayerScript.cutInP = false;
-        if(SceneManager00.stage == 0){
-            newScore = newScore + plusScore;
+        txtNewScore[1].text = newScore.ToString();
 
-            for(int i = 1; i < 2; i ++){
-                txtNewScore[i].text = newScore.ToString();
-            }
+        if(SceneManager00.stage == 1){
+            txtNewScore[1].text = newScore.ToString();
+            txtNewScore[2].text = newScore.ToString();
 
             if(GameManager.highScore < newScore){
+                GameManager.highScore = newScore;
+                txtNewScore[1].text = newScore.ToString();
                 uI_NewRecord.SetActive(true);
             }else{
+                txtNewScore[2].text = newScore.ToString();
                 uI_Result.SetActive(true);
             }
+
         }else{
             uI_LOSE.SetActive(true);
         }
@@ -101,14 +107,21 @@ public class ARGameManager : MonoBehaviour
 
      public void WinUI(){
         if(SceneManager00.stage == 1){
-            plusScore = (level * 100 + LPManager.LifePlayer * 100) * scoreMag ;
-            newScore = newScore + plusScore;
-            txtPlusScore.text = plusScore.ToString();
-            txtNewScore[0].text = newScore.ToString();
+            if(isWin){
+                if(u){
+                    winCounter ++;
+                    plusScore = (level * 100 + LPManager.LifePlayer * 100) * scoreMag * winCounter;
+                    newScore = newScore + plusScore;
+                    txtPlusScore.text = plusScore.ToString();
+                    txtNewScore[0].text = newScore.ToString();
+                    u = false;
+                }
+            }
+            
         }
+
         EnemyScript.cutInE = false;
         uI_WIN.SetActive(true);
-
     }
 
     public void GoalUI(){

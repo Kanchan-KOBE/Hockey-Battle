@@ -166,7 +166,7 @@ public class PlayerScript : MonoBehaviour
         if(zombie){
             int i = Random.Range(0,99);
             Debug.Log(i);
-            if(i < 90){
+            if(i < 30){
                 LPManager.LifePlayer = 1;
             }else{
                 ARGameManager.isLose = true;

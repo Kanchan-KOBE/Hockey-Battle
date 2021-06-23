@@ -5953,8 +5953,8 @@ MonoBehaviour:
   uI_Main: {fileID: 417476308}
   uI_WIN: {fileID: 1763570642}
   uI_LOSE: {fileID: 1358501375}
-  uI_Result: {fileID: 0}
-  uI_NewRecord: {fileID: 0}
+  uI_Result: {fileID: 1462414860}
+  uI_NewRecord: {fileID: 1358501375}
   uI_Goal: {fileID: 1547145667}
   uI_Pause: {fileID: 1753067784}
   textCount: {fileID: 423845971}

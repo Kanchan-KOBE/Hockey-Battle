@@ -8,8 +8,8 @@ public class LPManager : MonoBehaviour
     // public PackFactory packFactory;
     public ARGameManager myManager;
     public PackManager packManager;
-    public static byte LifePlayer = 0;
-    public static byte LifeEnemy = 0;
+    public static byte LifePlayer = 3;
+    public static byte LifeEnemy = 3;
 
     public static bool zombieCheckE = false;
     public static bool zombieCheckP = false;
@@ -18,17 +18,15 @@ public class LPManager : MonoBehaviour
     public Image[] hartsE;
     public Sprite hart;
     public Sprite noImage;
+    [SerializeField] GameObject heartP;
+    [SerializeField] GameObject heartE;
 
   
 
     // Start is called before the first frame update
     void Start()
     {
-        if(SceneManager00.stage == 0)
-        {
-            LifePlayer = 0;
-            LifeEnemy = 0;
-        }
+        
     }
 
     // Update is called once per frame
@@ -40,8 +38,15 @@ public class LPManager : MonoBehaviour
     }
 
     public void LPReset(){ 
-        LifePlayer = 3;
-        LifeEnemy = 3;
+        if(SceneManager00.stage == 0){
+            LifePlayer = 3;
+            LifeEnemy = 3;
+        }else if(SceneManager00.stage == 1){
+            LifeEnemy = 3;
+        }
+
+        heartP.SetActive(true);
+        heartE.SetActive(true);
 
     }
 

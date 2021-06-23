@@ -24,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] bool lifeChargePlus = false;
     [SerializeField] bool pets = false;
     [SerializeField] bool zombie = false;
+    [SerializeField] bool lucky = false;
 
 
 
@@ -36,6 +37,10 @@ public class PlayerScript : MonoBehaviour
         iconImg.sprite = playerImg;
         cutInImg.sprite = playerImg;
         nameP.text = playerName;
+
+        if(lucky){
+            ARGameManager.scoreMag = 3;
+        }
     }
 
     // Update is called once per frame

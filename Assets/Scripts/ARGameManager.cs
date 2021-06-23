@@ -8,6 +8,15 @@ public class ARGameManager : MonoBehaviour
     public static bool isWin = false;
     public static bool isLose = false;
     public static int gameStep = 0;
+
+
+    public static int plusScore = 0;
+    public static int newScore = 0;
+    public static int scoreMag = 2;
+
+
+    private int level;
+
     public LPManager lPManager;
     public PackManager packManager;
     public EnemyManager enemyManager;
@@ -17,16 +26,28 @@ public class ARGameManager : MonoBehaviour
     public GameObject uI_Main;
     public GameObject uI_WIN;
     public GameObject uI_LOSE;
+    public GameObject uI_Result;
+    public GameObject uI_NewRecord;
     public GameObject uI_Goal;
     public GameObject uI_Pause;
 
-    public Text textCount;
+    [SerializeField] Text textCount;
+    [SerializeField] Text txtPlusScore;
+    [SerializeField] Text[] txtNewScore;
     public AudioClip[] clips;
 
     void Awake()
     {
         GameManager.unlockS[EnemyManager.enemyNumber] = true;
+        scoreMag = 1;
         gameStep = 0;
+
+        int i = EnemyManager.enemyNumber - PlayerManager.playerNumber;
+        if(i > 0){
+            level = i;
+        }else{
+            level = 0;
+        }
     }
 
 
@@ -36,6 +57,7 @@ public class ARGameManager : MonoBehaviour
         isWin = false;
         isLose = false;
         PackScript.poisonTime = false;
+        AudioSource audio = GetComponent<AudioSource>();
         StartCoroutine("HogeGameStart");
     }
    
@@ -59,12 +81,34 @@ public class ARGameManager : MonoBehaviour
     //UI===================================================
     public void LoseUI(){
         PlayerScript.cutInP = false;
-        uI_LOSE.SetActive(true);
+        if(SceneManager00.stage == 0){
+            newScore = newScore + plusScore;
+
+            for(int i = 1; i < 2; i ++){
+                txtNewScore[i].text = newScore.ToString();
+            }
+
+            if(GameManager.highScore < newScore){
+                uI_NewRecord.SetActive(true);
+            }else{
+                uI_Result.SetActive(true);
+            }
+        }else{
+            uI_LOSE.SetActive(true);
+        }
+        newScore = 0;
     }
 
      public void WinUI(){
-         EnemyScript.cutInE = false;
+        if(SceneManager00.stage == 1){
+            plusScore = (level * 100 + LPManager.LifePlayer * 100) * scoreMag ;
+            newScore = newScore + plusScore;
+            txtPlusScore.text = plusScore.ToString();
+            txtNewScore[0].text = newScore.ToString();
+        }
+        EnemyScript.cutInE = false;
         uI_WIN.SetActive(true);
+
     }
 
     public void GoalUI(){
@@ -125,6 +169,7 @@ public class ARGameManager : MonoBehaviour
         gameStep ++;//5
 
         //step5（カウントダウン）
+        GetComponent<AudioSource>().PlayOneShot(clips[0]);
         textCount.text = "3";
         yield return new WaitForSeconds(1f);
         textCount.text = "2";

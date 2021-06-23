@@ -20,6 +20,7 @@ public class PlayerSelectManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("stage" + SceneManager00.stage);
         
         for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){ //アンロックされているキャラのボタンの表示を変更
             if(GameManager.unlockP[i]){

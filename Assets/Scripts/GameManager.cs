@@ -5,29 +5,29 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static int highScore = 0;
+
 
     public static int howManyPlayersPlusOne = 3;
     public static int howManyEnemysPlusOne = 3;
-    // public bool[] unlockPtest = new bool[howManyPlayersPlusOne];
+
     public static bool[] unlockP = new bool[howManyPlayersPlusOne];
 
-
     public static int howManyStagesPlusOne = 3;
-    // public bool[] unlockStest = new bool[howManyStagesPlusOne];
     public static bool[] unlockS = new bool[howManyStagesPlusOne];
 
     public int numberPlayer = 0;
     public int numberEnemy = 0;
 
 
-    // Start is called before the first frame update
+
     void Start()
     {
          
     }
    
 
-    // Update is called once per frame
+
     void Update()
     {
         

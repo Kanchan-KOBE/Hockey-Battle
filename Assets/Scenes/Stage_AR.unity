@@ -5939,8 +5939,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players:
   - {fileID: 6401145683965065552, guid: dc75ae9b3f06d43d7a182f3e789003f5, type: 3}
-  - {fileID: 7845095640395507265, guid: 97dce3d41d678420cafe141eae90053e, type: 3}
-  - {fileID: 7845095640395507265, guid: 7a683934b5cd0480d95fadc8186186fd, type: 3}
+  - {fileID: 6401145683965065552, guid: dc75ae9b3f06d43d7a182f3e789003f5, type: 3}
+  - {fileID: 6401145683965065552, guid: dc75ae9b3f06d43d7a182f3e789003f5, type: 3}
   setPlayerNumber: 0
 --- !u!1 &1676575819
 GameObject:

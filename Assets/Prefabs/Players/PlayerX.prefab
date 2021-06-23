@@ -140,7 +140,7 @@ MonoBehaviour:
   pet: {fileID: 3967562660225834878, guid: 098e0f6c4426e499584ba27409d9cc59, type: 3}
   speed: 8
   lifeCharge: 0
-  lifeChargePlus: 0
+  lifeChargePlus: 1
   pets: 0
   zombie: 1
 --- !u!82 &2407525113540769077

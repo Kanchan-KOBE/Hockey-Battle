@@ -7,8 +7,7 @@ public class SceneManager00 : MonoBehaviour
 {
 
     public int currentIndex;
-    public static int stage = 0;
-    public static int sm = 0;
+    public static int stage ;
     public int i = 0;
 
     public AudioClip[] clips;
@@ -57,7 +56,7 @@ public class SceneManager00 : MonoBehaviour
             if(stage == 0){
                 SceneManager.LoadScene("StageSelectScene");
             }else if(stage == 1){
-                SceneManager.LoadScene("Stage_SV");
+                ToSV();
             }
         }
     }
@@ -76,9 +75,15 @@ public class SceneManager00 : MonoBehaviour
     public void ToStageSelect(){
         SceneManager.LoadScene("StageSelectScene");
     }
+    public void ToSV(){
+        EnemyManager.enemyNumber = Random.Range(0,GameManager.howManyEnemysPlusOne);
+        Debug.Log("Enemy" + EnemyManager.enemyNumber);
+        SceneManager.LoadScene("Stage_SV");
+    }
+
 
     //stage(0=ARCADE,1=SURVIVAL)
     public void GetStage(int i){
-        i = stage;
+        stage = i;
     }
 }

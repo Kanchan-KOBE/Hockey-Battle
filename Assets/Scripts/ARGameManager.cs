@@ -107,6 +107,7 @@ public class ARGameManager : MonoBehaviour
         }else{
             uI_LOSE.SetActive(true);
         }
+        winCounter = 0;
         newScore = 0;
     }
 

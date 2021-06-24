@@ -1791,7 +1791,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 900, y: 1600}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2748,7 +2748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &701378876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2781,7 +2781,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 900, y: 1600}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2852,7 +2852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &727615424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2885,7 +2885,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 900, y: 1600}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3442,14 +3442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentIndex: 0
   i: 0
-  clips:
-  - {fileID: 8300000, guid: 017007330cb1e471aaac9eb732affdfd, type: 3}
-  - {fileID: 8300000, guid: cfecad66cf6e2451081d3e0e8331046f, type: 3}
-  - {fileID: 8300000, guid: cc1a86436ef5b44729b47b26008f912d, type: 3}
-  - {fileID: 8300000, guid: a279dd26a883240c9bef2cc589557a81, type: 3}
-  - {fileID: 8300000, guid: 418b4e8398b85478dbaba311ac021474, type: 3}
-  - {fileID: 8300000, guid: a537f7e4b59604e44a2b0be2c0ea7e45, type: 3}
-  - {fileID: 8300000, guid: 3a70f66d421c34937957ebdea506fc30, type: 3}
+  clips: []
 --- !u!4 &1009595101
 Transform:
   m_ObjectHideFlags: 0
@@ -4602,7 +4595,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 900, y: 1600}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5347,7 +5340,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 900, y: 1600}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5426,6 +5419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2faaee3295f944aec8ce8e3b65fa8752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myManager: {fileID: 697110725}
   lPManager: {fileID: 2126084431}
   packManager: {fileID: 791087309}
   enemyManager: {fileID: 188997082}
@@ -5435,10 +5429,15 @@ MonoBehaviour:
   uI_Main: {fileID: 417476308}
   uI_WIN: {fileID: 1763570642}
   uI_LOSE: {fileID: 1358501375}
+  uI_Result: {fileID: 0}
+  uI_NewRecord: {fileID: 0}
   uI_Goal: {fileID: 1547145667}
   uI_Pause: {fileID: 1753067784}
   textCount: {fileID: 423845971}
-  clips: []
+  txtPlusScore: {fileID: 0}
+  txtNewScore: []
+  clips:
+  - {fileID: 8300000, guid: ae3da458a61e04219b191605f9a3f658, type: 3}
 --- !u!4 &1597727515
 Transform:
   m_ObjectHideFlags: 0
@@ -5463,8 +5462,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 826eb6aac1cee42599bce88c9cdd3642, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -6226,7 +6225,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 900, y: 1600}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -6327,7 +6326,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 900, y: 1600}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -7753,9 +7752,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2126084435}
-  - component: {fileID: 2126084434}
-  - component: {fileID: 2126084433}
-  - component: {fileID: 2126084432}
   - component: {fileID: 2126084431}
   - component: {fileID: 2126084436}
   m_Layer: 0
@@ -7793,68 +7789,8 @@ MonoBehaviour:
   - {fileID: 1069779365}
   hart: {fileID: 21300000, guid: 1f9a4714dfc315d48b8e91e5453067ae, type: 3}
   noImage: {fileID: 21300000, guid: cbb742ce6c0d4481fb5fce33ec59f599, type: 3}
---- !u!65 &2126084432
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2126084430}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &2126084433
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2126084430}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &2126084434
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2126084430}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  heartP: {fileID: 727615422}
+  heartE: {fileID: 701378875}
 --- !u!4 &2126084435
 Transform:
   m_ObjectHideFlags: 0

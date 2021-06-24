@@ -75,6 +75,9 @@ public class SceneManager00 : MonoBehaviour
     public void ToStageSelect(){
         SceneManager.LoadScene("StageSelectScene");
     }
+    public void ToRanking(){
+        SceneManager.LoadScene("RankingScene");
+    }
     public void ToSV(){
         EnemyManager.enemyNumber = Random.Range(0,GameManager.howManyEnemysPlusOne);
         Debug.Log("Enemy" + EnemyManager.enemyNumber);

@@ -12,13 +12,14 @@ public class ARGameManager : MonoBehaviour
     public static int winCounter = 0;
 
 
-    public static int plusScore = 0;
+    private int plusScore = 0;
     public static int newScore = 0;
     public static int scoreMag = 2;
 
 
     private int level;
 
+    public GameManager myManager;
     public LPManager lPManager;
     public PackManager packManager;
     public EnemyManager enemyManager;
@@ -84,21 +85,25 @@ public class ARGameManager : MonoBehaviour
 
     //UI===================================================
     public void LoseUI(){
-        txtNewScore[1].text = newScore.ToString();
+        PlayerScript.cutInP = false;
 
         if(SceneManager00.stage == 1){
-            txtNewScore[1].text = newScore.ToString();
-            txtNewScore[2].text = newScore.ToString();
-
-            if(GameManager.highScore < newScore){
-                GameManager.highScore = newScore;
-                txtNewScore[1].text = newScore.ToString();
-                uI_NewRecord.SetActive(true);
-            }else{
-                txtNewScore[2].text = newScore.ToString();
-                uI_Result.SetActive(true);
+            if(isLose){
+                if(u){
+                    Debug.Log("High" + GameManager.highScore + " New" + newScore);
+                    if(GameManager.highScore < newScore){
+                        GameManager.highScore = newScore;
+                        txtNewScore[1].text = newScore.ToString();
+                        uI_NewRecord.SetActive(true);
+                        myManager.SubmitScore();
+                        u = false;
+                    }else{
+                        txtNewScore[2].text = newScore.ToString();
+                        uI_Result.SetActive(true);
+                        u = false;
+                    }
+                }
             }
-
         }else{
             uI_LOSE.SetActive(true);
         }

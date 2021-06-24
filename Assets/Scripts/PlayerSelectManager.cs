@@ -28,12 +28,15 @@ public class PlayerSelectManager : MonoBehaviour
                 imgBtn[i].sprite = imgPlayers[i];
             }
         }
+
+        LPManager.LifePlayer = 3;
+        PlayerManager.playerNumber = 0;
+        ARGameManager.newScore = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         
     }
 

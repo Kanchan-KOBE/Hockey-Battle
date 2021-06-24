@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PackScript : MonoBehaviour
 {
-    public byte speed = 9;
+    public byte speed = 7;
     public static bool poisonTime = false;
     private float i = 0;
     private Rigidbody myRigid;

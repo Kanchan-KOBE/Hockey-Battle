@@ -1,3 +1,5 @@
+using PlayFab;
+using PlayFab.ClientModels;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +25,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-         
+         PlayFabClientAPI.LoginWithCustomID(
+            new LoginWithCustomIDRequest { CustomId = "TestID2", CreateAccount = true},
+            result => Debug.Log("ログイン成功！"),
+            error => Debug.Log("ログイン失敗")
+        );
     }
    
 
@@ -44,6 +50,31 @@ public class GameManager : MonoBehaviour
         unlockS[1] = true;
         
 
+    }
+
+    public void SubmitScore() //スコア送信
+    {
+        PlayFabClientAPI.UpdatePlayerStatistics(
+            new UpdatePlayerStatisticsRequest
+            {
+                Statistics = new List<StatisticUpdate>()
+                {
+                    new StatisticUpdate
+                    {
+                        StatisticName = "HighScore",
+                        Value = highScore
+                    }
+                }
+            },
+            result =>
+            {
+                Debug.Log("スコア送信");
+            },
+            error =>
+            {
+                Debug.Log(error.GenerateErrorReport());
+            }
+            );
     }
 
 }

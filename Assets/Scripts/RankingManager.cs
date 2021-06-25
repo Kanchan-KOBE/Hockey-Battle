@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class RankingManager : MonoBehaviour
 {
     [SerializeField] Text playerHighScore;
+    [SerializeField] Text playerName;
 
     [SerializeField] Text[] rankerScores;
 
@@ -13,6 +14,7 @@ public class RankingManager : MonoBehaviour
     void Start()
     {
         playerHighScore.text = GameManager.highScore.ToString();
+        playerName.text = GameManager.playerName;
     }
 
     // Update is called once per frame

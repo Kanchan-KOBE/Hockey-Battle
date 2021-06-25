@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManager00 : MonoBehaviour
 {
 
-    public int currentIndex;
+    
     public static int stage ;
     public int i = 0;
 
@@ -65,7 +65,8 @@ public class SceneManager00 : MonoBehaviour
         SceneManager.LoadScene("Stage_AR");
     }
     public void ToNextStage(){
-        if(EnemyManager.enemyNumber == 3){
+        int i = GameManager.howManyStagesPlusOne - 1;
+        if(EnemyManager.enemyNumber == i){
             Debug.Log("全クリ");
         }else{
             EnemyManager.enemyNumber += 1;

@@ -3604,6 +3604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHighScore: {fileID: 1177950651}
+  playerName: {fileID: 2108281363}
   rankerScores:
   - {fileID: 372553211}
   - {fileID: 312853004}

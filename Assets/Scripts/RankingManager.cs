@@ -14,7 +14,7 @@ public class RankingManager : MonoBehaviour
     void Start()
     {
         playerHighScore.text = GameManager.highScore.ToString();
-        playerName.text = GameManager.playerName;
+        playerName.text = GameManager.userName;
     }
 
     // Update is called once per frame

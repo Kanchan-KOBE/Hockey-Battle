@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static int highScore = 0;
-    public static string playerName = "未設定";
+    public static string userName = "未設定";
     [SerializeField] GameObject uI_InputField;
 
     public static int howManyPlayersPlusOne = 3;
@@ -21,23 +21,17 @@ public class GameManager : MonoBehaviour
     public static int howManyStagesPlusOne = 3;
     public static bool[] unlockS = new bool[howManyStagesPlusOne];
 
-    public int numberPlayer = 0;
-    public int numberEnemy = 0;
-
 
     private bool _shouldCreateAccount;
     private string _customID;
 
 
     void Awake(){
-        numberEnemy = EnemyManager.enemyNumber;
-        numberPlayer = PlayerManager.playerNumber;
         unlockP[0] = true;
         unlockP[1] = true;
         unlockS[0] = true;
         unlockS[1] = true;
         
-
     }
 
     void Start()
@@ -91,7 +85,7 @@ public class GameManager : MonoBehaviour
     public void SetPlayerDisplayName () {
         PlayFabClientAPI.UpdateUserTitleDisplayName(
             new UpdateUserTitleDisplayNameRequest {
-                DisplayName = playerName
+                DisplayName = userName
             },
             result => {
                 Debug.Log("Set display name was succeeded.");

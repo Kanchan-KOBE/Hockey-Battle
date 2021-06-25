@@ -27,8 +27,8 @@ public class InputScript : MonoBehaviour
 
     public void GetInputName()
     {
-        GameManager.playerName = inputField.text;
-        Debug.Log(GameManager.playerName);
+        GameManager.userName = inputField.text;
+        Debug.Log(GameManager.userName);
 
         inputField.text = "";
         uI_Check.SetActive(false);

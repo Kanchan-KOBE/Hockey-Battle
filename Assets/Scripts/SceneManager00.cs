@@ -28,7 +28,7 @@ public class SceneManager00 : MonoBehaviour
     }
 
     void Awake () {
-		// DontDestroyOnLoad( gameObject );
+        
     }
 
 

@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
     public static bool[] unlockS = new bool[howManyStagesPlusOne];
 
 
-    private bool _shouldCreateAccount;
-    private string _customID;
 
 
     void Awake(){
@@ -36,10 +34,26 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if(SceneManager.GetActiveScene().name == "MainMenuScene"){
-            Login();
-        }
         
+        if(SceneManager.GetActiveScene().name == "MainMenuScene"){
+            PlayFabAuthService.Instance.Authenticate(Authtypes.Silent);
+        }
+
+        
+        
+    }
+
+    void OnEnable()
+    {
+        PlayFabAuthService.OnLoginSuccess += PlayFabLogin_OnLoginSuccess;
+    }
+    private void PlayFabLogin_OnLoginSuccess(LoginResult result)
+    {
+        Debug.Log("Login Success!");
+    }
+    private void OnDisable()
+    {
+        PlayFabAuthService.OnLoginSuccess -= PlayFabLogin_OnLoginSuccess;
     }
    
 
@@ -50,77 +64,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //=================================================================================
-    //LogIn
-
-    private void Login() //Login
-    {
-        _customID = LoadCustomID();
-        var request = new LoginWithCustomIDRequest { CustomId = _customID,  CreateAccount = _shouldCreateAccount};
-        PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnLoginFailure);
-        
-    }
-
-    private void OnLoginSuccess(LoginResult result){ //ログイン成功
-        //IDが既に使われている場合
-        if (_shouldCreateAccount && !result.NewlyCreated) {
-            Debug.LogWarning($"CustomId : {_customID} は既に使われています。");
-            Login();//ログインしなおし
-            return;
-        }
-
-        //アカウント作成時にIDを保存
-        if (result.NewlyCreated) {
-            SaveCustomID();
-            uI_InputField.SetActive(true);
-        }
-        Debug.Log($"PlayFabのログインに成功\nPlayFabId : {result.PlayFabId}, CustomId : {_customID}\nアカウントを作成したか : {result.NewlyCreated}");
-        SetPlayerDisplayName();
-    }
-        
-    private void OnLoginFailure(PlayFabError error){  //ログイン失敗
-        Debug.LogError($"PlayFabのログインに失敗\n{error.GenerateErrorReport()}");
-    }
-
-    public void SetPlayerDisplayName () {
-        PlayFabClientAPI.UpdateUserTitleDisplayName(
-            new UpdateUserTitleDisplayNameRequest {
-                DisplayName = userName
-            },
-            result => {
-                Debug.Log("Set display name was succeeded.");
-            },
-            error => {
-                Debug.LogError(error.GenerateErrorReport());
-            }
-        );
-    }
-
-    //=================================================================================
-    //カスタムIDの取得
-
-    private static readonly string CUSTOM_ID_SAVE_KEY = "CUSTOM_ID_SAVE_KEY";    //IDを保存する時のKEY
     
-    private string LoadCustomID() { //IDを取得
-    string id = PlayerPrefs.GetString(CUSTOM_ID_SAVE_KEY);
-    _shouldCreateAccount = string.IsNullOrEmpty(id);    //保存されていなければ新規生成
-    return _shouldCreateAccount ? GenerateCustomID() : id;
-    }
-
-    private void SaveCustomID() {    //IDの保存
-    PlayerPrefs.SetString(CUSTOM_ID_SAVE_KEY, _customID);
-    }
-
-    //=================================================================================
-    //カスタムIDの生成
-    
-    private string GenerateCustomID() {     //IDを生成する
-    Guid guid = Guid.NewGuid();    //Guidの構造体生成
-    Debug.Log("GUID : " + guid.ToString());    //生成されたGUIDを確認
-    return guid.ToString();
-    }
-
-
     //=================================================================================
     //Score送信
     public void SubmitScore() //スコア送信

@@ -866,6 +866,7 @@ MonoBehaviour:
   inputField: {fileID: 25488640}
   button: {fileID: 1411230744}
   uI_Check: {fileID: 176994139}
+  checkName: {fileID: 1147643540}
 --- !u!1 &364333395
 GameObject:
   m_ObjectHideFlags: 0
@@ -3571,8 +3572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uI_InputField: {fileID: 1728873392}
-  numberPlayer: 0
-  numberEnemy: 0
 --- !u!4 &1248412541
 Transform:
   m_ObjectHideFlags: 0

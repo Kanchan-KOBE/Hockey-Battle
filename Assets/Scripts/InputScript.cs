@@ -8,6 +8,7 @@ public class InputScript : MonoBehaviour
     [SerializeField] InputField inputField;
     [SerializeField] Button button;
     [SerializeField] GameObject uI_Check;
+    [SerializeField] Text checkName;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,9 @@ public class InputScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inputField.text == ""){
+        if(inputField.text.Length < 3){
+            button.interactable = false;
+        }else if(inputField.text.Length > 7){
             button.interactable = false;
         }else{
             button.interactable = true;
@@ -35,6 +38,7 @@ public class InputScript : MonoBehaviour
     }
 
     public void Check(){
+        checkName.text = inputField.text;
         uI_Check.SetActive(true);
     }
 

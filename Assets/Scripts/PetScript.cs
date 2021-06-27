@@ -5,6 +5,7 @@ using UnityEngine;
 public class PetScript : MonoBehaviour
 { 
     [SerializeField] int speed = 10;
+    [SerializeField] float rotationSpeed = 1000f;
     [SerializeField] bool left = false;
     [SerializeField] bool rotationPet = false;
     [SerializeField] bool MovePetH = false;
@@ -69,7 +70,7 @@ public class PetScript : MonoBehaviour
         
 //回転
         if(rotationPet){
-        this.transform.Rotate(new Vector3(0,1000,0) * Time.deltaTime, Space.World);
+        this.transform.Rotate(new Vector3(0,rotationSpeed,0) * Time.deltaTime, Space.World);
         }
 
 

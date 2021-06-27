@@ -950,7 +950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 4581759471036792994, guid: 1b3e3d6a12dd543f7aaa0337e10f8936, type: 3}
+  - {fileID: 1664721052309555231, guid: 60ef5fdeed495454da700872290c1c0c, type: 3}
   - {fileID: 4581759471036792994, guid: 07729105ad321445d9af67921cb468b3, type: 3}
   - {fileID: 1664721052309555231, guid: 60ef5fdeed495454da700872290c1c0c, type: 3}
   setEnemyNumber: 0
@@ -2714,8 +2714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5dd3e7bc8c74461680ac76178d87697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberPlayer: 0
-  numberEnemy: 0
+  uI_InputField: {fileID: 0}
 --- !u!4 &697110726
 Transform:
   m_ObjectHideFlags: 0
@@ -3440,7 +3439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28953958edb9249d38947263af2a4d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIndex: 0
   i: 0
   clips: []
 --- !u!4 &1009595101

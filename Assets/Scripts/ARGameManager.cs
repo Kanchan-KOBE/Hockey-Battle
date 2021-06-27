@@ -39,13 +39,15 @@ public class ARGameManager : MonoBehaviour
     [SerializeField] Text[] txtNewScore;
     public AudioClip[] clips;
 
-    private bool u = true;
+    private bool u = true; //スコア計算スイッチ
 
     void Awake()
     {
-        GameManager.unlockS[EnemyManager.enemyNumber] = true;
-        scoreMag = 1;
         gameStep = 0;
+        isWin = false;
+        isLose = false;
+        PackScript.poisonTime = false;
+        
 
         int i = EnemyManager.enemyNumber - PlayerManager.playerNumber;
         if(i > 0){
@@ -53,15 +55,13 @@ public class ARGameManager : MonoBehaviour
         }else{
             level = 0;
         }
+        scoreMag = 2;
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        isWin = false;
-        isLose = false;
-        PackScript.poisonTime = false;
         AudioSource audio = GetComponent<AudioSource>();
         StartCoroutine("HogeGameStart");
     }
@@ -84,9 +84,8 @@ public class ARGameManager : MonoBehaviour
     }
 
     //UI===================================================
-    public void LoseUI(){
+    public void LoseUI(){ //敗北時の処理
         PlayerScript.cutInP = false;
-
         if(SceneManager00.stage == 1){
             if(isLose){
                 if(u){
@@ -95,7 +94,7 @@ public class ARGameManager : MonoBehaviour
                         GameManager.highScore = newScore;
                         txtNewScore[1].text = newScore.ToString();
                         uI_NewRecord.SetActive(true);
-                        myManager.SubmitScore();
+                        // myManager.SubmitScore();
                         u = false;
                     }else{
                         txtNewScore[2].text = newScore.ToString();
@@ -106,15 +105,17 @@ public class ARGameManager : MonoBehaviour
             }
         }else{
             uI_LOSE.SetActive(true);
+            
         }
+        PlayerScript.cutInP = false;
         winCounter = 0;
         newScore = 0;
     }
 
-     public void WinUI(){
-        if(SceneManager00.stage == 1){
+     public void WinUI(){ //勝利時の処理
+        if(SceneManager00.stage == 1){ 
             if(isWin){
-                if(u){
+                if(u){ //スコア計算
                     winCounter ++;
                     plusScore = (level * 100 + LPManager.LifePlayer * 100) * scoreMag * winCounter;
                     newScore = newScore + plusScore;
@@ -124,6 +125,15 @@ public class ARGameManager : MonoBehaviour
                 }
             }
             
+        }else if(SceneManager00.stage == 0){ 
+            int i = GameManager.howManyEnemysPlusOne - 1;
+            if(EnemyManager.enemyNumber == i){
+                //全クリUI
+            }else{
+                //ステージアンロック
+                int unlock = EnemyManager.enemyNumber + 1;
+                GameManager.unlockE[unlock] = true;
+            }
         }
 
         EnemyScript.cutInE = false;

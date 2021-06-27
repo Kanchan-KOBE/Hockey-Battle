@@ -2,16 +2,16 @@ using PlayFab;
 using PlayFab.ClientModels;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayFabManager : MonoBehaviour
 {
     void Start()
     {
-        PlayFabClientAPI.LoginWithCustomID(
-            new LoginWithCustomIDRequest { CustomId = "TestID2", CreateAccount = true},
-            result => Debug.Log("ログイン成功！"),
-            error => Debug.Log("ログイン失敗")
-        );
+        if(SceneManager.GetActiveScene().name == "MainMenuScene"){
+            Login();
+        }
+
     }
 
 
@@ -31,6 +31,12 @@ public class PlayFabManager : MonoBehaviour
             RequestLeaderBoard();
         }
     }
+
+    void Login()
+    {
+
+    }
+
 
     void SubmitScore(int playerScore)
     {

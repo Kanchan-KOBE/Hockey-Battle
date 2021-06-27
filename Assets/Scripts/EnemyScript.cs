@@ -46,11 +46,6 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(LPManager.zombieCheckE)
-        {
-            Zombie();
-            LPManager.zombieCheckE = false;
-        }
 
         if(cutInE){
             cutInUI.SetActive(true);
@@ -86,9 +81,15 @@ public class EnemyScript : MonoBehaviour
 
 
 
-        if(ARGameManager.gameStep == 6) //Game実行
+        if(ARGameManager.gameStep == 6) //プレイモード
         {
-            if(this.transform.position.x > width){ //移動-----
+            if(LPManager.zombieCheckE) //ZombieCheck
+            {
+                Zombie();
+                LPManager.zombieCheckE = false;
+            }
+
+            if(this.transform.position.x > width){ //移動--------------------------------
                 moveR = false;
                 moveL = true;
             }
@@ -102,8 +103,9 @@ public class EnemyScript : MonoBehaviour
             }
             if(moveL){
                 this.transform.position += new Vector3(-1,0,0) * speed * Time.deltaTime;
-            }
+            } //移動---------------------------------------------------------------------
         }
+
     }
 
 

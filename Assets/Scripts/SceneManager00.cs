@@ -28,7 +28,7 @@ public class SceneManager00 : MonoBehaviour
     }
 
     void Awake () {
-        
+
     }
 
 
@@ -65,7 +65,7 @@ public class SceneManager00 : MonoBehaviour
         SceneManager.LoadScene("Stage_AR");
     }
     public void ToNextStage(){
-        int i = GameManager.howManyStagesPlusOne - 1;
+        int i = GameManager.howManyEnemysPlusOne - 1;
         if(EnemyManager.enemyNumber == i){
             Debug.Log("全クリ");
         }else{

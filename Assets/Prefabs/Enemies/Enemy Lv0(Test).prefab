@@ -968,6 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  rotationSpeed: 1000
   left: 0
   rotationPet: 1
   MovePetH: 0
@@ -1547,7 +1548,7 @@ GameObject:
   - component: {fileID: 3311837957323933625}
   - component: {fileID: 8684587098203004877}
   m_Layer: 0
-  m_Name: EnemyTest
+  m_Name: Enemy Lv0(Test)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2157,6 +2158,7 @@ MonoBehaviour:
   pet: {fileID: 0}
   lifeCharge: 0
   lifeChargePlus: 0
+  life1: 1
   pets: 0
   zombie: 0
 --- !u!1 &5691622527725525510

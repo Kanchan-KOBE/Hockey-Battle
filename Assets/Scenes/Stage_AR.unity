@@ -950,8 +950,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 1664721052309555231, guid: 60ef5fdeed495454da700872290c1c0c, type: 3}
+  - {fileID: 4581759471036792994, guid: 5f35e8d8d9f6f45928620ad760383b73, type: 3}
+  - {fileID: 4581759471036792994, guid: 1b3e3d6a12dd543f7aaa0337e10f8936, type: 3}
   - {fileID: 4581759471036792994, guid: 07729105ad321445d9af67921cb468b3, type: 3}
+  - {fileID: 4581759471036792994, guid: a57fd0ea55ee0411caea215dda17dfb2, type: 3}
+  - {fileID: 4581759471036792994, guid: 6adf46ec2cc2548d8941df25a21a5a7f, type: 3}
+  - {fileID: 4581759471036792994, guid: 1945d9ffe06294f3ebca0fb2717d4e95, type: 3}
+  - {fileID: 4581759471036792994, guid: 37af047fadfca40afb531a44141136d2, type: 3}
+  - {fileID: 4581759471036792994, guid: cebf9d51412104f7eaf409a6bd4971fd, type: 3}
+  - {fileID: 4581759471036792994, guid: 268493855e0cb49cd91a93e2b3efc7ba, type: 3}
+  - {fileID: 4581759471036792994, guid: 8b88bd147b37f4547a6e75dcb4c2e09e, type: 3}
   - {fileID: 1664721052309555231, guid: 60ef5fdeed495454da700872290c1c0c, type: 3}
   setEnemyNumber: 0
 --- !u!4 &188997083
@@ -2714,7 +2722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5dd3e7bc8c74461680ac76178d87697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uI_InputField: {fileID: 0}
 --- !u!4 &697110726
 Transform:
   m_ObjectHideFlags: 0

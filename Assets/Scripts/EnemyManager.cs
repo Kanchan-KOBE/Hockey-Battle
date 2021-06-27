@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
     public int setEnemyNumber;
 
 
+
     // Start is called before the first frame update
     void Start()
     {

@@ -25,6 +25,7 @@ public class EnemyScript : MonoBehaviour
     //SKILLS
     [SerializeField] bool lifeCharge = false;
     [SerializeField] bool lifeChargePlus = false;
+    [SerializeField] bool life1 = false;
     [SerializeField] bool pets = false;
     [SerializeField] bool zombie = false;
 
@@ -74,6 +75,7 @@ public class EnemyScript : MonoBehaviour
                 SpawnPet();
                 LifeCharge();
                 LifeChargePlus();
+                Life1();
 
                 skill1 = false;
             }
@@ -127,7 +129,11 @@ public class EnemyScript : MonoBehaviour
                 }
             }
         }
-
+    }
+    void Life1(){
+        if(life1){
+            LPManager.LifeEnemy = 1;
+        }
     }
     void SpawnPet(){
         if(pets){

@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public static string userName = "未設定";
 
     public static int howManyPlayersPlusOne = 3;
-    public static int howManyEnemysPlusOne = 3;
+    public static int howManyEnemysPlusOne = 11;
 
     public static bool[] unlockP = new bool[howManyPlayersPlusOne];
     public static bool[] unlockE = new bool[howManyEnemysPlusOne];

@@ -437,7 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3526315148837210881}
   m_Layer: 0
-  m_Name: Enemy Boss1
+  m_Name: Enemy Lv10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1853,6 +1853,7 @@ MonoBehaviour:
   pet: {fileID: 3967562660225834878, guid: 098e0f6c4426e499584ba27409d9cc59, type: 3}
   lifeCharge: 0
   lifeChargePlus: 0
+  life1: 1
   pets: 0
   zombie: 0
 --- !u!1 &8172792524612795749

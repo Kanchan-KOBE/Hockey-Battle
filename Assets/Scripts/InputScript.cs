@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InputScript : MonoBehaviour
 {
+    [SerializeField] GameObject uI_thisUI;
     [SerializeField] InputField inputField;
     [SerializeField] Button button;
     [SerializeField] GameObject uI_Check;
@@ -44,6 +45,13 @@ public class InputScript : MonoBehaviour
 
     public void Cancel(){
         uI_Check.SetActive(false);
+    }
+    public void OpenUI(){
+        uI_thisUI.SetActive(true);
+    }
+
+    public void CloseUI(){
+        uI_thisUI.SetActive(false);
     }
 
 }

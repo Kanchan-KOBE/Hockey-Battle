@@ -94,10 +94,11 @@ public class ARGameManager : MonoBehaviour
                         GameManager.highScore = newScore;
                         txtNewScore[1].text = newScore.ToString();
                         uI_NewRecord.SetActive(true);
-                        // myManager.SubmitScore();
+                        myManager.SubmitScore(GameManager.highScore);
                         u = false;
                     }else{
                         txtNewScore[2].text = newScore.ToString();
+                        myManager.SubmitScore(GameManager.highScore);
                         uI_Result.SetActive(true);
                         u = false;
                     }

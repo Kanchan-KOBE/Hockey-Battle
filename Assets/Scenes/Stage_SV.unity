@@ -950,8 +950,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
+  - {fileID: 4581759471036792994, guid: 5f35e8d8d9f6f45928620ad760383b73, type: 3}
   - {fileID: 4581759471036792994, guid: 1b3e3d6a12dd543f7aaa0337e10f8936, type: 3}
   - {fileID: 4581759471036792994, guid: 07729105ad321445d9af67921cb468b3, type: 3}
+  - {fileID: 4581759471036792994, guid: a57fd0ea55ee0411caea215dda17dfb2, type: 3}
+  - {fileID: 4581759471036792994, guid: 6adf46ec2cc2548d8941df25a21a5a7f, type: 3}
+  - {fileID: 4581759471036792994, guid: 1945d9ffe06294f3ebca0fb2717d4e95, type: 3}
+  - {fileID: 4581759471036792994, guid: 37af047fadfca40afb531a44141136d2, type: 3}
+  - {fileID: 4581759471036792994, guid: cebf9d51412104f7eaf409a6bd4971fd, type: 3}
+  - {fileID: 4581759471036792994, guid: 268493855e0cb49cd91a93e2b3efc7ba, type: 3}
+  - {fileID: 4581759471036792994, guid: 8b88bd147b37f4547a6e75dcb4c2e09e, type: 3}
   - {fileID: 1664721052309555231, guid: 60ef5fdeed495454da700872290c1c0c, type: 3}
   setEnemyNumber: 0
 --- !u!4 &188997083
@@ -2872,8 +2880,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5dd3e7bc8c74461680ac76178d87697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberPlayer: 0
-  numberEnemy: 0
+  mainManager: {fileID: 0}
+  nameInputUI: {fileID: 0}
 --- !u!4 &697110726
 Transform:
   m_ObjectHideFlags: 0
@@ -3677,7 +3685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28953958edb9249d38947263af2a4d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIndex: 0
   i: 0
   clips:
   - {fileID: 8300000, guid: 017007330cb1e471aaac9eb732affdfd, type: 3}
@@ -6333,8 +6340,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players:
   - {fileID: 6401145683965065552, guid: dc75ae9b3f06d43d7a182f3e789003f5, type: 3}
-  - {fileID: 6401145683965065552, guid: dc75ae9b3f06d43d7a182f3e789003f5, type: 3}
-  - {fileID: 6401145683965065552, guid: dc75ae9b3f06d43d7a182f3e789003f5, type: 3}
+  - {fileID: 6401145683965065552, guid: 117e2eda65df241c59523181e5b54d93, type: 3}
+  - {fileID: 6401145683965065552, guid: 29c864667ee504a249baec4f88aefbd7, type: 3}
+  - {fileID: 6401145683965065552, guid: 141cc3b193c6249cfbbae9eb8a8aeea2, type: 3}
+  - {fileID: 6401145683965065552, guid: a6ee99a0d283849ddad6d4a3c2f52843, type: 3}
+  - {fileID: 6401145683965065552, guid: 78cb623eff40d4c93884b26d94f13377, type: 3}
+  - {fileID: 6401145683965065552, guid: 97bb2857777ef4a4e9e2c8e9893e27f3, type: 3}
+  - {fileID: 6401145683965065552, guid: e35c6025a0f3c4fb5890af7fc0db97f8, type: 3}
+  - {fileID: 6401145683965065552, guid: 15b49fd1abca04e01a8409983a133361, type: 3}
+  - {fileID: 6401145683965065552, guid: 2876f5f79782e463681f337f64f6574a, type: 3}
+  - {fileID: 6401145683965065552, guid: 94d01542bbe0e4638b02852660bdcaa7, type: 3}
   setPlayerNumber: 0
 --- !u!1 &1676575819
 GameObject:

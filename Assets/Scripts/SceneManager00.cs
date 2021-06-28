@@ -80,7 +80,8 @@ public class SceneManager00 : MonoBehaviour
         SceneManager.LoadScene("RankingScene");
     }
     public void ToSV(){
-        EnemyManager.enemyNumber = Random.Range(0,GameManager.howManyEnemysPlusOne);
+        int i = GameManager.howManyEnemysPlusOne - 1;
+        EnemyManager.enemyNumber = Random.Range(0,i);
         Debug.Log("Enemy" + EnemyManager.enemyNumber);
         SceneManager.LoadScene("Stage_SV");
     }

@@ -874,6 +874,7 @@ MonoBehaviour:
   pet: {fileID: 0}
   lifeCharge: 0
   lifeChargePlus: 0
+  life1: 0
   pets: 0
   zombie: 0
 --- !u!1 &5691622527725525510
@@ -936,7 +937,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b09594c5bb7bb4f4d9e2aef05202dcab, type: 2}
+  - {fileID: 2100000, guid: 161524b799dd643c0a61f2a5acb26153, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

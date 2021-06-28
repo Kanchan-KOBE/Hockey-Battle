@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private bool _shouldCreateAccount;
     public static string _customUserID;
     public static string userName = default;
-
+    public static int userRank = 0;
     public static int highScore = 0;
 
     public static int howManyPlayersPlusOne = 11;

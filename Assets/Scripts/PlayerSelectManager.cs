@@ -5,30 +5,15 @@ using UnityEngine.UI;
 
 public class PlayerSelectManager : MonoBehaviour
 {
-    public Image imgStatus;
-    // public Image imgCheck;
     public GameObject uI_Check;
-    public Text namePlayer;
-    public Sprite[] imgPlayers = new Sprite[GameManager.howManyEnemysPlusOne];
-    public Image[] imgBtn;
 
-    public Button[] btn = new Button[GameManager.howManyPlayersPlusOne];
+    public Button btnSelect;
 
-
-    // public Button[] btnPlayers;
     
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("stage" + SceneManager00.stage);
-        
-        for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){ //アンロックされているキャラのボタンの表示を変更
-            if(GameManager.unlockP[i]){
-                btn[i].interactable = true;
-                imgBtn[i].sprite = imgPlayers[i];
-            }
-        }
-
+        Debug.Log("Stage : " + SceneManager00.stage);
         LPManager.LifePlayer = 3;
         PlayerManager.playerNumber = 0;
         ARGameManager.newScore = 0;
@@ -43,12 +28,7 @@ public class PlayerSelectManager : MonoBehaviour
     public void GetPlayerNumber(int setPlayerNumber)
     {
         PlayerManager.playerNumber = setPlayerNumber;
-        imgStatus.sprite = imgPlayers[PlayerManager.playerNumber];
-        Debug.Log(setPlayerNumber);
-    }
-    public void GetPlayerName(string playerName)
-    {
-        namePlayer.text = playerName;
+        Debug.Log("Player : " + PlayerManager.playerNumber);
     }
 
     public void CheckUI(){

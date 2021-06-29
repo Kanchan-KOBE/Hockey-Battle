@@ -132,8 +132,6 @@ public class ARGameManager : MonoBehaviour
                 //全クリUI
             }else{
                 //ステージアンロック
-                int unlock = EnemyManager.enemyNumber + 1;
-                GameManager.unlockE[unlock] = true;
             }
         }
 

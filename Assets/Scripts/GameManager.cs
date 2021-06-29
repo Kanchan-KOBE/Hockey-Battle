@@ -19,17 +19,10 @@ public class GameManager : MonoBehaviour
     public static int howManyPlayersPlusOne = 11;
     public static int howManyEnemysPlusOne = 11;
 
-    public static bool[] unlockP = new bool[howManyPlayersPlusOne];
-    public static bool[] unlockE = new bool[howManyEnemysPlusOne];
-
     [SerializeField] GameObject nameInputUI;
 
 
     void Awake(){
-        unlockP[0] = true;
-        unlockP[1] = true;
-        unlockE[0] = true;
-        unlockE[1] = true;
         if(SceneManager.GetActiveScene().name == "MainMenuScene"){
             
             Login();
@@ -82,7 +75,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError($"PlayFabのログインに失敗\n{error.GenerateErrorReport()}");
         }
 
-    private static readonly string CUSTOM_ID_SAVE_KEY = "CUSTOM_T_ID_SAVE_KEY";    //IDを保存する時のKEY
+    private static readonly string CUSTOM_ID_SAVE_KEY = "CUSTOM_PASS_ID_SAVE_KEY";    //IDを保存する時のKEY
     
     public string LoadCustomID() {//IDを取得
         string id = PlayerPrefs.GetString(CUSTOM_ID_SAVE_KEY);
@@ -199,7 +192,7 @@ public class GameManager : MonoBehaviour
     }
         private void OnGetLeaderboardSuccess(GetLeaderboardResult result){
             foreach (var entry in result.Leaderboard) {
-            testScore.text += $"\n順位 : {entry.Position}, スコア : {entry.StatValue}, 名前 : {entry.DisplayName}, ID : {entry.PlayFabId}";
+            testScore.text += $"\nスコア : {entry.StatValue}, 名前 : {entry.DisplayName}";
             }
         }
         private void OnGetLeaderboardFailure(PlayFabError error){
@@ -236,7 +229,7 @@ public class GameManager : MonoBehaviour
     }
         private void OnGetUserRankSuccess(GetLeaderboardAroundPlayerResult result){
             foreach (var entry in result.Leaderboard) {
-                userRank = int.Parse($"{entry.Position}");
+                userRank = int.Parse($"{entry.Position}") + 1;
             }
             Debug.Log("Rank : " + userRank);
         }

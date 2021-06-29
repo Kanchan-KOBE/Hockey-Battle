@@ -7,7 +7,7 @@ public class PlayerSelectManager : MonoBehaviour
 {
     public GameObject uI_Check;
 
-    public Button btnSelect;
+    public Button btnToNext;
 
     
     // Start is called before the first frame update
@@ -17,12 +17,22 @@ public class PlayerSelectManager : MonoBehaviour
         LPManager.LifePlayer = 3;
         PlayerManager.playerNumber = 0;
         ARGameManager.newScore = 0;
+
+        // for(int i = 0; i < GameManager.howManyPlayersPlusOne; i ++)
+        // {
+            
+        // }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(PlayerManager.playerNumber == 0){
+            btnToNext.interactable = false;
+        }else{
+            btnToNext.interactable = true;
+        }
     }
 
     public void GetPlayerNumber(int setPlayerNumber)

@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class InputScript : MonoBehaviour
 {
-    [SerializeField] GameObject uI_thisUI;
+    public MainMenuManager mainManager;
+    [SerializeField] GameObject uI_InputUI;
     [SerializeField] InputField inputField;
     [SerializeField] Button button;
     [SerializeField] GameObject uI_Check;
@@ -22,7 +23,7 @@ public class InputScript : MonoBehaviour
     {
         if(inputField.text.Length < 3){
             button.interactable = false;
-        }else if(inputField.text.Length > 7){
+        }else if(inputField.text.Length > 6){
             button.interactable = false;
         }else{
             button.interactable = true;
@@ -32,26 +33,27 @@ public class InputScript : MonoBehaviour
     public void GetInputName()
     {
         GameManager.userName = inputField.text;
-        Debug.Log(GameManager.userName);
+        Debug.Log("OK? : " + GameManager.userName);
 
         inputField.text = "";
         uI_Check.SetActive(false);
+        mainManager.RefleshName();
     }
 
-    public void Check(){
+    public void OpenCheck(){
         checkName.text = inputField.text;
         uI_Check.SetActive(true);
     }
 
-    public void Cancel(){
+    public void CloseCheck(){
         uI_Check.SetActive(false);
     }
-    public void OpenUI(){
-        uI_thisUI.SetActive(true);
+    public void OpenInputUI(){
+        uI_InputUI.SetActive(true);
     }
 
-    public void CloseUI(){
-        uI_thisUI.SetActive(false);
+    public void CloseInputUI(){
+        uI_InputUI.SetActive(false);
     }
 
 }

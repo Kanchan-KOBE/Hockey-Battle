@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public MainMenuManager mainManager;
     private bool _shouldCreateAccount;
     public static string _customUserID;
-    public static string userName = default;
+    public static string userName = "NoName";
     public static int userRank = 0;
     public static int highScore = 0;
 
@@ -69,10 +69,13 @@ public class GameManager : MonoBehaviour
                 if(SceneManager.GetActiveScene().name == "MainMenuScene"){
                     nameInputUI.SetActive(true);
                 }
+                SubmitScore(0);
             }
             Debug.Log($"PlayFabのログインに成功\nPlayFabId : {result.PlayFabId}, CustomId : {_customUserID}\nアカウントを作成したか : {result.NewlyCreated}");
-            SubmitScore(0);
             GetUserName();
+            GetUserScore();
+            GetUserRank();
+            mainManager.RefleshUserData();
         }
         private void OnLoginFailure(PlayFabError error)
         {
@@ -103,53 +106,34 @@ public class GameManager : MonoBehaviour
 //=========================================================================
 //ユーザー名
     public void UpdateUserName() { //更新
-        var updateDataDict = new Dictionary<string, string>() {
-        {"Name", userName},
-        };
-
-        var request = new UpdateUserDataRequest {
-        Data         = updateDataDict, 
-        Permission   = UserDataPermission.Private //アクセス許可設定
-        };
-        
-        PlayFabClientAPI.UpdateUserData(request, OnSuccessUpdatingPlayerName, OnErrorUpdatingPlayerName);
-        Debug.Log($"プレイヤーデータの更新開始");
-        if(SceneManager.GetActiveScene().name == "MainMenuScene"){
-            DeleteUI();
-        }
-
-
-        PlayFabClientAPI.UpdateUserTitleDisplayName( //DisplayNameに追加
+        PlayFabClientAPI.UpdateUserTitleDisplayName(
             new UpdateUserTitleDisplayNameRequest {
                 DisplayName = userName
             },
             result => {
-                Debug.Log("Namw : " + userName);
+                Debug.Log("New Name : " + userName);
+                mainManager.RefleshName();
             },
             error => {
                 Debug.LogError(error.GenerateErrorReport());
             }
         );
     }
-        private void OnSuccessUpdatingPlayerName(UpdateUserDataResult result) {
-            Debug.Log($"成功(Name)更新");
-            //result.ToJsonでjsonで形式で結果を確認可能(result.Dataはない)
-        }
-        private void OnErrorUpdatingPlayerName(PlayFabError error) {
-            Debug.LogWarning($"失敗(Name)更新 : {error.GenerateErrorReport()}");
-        }
 
     public void GetUserName() { //取得
-        var request = new GetUserDataRequest();
-        PlayFabClientAPI.GetUserData(request, OnSuccessGettingPlayerData, OnErrorGettingPlayerData);
+        var request = new GetLeaderboardAroundPlayerRequest{StatisticName = "HighScore", MaxResultsCount = 1};
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnGetUserNameSuccess, OnGetUserNameFailure);
     }
-        private void OnSuccessGettingPlayerData(GetUserDataResult result) {
-            userName = result.Data["Name"].Value;
-            Debug.Log("You are " + userName);
+        private void OnGetUserNameSuccess(GetLeaderboardAroundPlayerResult result){
+            foreach (var entry in result.Leaderboard) {
+                userName = $"{entry.DisplayName}";
+            }
+            Debug.Log("Name : " + userName);
         }
-        private void OnErrorGettingPlayerData(PlayFabError error) {
-            Debug.LogWarning($"ユーザーデータの取得に失敗しました : {error.GenerateErrorReport()}");
+        private void OnGetUserNameFailure(PlayFabError error){
+            Debug.LogError($"ユーザー名の取得に失敗しました\n{error.GenerateErrorReport()}");
         }
+        
 
 
 
@@ -182,34 +166,47 @@ public class GameManager : MonoBehaviour
             );
     }
 
+    public void GetUserScore() { //取得
+        var request = new GetLeaderboardAroundPlayerRequest{StatisticName = "HighScore", MaxResultsCount = 1};
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnGetUserScoreSuccess, OnGetUserScoreFailure);
+    }
+        private void OnGetUserScoreSuccess(GetLeaderboardAroundPlayerResult result){
+            foreach (var entry in result.Leaderboard) {
+                highScore = int.Parse($"{entry.StatValue}");
+            }
+            Debug.Log("Score : " + highScore);
+        }
+        private void OnGetUserScoreFailure(PlayFabError error){
+            Debug.LogError($"スコアの取得に失敗しました\n{error.GenerateErrorReport()}");
+        }
+
     
 
 //=================================================================================
 //ランキング
 
-[SerializeField]  private Text rankerName = default;
-[SerializeField]  private Text rankerScore = default;
-    public void RequestLeaderBoard()
-    {
-        PlayFabClientAPI.GetLeaderboard(
-            new GetLeaderboardRequest
-            {
-                StatisticName = "HighScore",
-                StartPosition = 0,
-                MaxResultsCount = 10
-            },
-            result =>
-            {
-                result.Leaderboard.ForEach(
-                    x => Debug.Log(string.Format("{0}位:{1} スコア{2}", x.Position + 1, x.DisplayName, x.StatValue))
-                    );
-            },
-            error =>
-            {
-                Debug.Log(error.GenerateErrorReport());
-            }
-            );
+    [SerializeField]  private Text rankerName = default;
+    [SerializeField]  private Text rankerScore = default;
+    [SerializeField]  private Text testScore = default;
+
+    public void GetLeaderboard() { 
+        var request = new GetLeaderboardRequest{
+            StatisticName   = "HighScore", //ランキング名(統計情報名)
+            StartPosition   = 0,                 //何位以降のランキングを取得するか
+            MaxResultsCount = 10                  //ランキングデータを何件取得するか(最大100)
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnGetLeaderboardSuccess, OnGetLeaderboardFailure);
     }
+        private void OnGetLeaderboardSuccess(GetLeaderboardResult result){
+            foreach (var entry in result.Leaderboard) {
+            testScore.text += $"\n順位 : {entry.Position}, スコア : {entry.StatValue}, 名前 : {entry.DisplayName}, ID : {entry.PlayFabId}";
+            }
+        }
+        private void OnGetLeaderboardFailure(PlayFabError error){
+            Debug.LogError($"ランキング(リーダーボード)の取得に失敗しました\n{error.GenerateErrorReport()}");
+        }
+
+
     public void GetLeaderboardAroundPlayer() { 
         var request = new GetLeaderboardAroundPlayerRequest{
             StatisticName   = "HighScore", //ランキング名(統計情報名)
@@ -219,19 +216,34 @@ public class GameManager : MonoBehaviour
     }
         private void OnGetLeaderboardAroundPlayerSuccess(GetLeaderboardAroundPlayerResult result){
 
+            // foreach (var entry in result.Leaderboard) {
+            //     rankerNameA.text += $"\n順位 : {entry.Position}";
+            // }
             foreach (var entry in result.Leaderboard) {
                 rankerName.text += $"\n{entry.DisplayName}";
             }
             foreach (var entry in result.Leaderboard) {
                 rankerScore.text += $"\n{entry.StatValue}";
             }
-            // foreach (var entry in result.Leaderboard) {
-            //     rankerScore.text += $"\n順位 : {entry.Position}";
-            // }
         }
         private void OnGetLeaderboardAroundPlayerFailure(PlayFabError error){
             Debug.LogError($"自分の順位周辺のランキングの取得に失敗しました\n{error.GenerateErrorReport()}");
         }
+
+        public void GetUserRank() { //取得
+        var request = new GetLeaderboardAroundPlayerRequest{StatisticName = "HighScore", MaxResultsCount = 1};
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnGetUserRankSuccess, OnGetUserRankFailure);
+    }
+        private void OnGetUserRankSuccess(GetLeaderboardAroundPlayerResult result){
+            foreach (var entry in result.Leaderboard) {
+                userRank = int.Parse($"{entry.Position}");
+            }
+            Debug.Log("Rank : " + userRank);
+        }
+        private void OnGetUserRankFailure(PlayFabError error){
+            Debug.LogError($"ユーザー名の取得に失敗しました\n{error.GenerateErrorReport()}");
+        }
+
 
 
 

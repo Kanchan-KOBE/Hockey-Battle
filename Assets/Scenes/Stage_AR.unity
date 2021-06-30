@@ -3135,7 +3135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainManager: {fileID: 0}
-  nameInputUI: {fileID: 0}
+  initNameUI: {fileID: 0}
   rankerName: {fileID: 0}
   rankerScore: {fileID: 0}
   testScore: {fileID: 0}

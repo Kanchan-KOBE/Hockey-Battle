@@ -874,7 +874,7 @@ MonoBehaviour:
   pet: {fileID: 0}
   lifeCharge: 0
   lifeChargePlus: 0
-  life1: 0
+  life1: 1
   pets: 0
   zombie: 0
 --- !u!1 &5691622527725525510

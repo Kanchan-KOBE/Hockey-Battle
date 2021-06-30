@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -35,7 +35,6 @@ public class EnemyManager : MonoBehaviour
 
     public void UpdateUnlockS(){
         int saved = PlayerPrefs.GetInt("UNLOCK_S");
-        Debug.Log("SAVED " + saved);
         if(saved < unlock_Stage){
             PlayerPrefs.SetInt("UNLOCK_S",unlock_Stage);
         }

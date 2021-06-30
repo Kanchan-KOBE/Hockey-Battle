@@ -1846,7 +1846,7 @@ MonoBehaviour:
   iconImg: {fileID: 5586709587423164918}
   cutInImg: {fileID: 504482841741394736}
   nameE: {fileID: 6803171234756065277}
-  enemyName: Boss
+  enemyName: Boss10
   enemyImg: {fileID: 21300000, guid: 2dc7177a2d11a41a089eac126d2e3ad1, type: 3}
   speed: 10
   width: 2

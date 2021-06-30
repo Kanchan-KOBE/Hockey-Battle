@@ -64,7 +64,6 @@ public class ARGameManager : MonoBehaviour
     void Start()
     {
         AudioSource audio = GetComponent<AudioSource>();
-        EnemyManager enemyManager = new EnemyManager();
         StartCoroutine("HogeGameStart");
     }
    
@@ -129,13 +128,15 @@ public class ARGameManager : MonoBehaviour
             }
             
         }else if(SceneManager00.stage == 0){ 
-            int i = GameManager.howManyEnemysPlusOne - 1;
-            if(EnemyManager.enemyNumber == i){
-                //全クリUI
-            }else{
-                //ステージアンロック
-                EnemyManager.unlock_Stage = EnemyManager.enemyNumber + 1;
-                enemyManager.UpdateUnlockS();
+            if(isWin){
+                int i = GameManager.howManyEnemysPlusOne - 1;
+                if(EnemyManager.enemyNumber == i){
+                    //全クリUI
+                }else{
+                    //ステージアンロック
+                    EnemyManager.unlock_Stage = EnemyManager.enemyNumber + 1;
+                    // Debug.Log("Unlock Stage" + EnemyManager.unlock_Stage);
+                }
             }
         }
 
@@ -145,6 +146,7 @@ public class ARGameManager : MonoBehaviour
 
     public void GoalUI(){
         uI_Goal.SetActive(true);
+        PackScript.poisonTime = false;
     }
     public void CompleteUI(){
         uI_Complete.SetActive(true);
@@ -204,11 +206,13 @@ public class ARGameManager : MonoBehaviour
         gameStep ++;//5
 
         //step5（カウントダウン）
-        GetComponent<AudioSource>().PlayOneShot(clips[0]);
+        GetComponent<AudioSource>().PlayOneShot(clips[0],1.0f);
         textCount.text = "3";
         yield return new WaitForSeconds(1f);
+        GetComponent<AudioSource>().PlayOneShot(clips[0],1.0f);
         textCount.text = "2";
         yield return new WaitForSeconds(1f);
+        GetComponent<AudioSource>().PlayOneShot(clips[0],1.0f);
         textCount.text = "1";
         yield return new WaitForSeconds(1f);
         textCount.text = "Go!";

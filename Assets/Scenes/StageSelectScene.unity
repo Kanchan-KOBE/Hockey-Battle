@@ -5909,17 +5909,17 @@ MonoBehaviour:
   msgLocked: {fileID: 2133922107}
   btnToNext: {fileID: 931374153}
   btnsLocked:
-  - {fileID: 923384381}
-  - {fileID: 893530707}
-  - {fileID: 540550755}
-  - {fileID: 389339049}
-  - {fileID: 56393517}
-  - {fileID: 1950551046}
-  - {fileID: 147302683}
-  - {fileID: 1694097861}
-  - {fileID: 519965844}
-  - {fileID: 565453365}
-  - {fileID: 950507093}
+  - {fileID: 923384377}
+  - {fileID: 893530705}
+  - {fileID: 540550753}
+  - {fileID: 389339047}
+  - {fileID: 56393515}
+  - {fileID: 1950551044}
+  - {fileID: 147302681}
+  - {fileID: 1694097859}
+  - {fileID: 519965842}
+  - {fileID: 565453363}
+  - {fileID: 950507091}
 --- !u!4 &1235126296
 Transform:
   m_ObjectHideFlags: 0
@@ -6326,7 +6326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainManager: {fileID: 0}
-  nameInputUI: {fileID: 0}
+  initNameUI: {fileID: 0}
   rankerName: {fileID: 0}
   rankerScore: {fileID: 0}
   testScore: {fileID: 0}

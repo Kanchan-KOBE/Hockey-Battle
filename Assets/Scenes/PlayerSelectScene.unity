@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 868354518}
         m_TargetAssemblyTypeName: PlayerSelectManager, Assembly-CSharp
         m_MethodName: CheckUI_Delete
         m_Mode: 1
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28953958edb9249d38947263af2a4d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  i: 0
+  aRGameManager: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: 733d09f57c01543a3a2f80c75717dac6, type: 3}
 --- !u!4 &543405483
@@ -3960,7 +3960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainManager: {fileID: 0}
-  nameInputUI: {fileID: 0}
+  initNameUI: {fileID: 0}
   rankerName: {fileID: 0}
   rankerScore: {fileID: 0}
   testScore: {fileID: 0}

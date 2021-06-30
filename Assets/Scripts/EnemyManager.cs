@@ -7,14 +7,18 @@ public class EnemyManager : MonoBehaviour
     public GameObject[] Enemies;
 
     public static int enemyNumber = 0;
+    public static int unlock_Stage = 2;
     public int setEnemyNumber;
 
 
 
+    void Awake(){
+        UpdateUnlockS();
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -29,5 +33,11 @@ public class EnemyManager : MonoBehaviour
         Instantiate(Enemies[enemyNumber], new Vector3(0f,1.0f,7.5f), transform.rotation);
     }
 
-
+    public void UpdateUnlockS(){
+        int saved = PlayerPrefs.GetInt("UNLOCK_S");
+        Debug.Log("SAVED " + saved);
+        if(saved < unlock_Stage){
+            PlayerPrefs.SetInt("UNLOCK_S",unlock_Stage);
+        }
+    }
 }

@@ -12,17 +12,15 @@ public class EnemySelectManager : MonoBehaviour
    
 
     [SerializeField] Button btnToNext;
-    [SerializeField] Button[] btnsLocked;
+    [SerializeField] GameObject[] btnsLocked;
 
 
     
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < GameManager.howManyEnemysPlusOne; i ++){
-            // if(){
-            // btnsLocked[i].SetActive(true);
-            // }
+        for(int i = 0; i < PlayerPrefs.GetInt("UNLOCK_S"); i ++){
+            btnsLocked[i].SetActive(false);
         }
 
 

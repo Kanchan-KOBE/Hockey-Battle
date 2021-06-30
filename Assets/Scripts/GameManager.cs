@@ -25,14 +25,14 @@ public class GameManager : MonoBehaviour
 
 
     void Awake(){
-        if(SceneManager.GetActiveScene().name == "MainMenuScene"){ 
-            Login();
-        }
         
     }
 
     void Start()
     {
+        if(SceneManager.GetActiveScene().name == "MainMenuScene"){ 
+            Login();
+        }
         
     }
 
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
 
 //=========================================================================
 //ログイン
+
     void Login()
     {
         _customUserID = LoadCustomID();
@@ -57,19 +58,15 @@ public class GameManager : MonoBehaviour
                 Login();//ログインしなおし
                 return;
             }
-            if (result.NewlyCreated) {//アカウント作成時にIDを保存
+            if (result.NewlyCreated) {
                 if(SceneManager.GetActiveScene().name == "MainMenuScene"){
                     initNameUI.SetActive(true);
                 }
                 SubmitScore(0);
             }
             Debug.Log($"PlayFabのログインに成功\nPlayFabId : {result.PlayFabId}, CustomId : {_customUserID}\nアカウントを作成したか : {result.NewlyCreated}");
-            GetUserName();
-            GetUserScore();
-            GetUserRank();
-            if(SceneManager.GetActiveScene().name == "MainMenuScene"){ 
-                mainManager.RefleshUserData();
-            }
+            GetUserData();
+            
         }
         private void OnLoginFailure(PlayFabError error)
         {
@@ -95,6 +92,60 @@ public class GameManager : MonoBehaviour
         return guid.ToString();
     }
 
+    public void GetUserID() { //取得
+        var request = new GetLeaderboardAroundPlayerRequest{StatisticName = "HighScore", MaxResultsCount = 1};
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnGetUserIDSuccess, OnGetUserIDFailure);
+    }
+        private void OnGetUserIDSuccess(GetLeaderboardAroundPlayerResult result){
+            foreach (var entry in result.Leaderboard) {
+                userID = $"{entry.PlayFabId}";
+            }
+            Debug.Log("ID : " + userID);
+        }
+        private void OnGetUserIDFailure(PlayFabError error){
+            Debug.LogError($"ユーザー名の取得に失敗しました\n{error.GenerateErrorReport()}");
+        }
+
+    private void GetUserData(){//ユーザーデータまとめて取得
+        GetUserName();
+        GetUserRank();
+        GetUserScore();
+        GetUserID();
+    }
+
+//=========================================================================
+//登録＆ログイン
+    public void PressRegisterButton()//登録
+    {
+        var RegisterData = new RegisterPlayFabUserRequest()
+        {
+            TitleId = "33E40",
+            Email = "shunsuke.k.9969@gmail.com",
+            Password = "Shun9969",
+            Username = "Kanchan"
+        };
+
+        PlayFabClientAPI.RegisterPlayFabUser(RegisterData, result => 
+        {
+            Debug.Log("Congratulations, you made your PlayFab account!");
+            GetUserData();
+        }, error => Debug.Log(error.GenerateErrorReport()));
+    }
+
+    public void PressLoginButton()//ログイン
+    {
+        var LoginData = new LoginWithEmailAddressRequest()
+        {
+            TitleId = "33E40",
+            Email = "shunsuke.k.9969@gmail.com",
+            Password = "Shun9969",
+        };
+        PlayFabClientAPI.LoginWithEmailAddress(LoginData, result => 
+        {
+            Debug.Log("Congratulations, you made your first successful API call!");
+            GetUserData();
+        }, error => Debug.Log(error.GenerateErrorReport()));
+    }
 
 
 //=========================================================================
@@ -123,6 +174,7 @@ public class GameManager : MonoBehaviour
                 userName = $"{entry.DisplayName}";
             }
             Debug.Log("Name : " + userName);
+            mainManager.RefleshName();
         }
         private void OnGetUserNameFailure(PlayFabError error){
             Debug.LogError($"ユーザー名の取得に失敗しました\n{error.GenerateErrorReport()}");
@@ -169,6 +221,7 @@ public class GameManager : MonoBehaviour
                 highScore = int.Parse($"{entry.StatValue}");
             }
             Debug.Log("Score : " + highScore);
+            mainManager.RefleshScore();
         }
         private void OnGetUserScoreFailure(PlayFabError error){
             Debug.LogError($"スコアの取得に失敗しました\n{error.GenerateErrorReport()}");
@@ -224,7 +277,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError($"自分の順位周辺のランキングの取得に失敗しました\n{error.GenerateErrorReport()}");
         }
 
-        public void GetUserRank() { //取得
+    public void GetUserRank() { //取得
         var request = new GetLeaderboardAroundPlayerRequest{StatisticName = "HighScore", MaxResultsCount = 1};
         PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnGetUserRankSuccess, OnGetUserRankFailure);
     }
@@ -233,6 +286,7 @@ public class GameManager : MonoBehaviour
                 userRank = int.Parse($"{entry.Position}") + 1;
             }
             Debug.Log("Rank : " + userRank);
+            mainManager.RefleshRank();
         }
         private void OnGetUserRankFailure(PlayFabError error){
             Debug.LogError($"ユーザー名の取得に失敗しました\n{error.GenerateErrorReport()}");
@@ -241,15 +295,14 @@ public class GameManager : MonoBehaviour
 
 
 
+
+//=================================================================================
     public void OpenInitNameUI(){
         initNameUI.SetActive(true);
     }
-    public void CloseInitUI(){
-        initNameUI.SetActive(false);
-    }
 
-    public void Tst(){
-        userName = "Test";
+    public void ResetUnlockS(){
+        PlayerPrefs.SetInt("UNLOCK_S",2);
     }
 
 }

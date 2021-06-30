@@ -64,6 +64,7 @@ public class ARGameManager : MonoBehaviour
     void Start()
     {
         AudioSource audio = GetComponent<AudioSource>();
+        EnemyManager enemyManager = new EnemyManager();
         StartCoroutine("HogeGameStart");
     }
    
@@ -114,7 +115,7 @@ public class ARGameManager : MonoBehaviour
         newScore = 0;
     }
 
-     public void WinUI(){ //勝利時の処理
+     public void WinUI(){//勝利時の処理
         if(SceneManager00.stage == 1){ 
             if(isWin){
                 if(u){ //スコア計算
@@ -124,7 +125,6 @@ public class ARGameManager : MonoBehaviour
                     txtPlusScore.text = plusScore.ToString();
                     txtNewScore[0].text = newScore.ToString();
                     u = false;
-                    
                 }
             }
             
@@ -134,6 +134,8 @@ public class ARGameManager : MonoBehaviour
                 //全クリUI
             }else{
                 //ステージアンロック
+                EnemyManager.unlock_Stage = EnemyManager.enemyNumber + 1;
+                enemyManager.UpdateUnlockS();
             }
         }
 
@@ -170,7 +172,7 @@ public class ARGameManager : MonoBehaviour
 
     //===============================================
 
-        private IEnumerator HogeGameStart()
+    private IEnumerator HogeGameStart()
     {
         //step0（E,P生成）（LP＝３）
         Time.timeScale = 0.001f;

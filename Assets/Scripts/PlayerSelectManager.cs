@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerSelectManager : MonoBehaviour
 {
-    public GameObject uI_Check;
+    [SerializeField] GameObject uI_Check;
 
-    public Button btnToNext;
+    [SerializeField] Button btnToNext;
 
     
     // Start is called before the first frame update

@@ -3,32 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InputScript : MonoBehaviour
+public class InputScript_ID : MonoBehaviour
 {
     public MainMenuManager mainManager;
     [SerializeField] GameObject uI_InputUI;
     [SerializeField] InputField inputField;
     [SerializeField] Button button;
     [SerializeField] GameObject uI_Check;
-    [SerializeField] Text checkName;
-
+    [SerializeField] Text userID;
 
     // Start is called before the first frame update
     void Start()
     {
         // inputField = GameObject.Find("InputField").GetComponent<InputField>();
+        userID.text = "Your ID : " + $"{GameManager.userID}";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(inputField.text.Length < 3){
-            button.interactable = false;
-        }else if(inputField.text.Length > 6){
-            button.interactable = false;
-        }else{
+        if(inputField.text.Length == 16){
             button.interactable = true;
+        }else {
+            button.interactable = false;
         }
+
     }
 
     public void GetInputName()
@@ -42,7 +41,6 @@ public class InputScript : MonoBehaviour
     }
 
     public void OpenCheck(){
-        checkName.text = inputField.text;
         uI_Check.SetActive(true);
     }
 
@@ -56,7 +54,6 @@ public class InputScript : MonoBehaviour
     public void CloseInputUI(){
         uI_InputUI.SetActive(false);
     }
-
 
 
 

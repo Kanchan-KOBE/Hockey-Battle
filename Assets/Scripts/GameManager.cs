@@ -12,21 +12,21 @@ public class GameManager : MonoBehaviour
     public MainMenuManager mainManager;
     private bool _shouldCreateAccount;
     public static string _customUserID;
-    public static string userName = "NoName";
+    public static string userID = "0123456789ABCDEF";
+    public static string userName = "-----";
     public static int userRank = 0;
     public static int highScore = 0;
 
     public static int howManyPlayersPlusOne = 11;
     public static int howManyEnemysPlusOne = 11;
 
-    [SerializeField] GameObject nameInputUI;
+
+    [SerializeField] GameObject initNameUI;
 
 
     void Awake(){
-        if(SceneManager.GetActiveScene().name == "MainMenuScene"){
-            
+        if(SceneManager.GetActiveScene().name == "MainMenuScene"){ 
             Login();
-            
         }
         
     }
@@ -58,9 +58,8 @@ public class GameManager : MonoBehaviour
                 return;
             }
             if (result.NewlyCreated) {//アカウント作成時にIDを保存
-                SaveCustomID();
                 if(SceneManager.GetActiveScene().name == "MainMenuScene"){
-                    nameInputUI.SetActive(true);
+                    initNameUI.SetActive(true);
                 }
                 SubmitScore(0);
             }
@@ -68,14 +67,16 @@ public class GameManager : MonoBehaviour
             GetUserName();
             GetUserScore();
             GetUserRank();
-            mainManager.RefleshUserData();
+            if(SceneManager.GetActiveScene().name == "MainMenuScene"){ 
+                mainManager.RefleshUserData();
+            }
         }
         private void OnLoginFailure(PlayFabError error)
         {
             Debug.LogError($"PlayFabのログインに失敗\n{error.GenerateErrorReport()}");
         }
 
-    private static readonly string CUSTOM_ID_SAVE_KEY = "CUSTOM_PASS_ID_SAVE_KEY";    //IDを保存する時のKEY
+    private static readonly string CUSTOM_ID_SAVE_KEY = "CUSTOM_K_ID_SAVE_KEY";    //IDを保存する時のKEY
     
     public string LoadCustomID() {//IDを取得
         string id = PlayerPrefs.GetString(CUSTOM_ID_SAVE_KEY);
@@ -84,7 +85,7 @@ public class GameManager : MonoBehaviour
         return _shouldCreateAccount ? GenerateCustomID() : id;
     }
 
-    private void SaveCustomID() {//IDを保存
+    public void SaveCustomID() {//IDを保存
         PlayerPrefs.SetString(CUSTOM_ID_SAVE_KEY, _customUserID);
     }
 
@@ -240,11 +241,11 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void OpenUI(){
-        nameInputUI.SetActive(true);
+    public void OpenInitNameUI(){
+        initNameUI.SetActive(true);
     }
-    public void DeleteUI(){
-        nameInputUI.SetActive(false);
+    public void CloseInitUI(){
+        initNameUI.SetActive(false);
     }
 
     public void Tst(){

@@ -28,6 +28,7 @@ public class ARGameManager : MonoBehaviour
     public GameObject mainCamera;
     public GameObject uI_Main;
     public GameObject uI_WIN;
+    public GameObject uI_Complete;
     public GameObject uI_LOSE;
     public GameObject uI_Result;
     public GameObject uI_NewRecord;
@@ -123,6 +124,7 @@ public class ARGameManager : MonoBehaviour
                     txtPlusScore.text = plusScore.ToString();
                     txtNewScore[0].text = newScore.ToString();
                     u = false;
+                    
                 }
             }
             
@@ -141,6 +143,9 @@ public class ARGameManager : MonoBehaviour
 
     public void GoalUI(){
         uI_Goal.SetActive(true);
+    }
+    public void CompleteUI(){
+        uI_Complete.SetActive(true);
     }
     public void GoalUI_Delete(){
         uI_Goal.SetActive(false);

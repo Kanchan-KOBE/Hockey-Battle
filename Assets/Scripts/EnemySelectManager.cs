@@ -5,18 +5,37 @@ using UnityEngine.UI;
 
 public class EnemySelectManager : MonoBehaviour
 {
-    public GameObject uI_Check;
+    [SerializeField] GameObject uI_Check;
+
+    [SerializeField] GameObject uI_Locked;
+    [SerializeField] Text msgLocked;
+   
+
+    [SerializeField] Button btnToNext;
+    [SerializeField] Button[] btnsLocked;
+
+
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        for(int i = 0; i < GameManager.howManyEnemysPlusOne; i ++){
+            // if(){
+            // btnsLocked[i].SetActive(true);
+            // }
+        }
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(EnemyManager.enemyNumber == 0){
+            btnToNext.interactable = false;
+        }else{
+            btnToNext.interactable = true;
+        }
     }
 
     public void GetEnemyNumber(int setEnemyNumber)
@@ -31,4 +50,15 @@ public class EnemySelectManager : MonoBehaviour
     public void CheckUI_Delete(){
         uI_Check.SetActive(false);
     }
+
+    public void OpenLocked( string massage ){
+        msgLocked.text = massage;
+        uI_Locked.SetActive(true);
+    }
+    public void CloseLocked(){
+        uI_Locked.SetActive(false);
+    }
+
+
+    
 }

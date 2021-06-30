@@ -10,9 +10,9 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] Text txtUserScore;
     [SerializeField] Text txtUserRank;
     [SerializeField] GameObject uI_Ranking;
-    // [SerializeField] GameObject uI_InputUI;
-    // [SerializeField] GameObject uI_Check;
-    // [SerializeField] Text checkName;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,4 +48,6 @@ public class MainMenuManager : MonoBehaviour
     public void CloseRanking(){
         uI_Ranking.SetActive(false);
     }
+
+
 }

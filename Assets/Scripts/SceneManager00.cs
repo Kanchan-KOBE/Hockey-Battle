@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneManager00 : MonoBehaviour
 {
 
-    
+    public ARGameManager aRGameManager;
     public static int stage ;
-    public int i = 0;
 
     public AudioClip[] clips;
 
@@ -33,9 +32,6 @@ public class SceneManager00 : MonoBehaviour
 
 
     //--------------------------------------------------------------------------------------
-    public void ToSetting(){
-        SceneManager.LoadScene("SettingScene");
-    }
     public void ToTitle(){
         SceneManager.LoadScene("TitleScene");
     }
@@ -68,6 +64,7 @@ public class SceneManager00 : MonoBehaviour
         int i = GameManager.howManyEnemysPlusOne - 1;
         if(EnemyManager.enemyNumber == i){
             Debug.Log("全クリ");
+            aRGameManager.CompleteUI();
         }else{
             EnemyManager.enemyNumber += 1;
             SceneManager.LoadScene("Stage_AR");

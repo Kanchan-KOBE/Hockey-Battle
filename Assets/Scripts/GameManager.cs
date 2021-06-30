@@ -302,7 +302,15 @@ public class GameManager : MonoBehaviour
     }
 
     public void ResetUnlockS(){
-        PlayerPrefs.SetInt("UNLOCK_S",2);
+        PlayerPrefs.SetInt("UNLOCK_S", 2);
+    }
+    public void ResetUnlockP(){
+        for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){
+            PlayerPrefs.SetInt("UNLOCK_P" + $"{i}", 0);
+        }
+    }
+    public void UnlockP4(){
+        PlayerPrefs.SetInt("UNLOCK_P4",1);
     }
 
 }

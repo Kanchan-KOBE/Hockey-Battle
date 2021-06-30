@@ -7,10 +7,13 @@ public class PlayerSelectManager : MonoBehaviour
 {
     [SerializeField] GameObject uI_Check;
 
+    [SerializeField] GameObject uI_Locked;
+    [SerializeField] Text msgLocked;
+
     [SerializeField] Button btnToNext;
+    [SerializeField] GameObject[] btnsLocked;
 
     
-    // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Stage : " + SceneManager00.stage);
@@ -18,14 +21,14 @@ public class PlayerSelectManager : MonoBehaviour
         PlayerManager.playerNumber = 0;
         ARGameManager.newScore = 0;
 
-        // for(int i = 0; i < GameManager.howManyPlayersPlusOne; i ++)
-        // {
-            
-        // }
+        for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){
+            if(PlayerPrefs.GetInt("UNLOCK_P" + $"{i}") == 1){
+                btnsLocked[i].SetActive(false);
+            }
+        }
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(PlayerManager.playerNumber == 0){
@@ -46,5 +49,12 @@ public class PlayerSelectManager : MonoBehaviour
     }
     public void CheckUI_Delete(){
         uI_Check.SetActive(false);
+    }
+    public void OpenLocked( string message ){
+        msgLocked.text = message;
+        uI_Locked.SetActive(true);
+    }
+    public void CloseLocked(){
+        uI_Locked.SetActive(false);
     }
 }

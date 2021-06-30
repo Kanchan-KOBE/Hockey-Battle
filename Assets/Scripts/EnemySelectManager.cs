@@ -49,8 +49,8 @@ public class EnemySelectManager : MonoBehaviour
         uI_Check.SetActive(false);
     }
 
-    public void OpenLocked( string massage ){
-        msgLocked.text = massage;
+    public void OpenLocked( string message ){
+        msgLocked.text = message;
         uI_Locked.SetActive(true);
     }
     public void CloseLocked(){

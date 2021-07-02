@@ -868,7 +868,7 @@ MonoBehaviour:
   cutInImg: {fileID: 1719303517841754587}
   nameE: {fileID: 1993582262942178051}
   enemyName: E3
-  enemyImg: {fileID: 21300000, guid: 2dc7177a2d11a41a089eac126d2e3ad1, type: 3}
+  enemyImg: {fileID: 21300000, guid: 8ce6a7feb0e24412db55f98ee13f6db8, type: 3}
   speed: 5
   width: 2
   pet: {fileID: 0}
@@ -937,7 +937,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 319e43db9f2354b84bc4f921fea669f4, type: 2}
+  - {fileID: 2100000, guid: 214292570c1ec47159c8ee1e5a583bf8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

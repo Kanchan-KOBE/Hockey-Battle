@@ -7,13 +7,14 @@ public class EnemyManager : MonoBehaviour
     public GameObject[] Enemies;
 
     public static int enemyNumber = 0;
-    public static int unlock_Stage = 2;
+    public static int unlock_Stage = 1;
     public int setEnemyNumber;
 
 
 
     void Awake(){
         UpdateUnlockS();
+        // Debug.Log("EM:"+EnemyManager.unlock_Stage + " PP:"+PlayerPrefs.GetInt("UNLOCK_S"));
     }
     // Start is called before the first frame update
     void Start()

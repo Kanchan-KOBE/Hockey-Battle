@@ -34,6 +34,8 @@ public class ARGameManager : MonoBehaviour
     public GameObject uI_NewRecord;
     public GameObject uI_Goal;
     public GameObject uI_Pause;
+    [SerializeField] GameObject uI_CheckSave;
+    [SerializeField] GameObject uI_CheckExit;
 
     [SerializeField] Text textCount;
     [SerializeField] Text txtPlusScore;
@@ -41,6 +43,7 @@ public class ARGameManager : MonoBehaviour
     public AudioClip[] clips;
 
     private bool u = true; //スコア計算スイッチ
+    private bool plus = true; //スコア計算スイッチ
 
     void Awake()
     {
@@ -48,7 +51,7 @@ public class ARGameManager : MonoBehaviour
         isWin = false;
         isLose = false;
         PackScript.poisonTime = false;
-        
+        plus = true;
 
         int i = EnemyManager.enemyNumber - PlayerManager.playerNumber;
         if(i > 0){
@@ -65,6 +68,7 @@ public class ARGameManager : MonoBehaviour
     {
         AudioSource audio = GetComponent<AudioSource>();
         StartCoroutine("HogeGameStart");
+        Debug.Log($"Score: {newScore}\nWins: {winCounter}");
     }
    
 
@@ -95,11 +99,12 @@ public class ARGameManager : MonoBehaviour
                         GameManager.highScore = newScore;
                         txtNewScore[1].text = newScore.ToString();
                         uI_NewRecord.SetActive(true);
-                        myManager.SubmitScore(GameManager.highScore);
+                        myManager.SubmitScore();
+                        ResetSV();
                         u = false;
+                        
                     }else{
                         txtNewScore[2].text = newScore.ToString();
-                        myManager.SubmitScore(GameManager.highScore);
                         uI_Result.SetActive(true);
                         u = false;
                     }
@@ -121,27 +126,35 @@ public class ARGameManager : MonoBehaviour
                     winCounter ++;
                     plusScore = (level * 100 + LPManager.LifePlayer * 100) * scoreMag * winCounter;
                     newScore = newScore + plusScore;
-                    txtPlusScore.text = plusScore.ToString();
+
+                    txtPlusScore.text = "+ " + plusScore.ToString();
                     txtNewScore[0].text = newScore.ToString();
+                    
+                    SaveSV();
                     u = false;
                 }
+                uI_WIN.SetActive(true);
             }
             
         }else if(SceneManager00.stage == 0){ 
             if(isWin){
                 int i = GameManager.howManyEnemysPlusOne - 1;
                 if(EnemyManager.enemyNumber == i){
-                    //全クリUI
+                    if(plus){//全クリUI
+                        uI_Complete.SetActive(true);
+                        plus = false;
+                    }
                 }else{
-                    //ステージアンロック
-                    EnemyManager.unlock_Stage = EnemyManager.enemyNumber + 1;
-                    // Debug.Log("Unlock Stage" + EnemyManager.unlock_Stage);
+                    uI_WIN.SetActive(true);
+                    if(plus){//ステージアンロック
+                        EnemyManager.unlock_Stage = EnemyManager.enemyNumber + 1;
+                        plus = false;
+                    }
                 }
             }
         }
 
         EnemyScript.cutInE = false;
-        uI_WIN.SetActive(true);
     }
 
     public void GoalUI(){
@@ -161,6 +174,36 @@ public class ARGameManager : MonoBehaviour
     public void PauseUI_Delete(){
         uI_Pause.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+//================================================================
+//SVセーブ
+    public void SaveSV(){
+        PlayerPrefs.SetInt("PlayerSV", PlayerManager.playerNumber);
+        PlayerPrefs.SetInt("ScoreSV", newScore);
+        PlayerPrefs.SetInt("WinCounterSV", winCounter);
+        PlayerPrefs.SetInt("LifePSV", LPManager.LifePlayer);
+        PlayerPrefs.SetInt("LifeESV", LPManager.LifeEnemy);
+    }
+    public void ResetSV(){
+        PlayerPrefs.SetInt("PlayerSV", 0);
+        PlayerPrefs.SetInt("ScoreSV", 0);
+        PlayerPrefs.SetInt("WinCounterSV", 0);
+        PlayerPrefs.SetInt("LifePSV", 0);
+        PlayerPrefs.SetInt("LifeESV", 0);
+    }
+
+    public void OpenCheckSave(){
+        uI_CheckSave.SetActive(true);
+    }
+    public void CloseCheckSave(){
+        uI_CheckSave.SetActive(false);
+    }
+    public void OpenCheckExit(){
+        uI_CheckExit.SetActive(true);
+    }
+    public void CloseCheckExit(){
+        uI_CheckExit.SetActive(false);
     }
 
 
@@ -206,13 +249,11 @@ public class ARGameManager : MonoBehaviour
         gameStep ++;//5
 
         //step5（カウントダウン）
-        GetComponent<AudioSource>().PlayOneShot(clips[0],1.0f);
+        GetComponent<AudioSource>().PlayOneShot(clips[0]);
         textCount.text = "3";
         yield return new WaitForSeconds(1f);
-        GetComponent<AudioSource>().PlayOneShot(clips[0],1.0f);
         textCount.text = "2";
         yield return new WaitForSeconds(1f);
-        GetComponent<AudioSource>().PlayOneShot(clips[0],1.0f);
         textCount.text = "1";
         yield return new WaitForSeconds(1f);
         textCount.text = "Go!";

@@ -127,13 +127,13 @@ MonoBehaviour:
   cutInImg: {fileID: 8784388843398237740}
   nameP: {fileID: 377066050157347099}
   playerName: Player
-  playerImg: {fileID: 21300000, guid: 65b5cb18ea2834a48b1aa2ed7a948b83, type: 3}
+  playerImg: {fileID: 21300000, guid: f4032bbafbaef466abe2d6a17f9ea98a, type: 3}
   pet: {fileID: 3967562660225834878, guid: 098e0f6c4426e499584ba27409d9cc59, type: 3}
   speed: 8
   lifeCharge: 0
-  lifeChargePlus: 1
+  lifeChargePlus: 0
   pets: 0
-  zombie: 1
+  zombie: 0
   lucky: 0
 --- !u!82 &2407525113540769077
 AudioSource:
@@ -554,7 +554,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 850fea3dd9ead44c6acb8941b1f93a23, type: 2}
+  - {fileID: 2100000, guid: d388152608cce4d5ebf9f991c9815d8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -906,7 +906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4138184263033023694}
   m_Layer: 0
-  m_Name: PlayerX
+  m_Name: PlayerX 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

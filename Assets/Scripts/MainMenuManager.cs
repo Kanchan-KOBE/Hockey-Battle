@@ -10,6 +10,9 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] Text txtUserScore;
     [SerializeField] Text txtUserRank;
     [SerializeField] GameObject uI_Ranking;
+    [SerializeField] GameObject uI_CheckSV;
+    [SerializeField] GameObject uI_CheckReset;
+    [SerializeField] SceneManager00 sceneManager00;
 
 
 
@@ -48,6 +51,39 @@ public class MainMenuManager : MonoBehaviour
     public void CloseRanking(){
         uI_Ranking.SetActive(false);
     }
+
+    public void LoadSV(){
+        PlayerManager.playerNumber = PlayerPrefs.GetInt("PlayerSV");
+        ARGameManager.newScore = PlayerPrefs.GetInt("ScoreSV");
+        ARGameManager.winCounter = PlayerPrefs.GetInt("WinCounterSV");
+        LPManager.LifePlayer = PlayerPrefs.GetInt("LifePSV");
+        LPManager.LifeEnemy = PlayerPrefs.GetInt("LifeESV");
+
+        if(PlayerPrefs.GetInt("PlayerSV") == 0){
+            sceneManager00.ToPlayerSelect();
+        }else{
+            uI_CheckSV.SetActive(true);
+        }
+    }
+
+    public void CloseCheckSV(){
+        uI_CheckSV.SetActive(false);
+    }
+    public void OpenCheckReset(){
+        uI_CheckReset.SetActive(true);
+    }
+    public void CloseCheckReset(){
+        uI_CheckReset.SetActive(false);
+    }
+
+    public void ResetSV(){
+        PlayerPrefs.SetInt("PlayerSV", 0);
+        PlayerPrefs.SetInt("EnemySV", 0);
+        PlayerPrefs.SetInt("ScoreSV", 0);
+        PlayerPrefs.SetInt("WinCounterSV", 0);
+    }
+
+
 
 
 }

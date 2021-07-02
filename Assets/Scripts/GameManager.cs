@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
                 if(SceneManager.GetActiveScene().name == "MainMenuScene"){
                     initNameUI.SetActive(true);
                 }
-                SubmitScore(0);
+                SubmitScore();
             }
             Debug.Log($"PlayFabのログインに成功\nPlayFabId : {result.PlayFabId}, CustomId : {_customUserID}\nアカウントを作成したか : {result.NewlyCreated}");
             GetUserData();
@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour
 
 //=================================================================================
 //スコア
-    public void SubmitScore(int playerScore) //更新
+    public void SubmitScore() //更新
     {
         PlayFabClientAPI.UpdatePlayerStatistics(
             new UpdatePlayerStatisticsRequest
@@ -197,7 +197,7 @@ public class GameManager : MonoBehaviour
                     new StatisticUpdate
                     {
                         StatisticName = "HighScore",
-                        Value = playerScore
+                        Value = ARGameManager.newScore
                     }
                 }
             },
@@ -302,7 +302,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void ResetUnlockS(){
-        PlayerPrefs.SetInt("UNLOCK_S", 2);
+        PlayerPrefs.SetInt("UNLOCK_S", 1);
+    }
+    public void AllUnlockS(){
+        PlayerPrefs.SetInt("UNLOCK_S", 10);
     }
     public void ResetUnlockP(){
         for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){

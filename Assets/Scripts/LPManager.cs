@@ -8,8 +8,8 @@ public class LPManager : MonoBehaviour
     // public PackFactory packFactory;
     public ARGameManager myManager;
     public PackManager packManager;
-    public static byte LifePlayer = 3;
-    public static byte LifeEnemy = 3;
+    public static int LifePlayer = 3;
+    public static int LifeEnemy = 3;
 
     public static bool zombieCheckE = false;
     public static bool zombieCheckP = false;

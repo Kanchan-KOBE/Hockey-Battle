@@ -19,8 +19,8 @@ public class EnemySelectManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("EM:"+EnemyManager.unlock_Stage + " PP:"+PlayerPrefs.GetInt("UNLOCK_S"));
-        for(int i = 0; i < PlayerPrefs.GetInt("UNLOCK_S"); i ++){
+        // Debug.Log("EM:"+EnemyManager.unlock_Stage + " PP:"+PlayerPrefs.GetInt("UNLOCK_S"));
+        for(int i = 0; i < PlayerPrefs.GetInt("UNLOCK_S") + 1; i ++){
             btnsLocked[i].SetActive(false);
         }
 

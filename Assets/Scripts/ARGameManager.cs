@@ -24,7 +24,7 @@ public class ARGameManager : MonoBehaviour
     public PackManager packManager;
     public EnemyManager enemyManager;
     public PlayerManager playerManager;
-    public SceneManager00 sceneManager;
+    [SerializeField] SE_Manager sE_Manager;
     public GameObject mainCamera;
     public GameObject uI_Main;
     public GameObject uI_WIN;
@@ -36,11 +36,11 @@ public class ARGameManager : MonoBehaviour
     public GameObject uI_Pause;
     [SerializeField] GameObject uI_CheckSave;
     [SerializeField] GameObject uI_CheckExit;
+    [SerializeField] GameObject[] uI_CountDown;
 
-    [SerializeField] Text textCount;
+
     [SerializeField] Text txtPlusScore;
     [SerializeField] Text[] txtNewScore;
-    public AudioClip[] clips;
 
     private bool u = true; //スコア計算スイッチ
     private bool plus = true; //スコア計算スイッチ
@@ -129,7 +129,7 @@ public class ARGameManager : MonoBehaviour
 
                     txtPlusScore.text = "+ " + plusScore.ToString();
                     txtNewScore[0].text = newScore.ToString();
-                    
+
                     SaveSV();
                     u = false;
                 }
@@ -233,7 +233,7 @@ public class ARGameManager : MonoBehaviour
         //step2（カットイン３秒）
         Time.timeScale = 1.0f;
         //true
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
         //false
         gameStep ++; //3
 
@@ -249,16 +249,19 @@ public class ARGameManager : MonoBehaviour
         gameStep ++;//5
 
         //step5（カウントダウン）
-        GetComponent<AudioSource>().PlayOneShot(clips[0]);
-        textCount.text = "3";
+        
+        uI_CountDown[0].SetActive(true);
         yield return new WaitForSeconds(1f);
-        textCount.text = "2";
+        uI_CountDown[0].SetActive(false);
+        uI_CountDown[1].SetActive(true);
         yield return new WaitForSeconds(1f);
-        textCount.text = "1";
+        uI_CountDown[1].SetActive(false);
+        uI_CountDown[2].SetActive(true);
         yield return new WaitForSeconds(1f);
-        textCount.text = "Go!";
+        uI_CountDown[2].SetActive(false);
+        uI_CountDown[3].SetActive(true);
         yield return new WaitForSeconds(1f);
-        textCount.text = "";
+        uI_CountDown[3].SetActive(false);
 
 
         gameStep ++;//6

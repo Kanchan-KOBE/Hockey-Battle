@@ -9,15 +9,12 @@ public class SceneManager00 : MonoBehaviour
     public ARGameManager aRGameManager;
     public static int stage ;
 
-    public AudioClip[] clips;
+    [SerializeField] GameObject[] uIs_Main;
 
     // Start is called before the first frame update
     void Start()
     {
-        // for(int i = 0; i < GameManager.howManyEnemysPlusOne; i++)
-        // {
-        //     Debug.Log(GameManager.unlockS[i]);
-        // }
+        
     }
 
     // Update is called once per frame
@@ -32,25 +29,24 @@ public class SceneManager00 : MonoBehaviour
 
 
     //--------------------------------------------------------------------------------------
-    public void ToTitle(){
+    public void OpenUI_Main(int _UINumber){
+        uIs_Main[_UINumber].SetActive(true);
+    }
+    public void CloseUI_Main(int _UINumber){
+        uIs_Main[_UINumber].SetActive(false);
+    }
+
+
+    public void ToMain(){
         SceneManager.LoadScene("TitleScene");
     }
-    public void ToMain(){
-        SceneManager.LoadScene("MainMenuScene");
-    }
-
-    public void ToPlayerSelect(){
-        SceneManager.LoadScene("PlayerSelectScene");
-    }
-
+    
     public void ToNext(){
         if(PlayerManager.playerNumber == 0){
             Debug.Log("プレイヤーが選択されていません");
-            AudioSource audio = GetComponent<AudioSource>();
-            audio.PlayOneShot(clips[0]);
         }else{
             if(stage == 0){
-                SceneManager.LoadScene("StageSelectScene");
+                uIs_Main[3].SetActive(true);
             }else if(stage == 1){
                 ToSV();
             }
@@ -70,12 +66,8 @@ public class SceneManager00 : MonoBehaviour
             SceneManager.LoadScene("Stage_AR");
         }
     }
-    public void ToStageSelect(){
-        SceneManager.LoadScene("StageSelectScene");
-    }
-    public void ToRanking(){
-        SceneManager.LoadScene("RankingScene");
-    }
+
+
     public void ToSV(){
         int i = GameManager.howManyEnemysPlusOne - 1;
         EnemyManager.enemyNumber = Random.Range(0,i);
@@ -84,8 +76,8 @@ public class SceneManager00 : MonoBehaviour
     }
 
 
-    //stage(0=ARCADE,1=SURVIVAL)
-    public void GetStage(int i){
+
+    public void GetStage(int i){    //stage(0=ARCADE,1=SURVIVAL)
         stage = i;
     }
 }

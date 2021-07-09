@@ -45,6 +45,9 @@ public class InputScript : MonoBehaviour
         checkName.text = inputField.text;
         uI_Check.SetActive(true);
     }
+    public void CheckName(){
+        checkName.text = inputField.text;
+    }
 
     public void CloseCheck(){
         uI_Check.SetActive(false);

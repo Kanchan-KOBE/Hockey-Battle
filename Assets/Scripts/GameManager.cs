@@ -30,10 +30,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if(SceneManager.GetActiveScene().name == "MainMenuScene"){ 
+        if(SceneManager.GetActiveScene().name == "TitleScene"){ 
             Login();
         }
-        
+        Time.timeScale = 1.0f;
     }
 
     void Update()
@@ -59,10 +59,12 @@ public class GameManager : MonoBehaviour
                 return;
             }
             if (result.NewlyCreated) {
-                if(SceneManager.GetActiveScene().name == "MainMenuScene"){
+                if(SceneManager.GetActiveScene().name == "TitleScene"){
                     initNameUI.SetActive(true);
                 }
                 SubmitScore();
+                PlayerPrefs.SetFloat("Volume_BGM", 1.0f);
+                PlayerPrefs.SetFloat("Volume_SE", 1.0f);
             }
             Debug.Log($"PlayFabのログインに成功\nPlayFabId : {result.PlayFabId}, CustomId : {_customUserID}\nアカウントを作成したか : {result.NewlyCreated}");
             GetUserData();
@@ -232,9 +234,12 @@ public class GameManager : MonoBehaviour
 //=================================================================================
 //ランキング
 
-    [SerializeField]  private Text rankerName = default;
-    [SerializeField]  private Text rankerScore = default;
-    [SerializeField]  private Text testScore = default;
+    [SerializeField]  private Text rank_a = default;
+    [SerializeField]  private Text name_a = default;
+    [SerializeField]  private Text score_a = default;
+
+    [SerializeField]  private Text name_t = default;
+    [SerializeField]  private Text score_t = default;
 
     public void GetLeaderboard() { 
         var request = new GetLeaderboardRequest{
@@ -245,8 +250,13 @@ public class GameManager : MonoBehaviour
         PlayFabClientAPI.GetLeaderboard(request, OnGetLeaderboardSuccess, OnGetLeaderboardFailure);
     }
         private void OnGetLeaderboardSuccess(GetLeaderboardResult result){
+
+            name_t.text = "";
+            score_t.text = "";
+
             foreach (var entry in result.Leaderboard) {
-            testScore.text += $"\nスコア : {entry.StatValue}, 名前 : {entry.DisplayName}";
+            name_t.text += $"\n{entry.DisplayName}";
+            score_t.text += $"\n{entry.StatValue}";
             }
         }
         private void OnGetLeaderboardFailure(PlayFabError error){
@@ -257,20 +267,24 @@ public class GameManager : MonoBehaviour
     public void GetLeaderboardAroundPlayer() { 
         var request = new GetLeaderboardAroundPlayerRequest{
             StatisticName   = "HighScore", //ランキング名(統計情報名)
-            MaxResultsCount = 1  //自分を含め前後何件取得するか
+            MaxResultsCount = 5  //自分を含め前後何件取得するか
         };
         PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnGetLeaderboardAroundPlayerSuccess, OnGetLeaderboardAroundPlayerFailure);
     }
         private void OnGetLeaderboardAroundPlayerSuccess(GetLeaderboardAroundPlayerResult result){
 
-            // foreach (var entry in result.Leaderboard) {
-            //     rankerNameA.text += $"\n順位 : {entry.Position}";
-            // }
+            rank_a.text = "";
+            name_a.text = "";
+            score_a.text = "";
+
             foreach (var entry in result.Leaderboard) {
-                rankerName.text += $"\n{entry.DisplayName}";
+                rank_a.text += $"\n{entry.Position + 1}";
             }
             foreach (var entry in result.Leaderboard) {
-                rankerScore.text += $"\n{entry.StatValue}";
+                name_a.text += $"\n{entry.DisplayName}";
+            }
+            foreach (var entry in result.Leaderboard) {
+                score_a.text += $"\n{entry.StatValue}";
             }
         }
         private void OnGetLeaderboardAroundPlayerFailure(PlayFabError error){

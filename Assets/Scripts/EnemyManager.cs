@@ -28,7 +28,9 @@ public class EnemyManager : MonoBehaviour
         
     }
 
-    public void GetEnemyNumber(int setEnemyNumber){enemyNumber = setEnemyNumber;}
+    public void GetEnemyNumber(int setEnemyNumber){
+        enemyNumber = setEnemyNumber;
+    }
     public void enemySpawn(int enemyNumber)
     {
         Instantiate(Enemies[enemyNumber], new Vector3(0f,1.0f,7.5f), transform.rotation);

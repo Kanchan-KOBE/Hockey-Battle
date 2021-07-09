@@ -17,15 +17,18 @@ public class PlayerSelectManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Stage : " + SceneManager00.stage);
-        LPManager.LifePlayer = 3;
-        PlayerManager.playerNumber = 0;
-        ARGameManager.newScore = 0;
 
         for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){
             if(PlayerPrefs.GetInt("UNLOCK_P" + $"{i}") == 1){
                 btnsLocked[i].SetActive(false);
             }
         }
+
+
+
+        LPManager.LifePlayer = 3;
+        PlayerManager.playerNumber = 0;
+        ARGameManager.newScore = 0;
 
     }
 

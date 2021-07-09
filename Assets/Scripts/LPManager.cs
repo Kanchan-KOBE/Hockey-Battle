@@ -89,7 +89,6 @@ public class LPManager : MonoBehaviour
     private IEnumerator HogeGoal()
     {
         myManager.GoalUI();
-        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(2.0f);
         myManager.GoalUI_Delete();
         packManager.SpawnPack();

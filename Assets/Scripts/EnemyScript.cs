@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] Image iconImg;
     [SerializeField] Image cutInImg;
     [SerializeField] Text nameE;
+    [SerializeField] AudioSource audio_E;
 
 
 
@@ -47,6 +48,7 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        audio_E.volume = PlayerPrefs.GetFloat("Volume_SE");
 
         if(cutInE){
             cutInUI.SetActive(true);
@@ -107,6 +109,8 @@ public class EnemyScript : MonoBehaviour
                 this.transform.position += new Vector3(-1,0,0) * speed * Time.deltaTime;
             } //移動---------------------------------------------------------------------
         }
+
+
 
     }
 

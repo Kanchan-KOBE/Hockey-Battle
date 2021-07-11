@@ -25,8 +25,13 @@ public class MainMenuManager : MonoBehaviour
         RefleshUserData();
 
         if(signUP){
-            sceneManager00.OpenUI_Main(1);
-            sceneManager00.CloseUI_Main(0);
+            if(SceneManager00.stage == 0){
+                sceneManager00.OpenUI_Main(3);
+                sceneManager00.CloseUI_Main(0);
+            }else{
+                sceneManager00.OpenUI_Main(1);
+                sceneManager00.CloseUI_Main(0);
+            }
         }else{
             signUP = true;
         }

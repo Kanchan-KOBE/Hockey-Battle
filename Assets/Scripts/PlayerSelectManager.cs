@@ -6,12 +6,17 @@ using UnityEngine.UI;
 public class PlayerSelectManager : MonoBehaviour
 {
     [SerializeField] GameObject uI_Check;
+    [SerializeField] Image img_player;
+    [SerializeField] Text txt_player;
 
     [SerializeField] GameObject uI_Locked;
     [SerializeField] Text msgLocked;
 
     [SerializeField] Button btnToNext;
     [SerializeField] GameObject[] btnsLocked;
+    [SerializeField] GameObject[] flames;
+    [SerializeField] Sprite[] icons_player;
+    [SerializeField] Text[] names_player;
 
     
     void Start()
@@ -45,10 +50,16 @@ public class PlayerSelectManager : MonoBehaviour
     {
         PlayerManager.playerNumber = setPlayerNumber;
         Debug.Log("Player : " + PlayerManager.playerNumber);
+        for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){
+            flames[i].SetActive(false);
+        }
+        flames[setPlayerNumber].SetActive(true);
     }
 
     public void CheckUI(){
         uI_Check.SetActive(true);
+        img_player.sprite = icons_player[PlayerManager.playerNumber];
+        txt_player.text = names_player[PlayerManager.playerNumber].text;
     }
     public void CheckUI_Delete(){
         uI_Check.SetActive(false);

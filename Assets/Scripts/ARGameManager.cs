@@ -27,6 +27,7 @@ public class ARGameManager : MonoBehaviour
     [SerializeField] SE_Manager sE_Manager;
     public GameObject mainCamera;
     public GameObject uI_Main;
+    public GameObject uI_Button;
     public GameObject uI_WIN;
     public GameObject uI_Complete;
     public GameObject uI_LOSE;
@@ -113,6 +114,7 @@ public class ARGameManager : MonoBehaviour
         }else{
             uI_LOSE.SetActive(true);
             
+            
         }
         PlayerScript.cutInP = false;
         winCounter = 0;
@@ -131,9 +133,9 @@ public class ARGameManager : MonoBehaviour
                     txtNewScore[0].text = newScore.ToString();
 
                     SaveSV();
+                    uI_WIN.SetActive(true);
                     u = false;
                 }
-                uI_WIN.SetActive(true);
             }
             
         }else if(SceneManager00.stage == 0){ 
@@ -157,6 +159,9 @@ public class ARGameManager : MonoBehaviour
         EnemyScript.cutInE = false;
     }
 
+    public void TextChange(){
+        txtNewScore[3].text = newScore.ToString();
+    }
     public void GoalUI(){
         uI_Goal.SetActive(true);
         PackScript.poisonTime = false;
@@ -166,6 +171,7 @@ public class ARGameManager : MonoBehaviour
     }
     public void GoalUI_Delete(){
         uI_Goal.SetActive(false);
+
     }
     public void PauseUI(){
         Time.timeScale = 0f;
@@ -239,6 +245,7 @@ public class ARGameManager : MonoBehaviour
 
         //step3(MainUI表示、LP=3)（０.5秒）
         uI_Main.SetActive(true);
+        uI_Button.SetActive(true);
         lPManager.LPReset();
         yield return new WaitForSeconds(0.5f);
         gameStep ++; //4
@@ -251,15 +258,19 @@ public class ARGameManager : MonoBehaviour
         //step5（カウントダウン）
         
         uI_CountDown[0].SetActive(true);
+        sE_Manager.SE(5);
         yield return new WaitForSeconds(1f);
         uI_CountDown[0].SetActive(false);
         uI_CountDown[1].SetActive(true);
+        sE_Manager.SE(5);
         yield return new WaitForSeconds(1f);
         uI_CountDown[1].SetActive(false);
         uI_CountDown[2].SetActive(true);
+        sE_Manager.SE(5);
         yield return new WaitForSeconds(1f);
         uI_CountDown[2].SetActive(false);
         uI_CountDown[3].SetActive(true);
+        sE_Manager.SE(6);
         yield return new WaitForSeconds(1f);
         uI_CountDown[3].SetActive(false);
 

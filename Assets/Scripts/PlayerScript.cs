@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] Image cutInImg;
     [SerializeField] Text nameP;
 
+    [SerializeField] AudioSource audio_P;
+
     [SerializeField] string playerName;
     [SerializeField] Sprite playerImg;
     [SerializeField] GameObject pet;
@@ -46,6 +48,8 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        audio_P.volume = PlayerPrefs.GetFloat("Volume_SE");
+
         if(cutInP){ //CUT IN
             cutInUI.SetActive(true);
         }else{

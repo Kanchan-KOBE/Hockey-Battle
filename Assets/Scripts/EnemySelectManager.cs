@@ -9,10 +9,12 @@ public class EnemySelectManager : MonoBehaviour
 
     [SerializeField] GameObject uI_Locked;
     [SerializeField] Text msgLocked;
+    [SerializeField] Text msgCheck;
    
 
     [SerializeField] Button btnToNext;
     [SerializeField] GameObject[] btnsLocked;
+    [SerializeField] GameObject[] flames;
 
 
     
@@ -41,9 +43,14 @@ public class EnemySelectManager : MonoBehaviour
     {
         EnemyManager.enemyNumber = setEnemyNumber;
         Debug.Log("Stage : " + EnemyManager.enemyNumber);
+        for(int i = 0; i < GameManager.howManyEnemysPlusOne; i++){
+            flames[i].SetActive(false);
+        }
+        flames[setEnemyNumber].SetActive(true);
     }
 
     public void CheckUI(){
+        msgCheck.text = $"Challenge Stage{EnemyManager.enemyNumber} ?";
         uI_Check.SetActive(true);
     }
     public void CheckUI_Delete(){

@@ -696,6 +696,7 @@ MonoBehaviour:
   iconImg: {fileID: 7028973496623411764}
   cutInImg: {fileID: 5625263410247304685}
   nameE: {fileID: 1993582262942178051}
+  audio_E: {fileID: 3464867141861148716}
   enemyName: E1
   enemyImg: {fileID: 21300000, guid: 8ce6a7feb0e24412db55f98ee13f6db8, type: 3}
   speed: 5

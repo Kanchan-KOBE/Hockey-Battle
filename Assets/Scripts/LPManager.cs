@@ -104,6 +104,7 @@ public class LPManager : MonoBehaviour
             PlayerScript.cutInP = true;
             yield return new WaitForSeconds(2.0f);
             PlayerScript.cutInP = false;
+            yield return new WaitForSeconds(1.0f);
             packManager.SpawnPack();
         }
     }
@@ -117,6 +118,7 @@ public class LPManager : MonoBehaviour
             EnemyScript.cutInE = true;
             yield return new WaitForSeconds(2.0f);
             EnemyScript.cutInE = false;
+            yield return new WaitForSeconds(1.0f);
             packManager.SpawnPack();
         }
     }

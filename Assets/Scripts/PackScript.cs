@@ -10,6 +10,7 @@ public class PackScript : MonoBehaviour
     private Rigidbody myRigid;
 
     private LPManager lPManager;
+    private SE_Manager sE_Manager;
     public AudioClip[] clips;
     [SerializeField] Material[] packMaterials;
 
@@ -19,6 +20,7 @@ public class PackScript : MonoBehaviour
     void Start()
     {
         lPManager = GameObject.Find("LPManager").GetComponent<LPManager>();
+        sE_Manager = GameObject.Find("SE_Manager").GetComponent<SE_Manager>();
 
         myRigid = GetComponent<Rigidbody>();
         
@@ -30,6 +32,8 @@ public class PackScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("Volume_SE");
+
         if(ARGameManager.gameStep == 6) //Game実行
         {
             if(start){
@@ -52,10 +56,12 @@ public class PackScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "EnemyGoal"){
             Destroy(this.gameObject);
+            sE_Manager.SE(4);
             lPManager.ELP_Lose();
         }
         else if(collision.gameObject.tag == "MyGoal"){
             Destroy(this.gameObject);
+            sE_Manager.SE(4);
             lPManager.MLP_Lose();
         }
         else if(collision.gameObject.tag == "Wall"){

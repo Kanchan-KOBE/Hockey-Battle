@@ -92,10 +92,14 @@ public class PlayerScript : MonoBehaviour
 
 
         if(PackScript.poisonTime){
-            if(this.transform.localScale.x > 0.5){
+            if(this.transform.localScale.x > 0.3){
                 this.transform.localScale -= new Vector3(0.2f,0f,0f) * Time.deltaTime;
-            }if(this.transform.localScale.z > 0.5){
+            }
+            if(this.transform.localScale.z > 0.3){
                 this.transform.localScale -= new Vector3(0f,0f,0.2f) * Time.deltaTime;
+            }
+            if(speed > 7){
+                speed --;
             }
         }
 

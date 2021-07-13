@@ -96,7 +96,15 @@ public class PackScript : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(clips[2]);
         }
         else if(collision.gameObject.tag == "Pet"){
-            GetComponent<AudioSource>().PlayOneShot(clips[3],1.0f);
+            if(this.tag == "Pack(Killer)"){
+                this.GetComponent<Renderer>().material = packMaterials[0];
+                GetComponent<AudioSource>().PlayOneShot(clips[0]);
+                this.tag = "Pack";
+            }else{
+                this.tag = "Pack";
+                this.GetComponent<Renderer>().material = packMaterials[0];
+                GetComponent<AudioSource>().PlayOneShot(clips[0]);
+            }
         }
     }
 

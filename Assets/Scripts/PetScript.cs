@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PetScript : MonoBehaviour
 { 
-    [SerializeField] int speed = 10;
+    [SerializeField] float speed = 10;
+    [SerializeField] int width = 6;
+    [SerializeField] int scale = 2;
     [SerializeField] float rotationSpeed = 1000f;
     [SerializeField] bool left = false;
     [SerializeField] bool rotationPet = false;
@@ -12,6 +14,7 @@ public class PetScript : MonoBehaviour
     [SerializeField] bool MovePetV = false;
     [SerializeField] bool transformPetH = false;
     [SerializeField] bool transformPetV = false;
+    [SerializeField] bool killed = false;
 
 
     private bool moveR = true; private bool moveL = false;
@@ -32,11 +35,11 @@ public class PetScript : MonoBehaviour
     {
 //移動（横）
         if(MovePetH){
-            if(this.transform.position.x > 6){
+            if(this.transform.position.x > width){
             moveR = false;
             moveL = true;
             }
-            if(this.transform.position.x < -6){
+            if(this.transform.position.x < width * -1){
                 moveL = false;
                 moveR = true;
             }
@@ -77,7 +80,7 @@ public class PetScript : MonoBehaviour
 
 //変形（横）
         if(transformPetH){
-            if(this.transform.localScale.x > 3){
+            if(this.transform.localScale.x > scale){
             bigger = false;
             smaller = true;
             }
@@ -96,7 +99,7 @@ public class PetScript : MonoBehaviour
 
 //変形（縦）
         if(transformPetV){
-            if(this.transform.localScale.z > 3){
+            if(this.transform.localScale.z > scale){
             bigger = false;
             smaller = true;
             }
@@ -113,5 +116,14 @@ public class PetScript : MonoBehaviour
             }
         }
 
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(killed){
+            if(collision.gameObject.tag == "Pack(Killer)"){
+                Destroy(this.gameObject);
+            }
+        }
     }
 }

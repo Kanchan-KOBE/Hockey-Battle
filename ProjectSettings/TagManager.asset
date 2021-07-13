@@ -15,7 +15,7 @@ TagManager:
   - Poison
   - Pack(Illusion)
   - Illusioner
-  - Stadium
+  - Pack(Killer)
   layers:
   - Default
   - TransparentFX

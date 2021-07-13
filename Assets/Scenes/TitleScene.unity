@@ -2497,7 +2497,7 @@ GameObject:
   - component: {fileID: 143275616}
   - component: {fileID: 143275615}
   m_Layer: 5
-  m_Name: Flame
+  m_Name: Flame5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3013,7 +3013,7 @@ GameObject:
   - component: {fileID: 153223725}
   - component: {fileID: 153223724}
   m_Layer: 5
-  m_Name: Flame
+  m_Name: Flame3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5778,7 +5778,7 @@ Transform:
   - {fileID: 890955818}
   - {fileID: 185835719}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &314965458
 GameObject:
@@ -7624,7 +7624,7 @@ GameObject:
   - component: {fileID: 423500442}
   - component: {fileID: 423500441}
   m_Layer: 5
-  m_Name: Flame
+  m_Name: Flame9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7642,7 +7642,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1303353988}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -9394,7 +9394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &547602990
 Transform:
   m_ObjectHideFlags: 0
@@ -9410,7 +9410,7 @@ Transform:
   - {fileID: 1959265855}
   - {fileID: 478079610}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &554353184
 GameObject:
@@ -14779,7 +14779,7 @@ GameObject:
   - component: {fileID: 882903527}
   - component: {fileID: 882903526}
   m_Layer: 5
-  m_Name: Flame
+  m_Name: Flame7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14797,7 +14797,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1303353988}
-  m_RootOrder: 31
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -17708,7 +17708,7 @@ GameObject:
   - component: {fileID: 1043903640}
   - component: {fileID: 1043903639}
   m_Layer: 5
-  m_Name: Flame
+  m_Name: Flame2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17978,7 +17978,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1056235612
 GameObject:
@@ -19906,7 +19906,7 @@ Transform:
   m_Children:
   - {fileID: 2013914472}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1149257093
 GameObject:
@@ -21553,7 +21553,7 @@ GameObject:
   - component: {fileID: 1251172190}
   - component: {fileID: 1251172189}
   m_Layer: 5
-  m_Name: Flame
+  m_Name: Flame0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22261,9 +22261,9 @@ RectTransform:
   - {fileID: 2066765914}
   - {fileID: 143275614}
   - {fileID: 1657069522}
+  - {fileID: 882903525}
   - {fileID: 2100872028}
   - {fileID: 423500440}
-  - {fileID: 882903525}
   - {fileID: 1809898613}
   m_Father: {fileID: 1687477968}
   m_RootOrder: 0
@@ -22699,7 +22699,7 @@ Transform:
   - {fileID: 676090591}
   - {fileID: 1057222986}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1324120110
 GameObject:
@@ -23299,9 +23299,9 @@ MonoBehaviour:
   - {fileID: 2066765913}
   - {fileID: 143275613}
   - {fileID: 1657069521}
+  - {fileID: 882903524}
   - {fileID: 2100872027}
   - {fileID: 423500439}
-  - {fileID: 882903524}
   - {fileID: 1809898610}
 --- !u!4 &1345262611
 Transform:
@@ -28477,7 +28477,7 @@ GameObject:
   - component: {fileID: 1657069524}
   - component: {fileID: 1657069523}
   m_Layer: 5
-  m_Name: Flame
+  m_Name: Flame6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29961,7 +29961,7 @@ GameObject:
   - component: {fileID: 1751846088}
   - component: {fileID: 1751846087}
   m_Layer: 5
-  m_Name: Flame
+  m_Name: Flame1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30460,7 +30460,7 @@ GameObject:
   - component: {fileID: 1809898612}
   - component: {fileID: 1809898611}
   m_Layer: 5
-  m_Name: Flame
+  m_Name: Flame10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32354,7 +32354,7 @@ Transform:
   - {fileID: 694696877}
   - {fileID: 2002756656}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959265851
 GameObject:
@@ -34453,7 +34453,7 @@ GameObject:
   - component: {fileID: 2066765916}
   - component: {fileID: 2066765915}
   m_Layer: 5
-  m_Name: Flame
+  m_Name: Flame4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34766,7 +34766,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2100520855
 MonoBehaviour:
@@ -34940,7 +34940,7 @@ GameObject:
   - component: {fileID: 2100872030}
   - component: {fileID: 2100872029}
   m_Layer: 5
-  m_Name: Flame
+  m_Name: Flame8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34958,7 +34958,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1303353988}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -35097,7 +35097,7 @@ RectTransform:
   - {fileID: 64136327}
   - {fileID: 2055546509}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

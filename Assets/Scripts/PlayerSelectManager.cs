@@ -21,18 +21,9 @@ public class PlayerSelectManager : MonoBehaviour
     
     void Start()
     {
-        Debug.Log("Stage : " + SceneManager00.stage);
 
-        for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){
-            if(PlayerPrefs.GetInt("UNLOCK_P" + $"{i}") == 1){
-                btnsLocked[i].SetActive(false);
-            }
-        }
-
-
-
+        Reflesh_UnlockP();
         LPManager.LifePlayer = 3;
-        PlayerManager.playerNumber = 0;
         ARGameManager.newScore = 0;
 
     }
@@ -70,5 +61,17 @@ public class PlayerSelectManager : MonoBehaviour
     }
     public void CloseLocked(){
         uI_Locked.SetActive(false);
+    }
+    public void UnlockP_All(){
+        for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){
+            PlayerPrefs.SetInt("UNLOCK_P" + $"{i}",1);
+        }
+    }
+    public void Reflesh_UnlockP(){
+        for(int i = 0; i < GameManager.howManyPlayersPlusOne; i++){
+            if(PlayerPrefs.GetInt("UNLOCK_P" + $"{i}") == 1){
+                btnsLocked[i].SetActive(false);
+            }
+        }
     }
 }

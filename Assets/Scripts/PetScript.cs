@@ -12,6 +12,7 @@ public class PetScript : MonoBehaviour
     [SerializeField] bool rotationPet = false;
     [SerializeField] bool MovePetH = false;
     [SerializeField] bool MovePetV = false;
+    [SerializeField] bool godWind = false;
     [SerializeField] bool transformPetH = false;
     [SerializeField] bool transformPetV = false;
     [SerializeField] bool killed = false;
@@ -20,6 +21,7 @@ public class PetScript : MonoBehaviour
     private bool moveR = true; private bool moveL = false;
     private bool moveF = true; private bool moveB = false;
     private bool bigger = true; private bool smaller = false;
+    private SE_Manager sE_Manager;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class PetScript : MonoBehaviour
             moveF = false;
             moveB = true;
         }
+        sE_Manager = GameObject.Find("SE_Manager").GetComponent<SE_Manager>();
     }
 
     // Update is called once per frame
@@ -59,6 +62,25 @@ public class PetScript : MonoBehaviour
             moveB = true;
             }
             if(this.transform.position.z < -1){
+                moveB = false;
+                moveF = true;
+            }
+
+            if(moveF){
+                this.transform.position += new Vector3(0,0,1) * speed * Time.deltaTime;
+            }
+            if(moveB){
+                this.transform.position += new Vector3(0,0,-1) * speed * Time.deltaTime;
+            }
+        }
+
+//風
+        if(godWind){
+            if(this.transform.position.z > 20){
+            moveF = false;
+            moveB = true;
+            }
+            if(this.transform.position.z < 2){
                 moveB = false;
                 moveF = true;
             }
@@ -123,6 +145,8 @@ public class PetScript : MonoBehaviour
         if(killed){
             if(collision.gameObject.tag == "Pack(Killer)"){
                 Destroy(this.gameObject);
+                collision.gameObject.tag = "Pack";
+                sE_Manager.SE(0);
             }
         }
     }

@@ -16,6 +16,8 @@ TagManager:
   - Pack(Illusion)
   - Illusioner
   - Pack(Killer)
+  - Killer
+  - Stadium
   layers:
   - Default
   - TransparentFX

@@ -79,6 +79,8 @@ public class MainMenuManager : MonoBehaviour
         if(PlayerPrefs.GetInt("PlayerSV") == 0){
             sceneManager00.OpenUI_Main(2);
             sceneManager00.CloseUI_Main(1);
+            LPManager.LifePlayer = 3;
+            ResetSV();
         }else{
             uI_CheckSV.SetActive(true);
         }

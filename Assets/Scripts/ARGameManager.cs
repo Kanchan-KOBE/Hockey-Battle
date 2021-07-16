@@ -140,8 +140,7 @@ public class ARGameManager : MonoBehaviour
             
         }else if(SceneManager00.stage == 0){ 
             if(isWin){
-                int i = GameManager.howManyEnemysPlusOne - 1;
-                if(EnemyManager.enemyNumber == i){
+                if(EnemyManager.enemyNumber == 10){
                     if(plus){//全クリUI
                         uI_Complete.SetActive(true);
                         plus = false;

@@ -9436,7 +9436,7 @@ MonoBehaviour:
   - {fileID: 6401145683965065552, guid: 4a87fe61ee18943d2976719d2916d4e2, type: 3}
   - {fileID: 6401145683965065552, guid: 28077b4fc462346caa94e5a9fc3c7bbb, type: 3}
   - {fileID: 6401145683965065552, guid: 960067e1c986f4d849eae991f9c6563d, type: 3}
-  - {fileID: 6401145683965065552, guid: 960067e1c986f4d849eae991f9c6563d, type: 3}
+  - {fileID: 6401145683965065552, guid: 755f4a0a52174472cb376f24b940e15e, type: 3}
   setPlayerNumber: 0
 --- !u!1 &1699143073
 GameObject:

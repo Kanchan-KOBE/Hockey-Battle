@@ -11,6 +11,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] Text[] txtUserRank;
     [SerializeField] GameObject uI_Ranking;
     [SerializeField] GameObject uI_CheckSV;
+    [SerializeField] GameObject sVLockButton;
     [SerializeField] GameObject uI_CheckReset;
     [SerializeField] SceneManager00 sceneManager00;
 
@@ -23,6 +24,7 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         RefleshUserData();
+        Debug.Log(PlayerPrefs.GetInt("Unlock_SURVIVAL") );
 
         if(signUP){
             if(SceneManager00.stage == 0){
@@ -34,6 +36,10 @@ public class MainMenuManager : MonoBehaviour
             }
         }else{
             signUP = true;
+        }
+
+        if(PlayerPrefs.GetInt("Unlock_SURVIVAL") == 1){
+            sVLockButton.SetActive(false);
         }
     }
 

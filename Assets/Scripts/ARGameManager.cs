@@ -135,7 +135,41 @@ public class ARGameManager : MonoBehaviour
                     SaveSV();
                     uI_WIN.SetActive(true);
                     u = false;
+                //アンロック（P5）
+                    if(newScore > 15000){
+                        if(PlayerPrefs.GetInt("UNLOCK_P5") == 0){
+                            PlayerPrefs.SetInt("UNLOCK_P5",1);
+                        }
+                    }
+                //アンロック（P8）
+                    if(newScore > 35000){
+                        if(PlayerPrefs.GetInt("UNLOCK_P8") == 0){
+                            PlayerPrefs.SetInt("UNLOCK_P8",1);
+                        }
+                    }
+                //アンロック（P9）
+                    if(newScore > 10000){
+                        if(PlayerManager.playerNumber == 4){
+                            if(PlayerPrefs.GetInt("UNLOCK_P9") == 0){
+                                PlayerPrefs.SetInt("UNLOCK_P9",1);
+                            }
+                        }
+                    }
+                //アンロック（P10）
+                    if(EnemyManager.enemyNumber == 10){
+                        if(plus){
+                            int i = PlayerPrefs.GetInt("UNLOCK_P10_count");
+                            PlayerPrefs.SetInt("UNLOCK_P10_count",i+1);
+                            plus = false;
+                        }
+                        if(PlayerPrefs.GetInt("UNLOCK_P10_count") >= 2){
+                            if(PlayerPrefs.GetInt("UNLOCK_P10") == 0){
+                                PlayerPrefs.SetInt("UNLOCK_P10",1);
+                            }
+                        }
+                    }
                 }
+                
             }
             
         }else if(SceneManager00.stage == 0){ 
@@ -150,6 +184,37 @@ public class ARGameManager : MonoBehaviour
                     if(plus){//ステージアンロック
                         EnemyManager.unlock_Stage = EnemyManager.enemyNumber + 1;
                         plus = false;
+                    }
+                }
+                //アンロック（サバイバル）
+                if(EnemyManager.enemyNumber == 5){
+                    if(PlayerPrefs.GetInt("Unlock_SURVIVAL") == 0){
+                        PlayerPrefs.SetInt("Unlock_SURVIVAL",1);
+                    }
+                }
+                //アンロック（P3）
+                if(EnemyManager.enemyNumber == 3){
+                    if(PlayerPrefs.GetInt("UNLOCK_P3") == 0){
+                        PlayerPrefs.SetInt("UNLOCK_P3",1);
+                    }
+                }
+                //アンロック（P4）
+                if(EnemyManager.enemyNumber == 10){
+                    if(PlayerPrefs.GetInt("UNLOCK_P4") == 0){
+                        PlayerPrefs.SetInt("UNLOCK_P4",1);
+                    }
+                }
+                //アンロック（P6）
+                if(EnemyManager.enemyNumber == 6){
+                    if(u){
+                        int i = PlayerPrefs.GetInt("UNLOCK_P6_count");
+                        PlayerPrefs.SetInt("UNLOCK_P6_count",i+1);
+                        u = false;
+                    }
+                }
+                if(PlayerPrefs.GetInt("UNLOCK_P6_count") >= 3){
+                    if(PlayerPrefs.GetInt("UNLOCK_P6") == 0){
+                        PlayerPrefs.SetInt("UNLOCK_P6",1);
                     }
                 }
             }

@@ -1710,6 +1710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1638714023813778740}
+  - component: {fileID: 3236666865385672072}
   m_Layer: 0
   m_Name: Pet(Rotation)
   m_TagString: Untagged
@@ -1733,6 +1734,30 @@ Transform:
   m_Father: {fileID: 8169326284096370619}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3236666865385672072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2760404546877822901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5c6d9e2758d46639f5353d4cd38e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  width: 6
+  scale: 2
+  rotationSpeed: -900
+  left: 0
+  rotationPet: 1
+  MovePetH: 0
+  MovePetV: 0
+  godWind: 0
+  transformPetH: 0
+  transformPetV: 0
+  killed: 1
 --- !u!1 &2776905684887006287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2816,7 +2841,6 @@ GameObject:
   - component: {fileID: 7521871240972055342}
   - component: {fileID: 6773061688917428827}
   - component: {fileID: 8779862274500546286}
-  - component: {fileID: 4097748064597843125}
   m_Layer: 0
   m_Name: Body
   m_TagString: Pet
@@ -2901,30 +2925,6 @@ CapsuleCollider:
   m_Height: 4.029546
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0.007386446}
---- !u!114 &4097748064597843125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4371483778741187146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a5c6d9e2758d46639f5353d4cd38e87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  width: 6
-  scale: 2
-  rotationSpeed: -900
-  left: 0
-  rotationPet: 1
-  MovePetH: 0
-  MovePetV: 0
-  godWind: 0
-  transformPetH: 0
-  transformPetV: 0
-  killed: 1
 --- !u!1 &4478197514319583609
 GameObject:
   m_ObjectHideFlags: 0
@@ -4500,7 +4500,6 @@ GameObject:
   - component: {fileID: 1884894148961082853}
   - component: {fileID: 7525468133189187619}
   - component: {fileID: 7375536520127407352}
-  - component: {fileID: 5822967003734457849}
   m_Layer: 0
   m_Name: Body
   m_TagString: Pet
@@ -4585,30 +4584,6 @@ CapsuleCollider:
   m_Height: 4.029546
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0.007386446}
---- !u!114 &5822967003734457849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7449520353295363129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a5c6d9e2758d46639f5353d4cd38e87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  width: 6
-  scale: 2
-  rotationSpeed: 900
-  left: 0
-  rotationPet: 1
-  MovePetH: 0
-  MovePetV: 0
-  godWind: 0
-  transformPetH: 0
-  transformPetV: 0
-  killed: 1
 --- !u!1 &7472863932265469987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4713,6 +4688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8847447958941926023}
+  - component: {fileID: 1576606357032251614}
   m_Layer: 0
   m_Name: Pet(Rotation) (1)
   m_TagString: Untagged
@@ -4736,6 +4712,30 @@ Transform:
   m_Father: {fileID: 8169326284096370619}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576606357032251614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7619800289664226714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5c6d9e2758d46639f5353d4cd38e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  width: 6
+  scale: 2
+  rotationSpeed: 900
+  left: 0
+  rotationPet: 1
+  MovePetH: 0
+  MovePetV: 0
+  godWind: 0
+  transformPetH: 0
+  transformPetV: 0
+  killed: 1
 --- !u!1 &7793466440941123933
 GameObject:
   m_ObjectHideFlags: 0

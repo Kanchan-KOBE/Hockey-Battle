@@ -306,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6737179469891633222
 Transform:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   width: 6
-  scale: 12
+  scale: 10
   rotationSpeed: 1000
   left: 0
   rotationPet: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
   godWind: 0
   transformPetH: 1
   transformPetV: 0
-  killed: 1
+  killed: 0
 --- !u!1 &2218981449269464189
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +908,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1
-  m_Height: 7
+  m_Height: 8
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3769016444555098984
@@ -1655,10 +1655,10 @@ MonoBehaviour:
   width: 3
   pet: {fileID: 0}
   lifeCharge: 0
-  lifeChargePlus: 1
-  life1: 0
+  lifeChargePlus: 0
+  life1: 1
   pets: 0
-  zombie: 1
+  zombie: 0
 --- !u!1 &5691622527725525510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,7 +2870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6714917343976063274
 Transform:
   m_ObjectHideFlags: 0
@@ -2961,7 +2961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   width: 6
-  scale: 12
+  scale: 10
   rotationSpeed: 1000
   left: 0
   rotationPet: 0
@@ -2970,7 +2970,7 @@ MonoBehaviour:
   godWind: 0
   transformPetH: 1
   transformPetV: 0
-  killed: 1
+  killed: 0
 --- !u!1 &9169492218912833105
 GameObject:
   m_ObjectHideFlags: 0

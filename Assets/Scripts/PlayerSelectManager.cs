@@ -15,6 +15,7 @@ public class PlayerSelectManager : MonoBehaviour
     [SerializeField] Button btnToNext;
     [SerializeField] GameObject[] btnsLocked;
     [SerializeField] GameObject[] flames;
+    [SerializeField] GameObject btn_Ad;
     [SerializeField] Sprite[] icons_player;
     [SerializeField] Text[] names_player;
 
@@ -73,5 +74,12 @@ public class PlayerSelectManager : MonoBehaviour
                 btnsLocked[i].SetActive(false);
             }
         }
+    }
+
+    public void Btn_Ad_Set(){
+        btn_Ad.SetActive(true);
+    }
+    public void Btn_Ad_Close(){
+        btn_Ad.SetActive(false);
     }
 }

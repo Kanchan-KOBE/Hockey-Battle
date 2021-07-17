@@ -326,8 +326,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("UNLOCK_P" + $"{i}", 0);
         }
     }
-    public void UnlockP4(){
-        PlayerPrefs.SetInt("UNLOCK_P4",1);
-    }
+
 
 }

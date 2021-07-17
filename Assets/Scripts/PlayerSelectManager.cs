@@ -82,4 +82,8 @@ public class PlayerSelectManager : MonoBehaviour
     public void Btn_Ad_Close(){
         btn_Ad.SetActive(false);
     }
+
+    public void UnlockP7(){
+        PlayerPrefs.SetInt("UNLOCK_P7",1);
+    }
 }

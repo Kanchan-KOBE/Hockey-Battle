@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError($"PlayFabのログインに失敗\n{error.GenerateErrorReport()}");
         }
 
-    private static readonly string CUSTOM_ID_SAVE_KEY = "CUSTOM_K_ID_SAVE_KEY";    //IDを保存する時のKEY
+    private static readonly string CUSTOM_ID_SAVE_KEY = "CUSTOM_PASS_ID_SAVE_KEY";    //IDを保存する時のKEY
     
     public string LoadCustomID() {//IDを取得
         string id = PlayerPrefs.GetString(CUSTOM_ID_SAVE_KEY);
@@ -114,41 +114,6 @@ public class GameManager : MonoBehaviour
         GetUserScore();
         GetUserID();
     }
-
-//=========================================================================
-//登録＆ログイン
-    public void PressRegisterButton()//登録
-    {
-        var RegisterData = new RegisterPlayFabUserRequest()
-        {
-            TitleId = "33E40",
-            Email = "shunsuke.k.9969@gmail.com",
-            Password = "Shun9969",
-            Username = "Kanchan"
-        };
-
-        PlayFabClientAPI.RegisterPlayFabUser(RegisterData, result => 
-        {
-            Debug.Log("Congratulations, you made your PlayFab account!");
-            GetUserData();
-        }, error => Debug.Log(error.GenerateErrorReport()));
-    }
-
-    public void PressLoginButton()//ログイン
-    {
-        var LoginData = new LoginWithEmailAddressRequest()
-        {
-            TitleId = "33E40",
-            Email = "shunsuke.k.9969@gmail.com",
-            Password = "Shun9969",
-        };
-        PlayFabClientAPI.LoginWithEmailAddress(LoginData, result => 
-        {
-            Debug.Log("Congratulations, you made your first successful API call!");
-            GetUserData();
-        }, error => Debug.Log(error.GenerateErrorReport()));
-    }
-
 
 //=========================================================================
 //ユーザー名

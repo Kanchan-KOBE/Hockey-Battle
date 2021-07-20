@@ -483,7 +483,7 @@ MonoBehaviour:
   cutInImg: {fileID: 8446788941700455937}
   nameP: {fileID: 377066050157347099}
   audio_P: {fileID: 6324015000599937635}
-  playerName: Hector
+  playerName: Charly
   playerImg: {fileID: 21300000, guid: 4b61c13c55d4f48faba19cb1f033c7b5, type: 3}
   pet: {fileID: 0}
   speed: 15

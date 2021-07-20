@@ -69,8 +69,7 @@ public class SceneManager00 : MonoBehaviour
 
 
     public void ToSV(){
-        // EnemyManager.enemyNumber = Random.Range(0,GameManager.howManyEnemysPlusOne - 1);
-        EnemyManager.enemyNumber = 10;
+        EnemyManager.enemyNumber = Random.Range(0,GameManager.howManyEnemysPlusOne - 1);
         SceneManager.LoadScene("Stage_SV");
     }
 

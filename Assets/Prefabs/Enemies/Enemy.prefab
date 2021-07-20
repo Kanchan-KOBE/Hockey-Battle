@@ -306,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6737179469891633222
 Transform:
   m_ObjectHideFlags: 0
@@ -1655,8 +1655,8 @@ MonoBehaviour:
   width: 3
   pet: {fileID: 0}
   lifeCharge: 0
-  lifeChargePlus: 0
-  life1: 1
+  lifeChargePlus: 1
+  life1: 0
   pets: 0
   zombie: 0
 --- !u!1 &5691622527725525510
@@ -2870,7 +2870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6714917343976063274
 Transform:
   m_ObjectHideFlags: 0
